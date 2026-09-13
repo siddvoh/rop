@@ -1,0 +1,450 @@
+{
+  "api_calls": 0,
+  "definition": {
+    "analysis_scope": "retrospective descriptive accounting on the fixed enriched cohort; not a causal or deployment-generalization estimate",
+    "audit_unit": "one frozen (question_id, model) bridge-selection record",
+    "delivery": "the bridge gold_link occurs in the first five results for the frozen primary_predicted_query under the named retrieval stack",
+    "failed_retrieval_policy": "a failed or invalid retrieval would be a delivery miss; all correct-selection retrieval rows in these sources succeeded",
+    "join_key": [
+      "question_id",
+      "model"
+    ],
+    "pooled_scope": "pooled counts are descriptive only because the same 600 question IDs repeat across model families",
+    "reference_scope": "delivery concerns the one dataset-traced passage, not all semantically sufficient evidence",
+    "selection_denominator": "bridge selection_correct is the JSON boolean true: the selector chose the dataset-traced table-to-passage link",
+    "top_k": 5,
+    "unknown_selection_policy": "invalid/unknown selector outputs are outside the conditional correct-selection denominator, not counted as correct selections"
+  },
+  "final_stack_top5_omission_tail": {
+    "rank_censoring_boundary": "a null recorded rank means only that the traced passage is absent from that stack's released top-20 list; it is neither a verified nonmatch nor evidence that the passage was absent from any reranker candidate pool",
+    "recorded_depth": {
+      "hybrid_rrf": 20,
+      "hybrid_rrf_bge_reranker_v2_m3": 20
+    },
+    "records": [
+      {
+        "category": "outside_both_recorded_top_20",
+        "final_stack_recorded_rank": null,
+        "gold_link": "/wiki/Hypo-Arena",
+        "hybrid_rrf_recorded_rank": null,
+        "model": "claude",
+        "question_id": "2cde37deb577e759"
+      },
+      {
+        "category": "outside_both_recorded_top_20",
+        "final_stack_recorded_rank": null,
+        "gold_link": "/wiki/Hypo-Arena",
+        "hybrid_rrf_recorded_rank": null,
+        "model": "gemini",
+        "question_id": "2cde37deb577e759"
+      },
+      {
+        "category": "outside_both_recorded_top_20",
+        "final_stack_recorded_rank": null,
+        "gold_link": "/wiki/Hypo-Arena",
+        "hybrid_rrf_recorded_rank": null,
+        "model": "openai",
+        "question_id": "2cde37deb577e759"
+      },
+      {
+        "category": "located_below_final_top_5_cutoff",
+        "final_stack_recorded_rank": 7,
+        "gold_link": "/wiki/Philadelphia_Athletics",
+        "hybrid_rrf_recorded_rank": 5,
+        "model": "claude",
+        "question_id": "65b26f1c156d937a"
+      },
+      {
+        "category": "located_below_final_top_5_cutoff",
+        "final_stack_recorded_rank": 7,
+        "gold_link": "/wiki/Philadelphia_Athletics",
+        "hybrid_rrf_recorded_rank": 5,
+        "model": "gemini",
+        "question_id": "65b26f1c156d937a"
+      },
+      {
+        "category": "located_below_final_top_5_cutoff",
+        "final_stack_recorded_rank": 7,
+        "gold_link": "/wiki/Philadelphia_Athletics",
+        "hybrid_rrf_recorded_rank": 5,
+        "model": "openai",
+        "question_id": "65b26f1c156d937a"
+      },
+      {
+        "category": "located_below_final_top_5_cutoff",
+        "final_stack_recorded_rank": 8,
+        "gold_link": "/wiki/Defender_(association_football)",
+        "hybrid_rrf_recorded_rank": 8,
+        "model": "claude",
+        "question_id": "81543d246a8b836a"
+      },
+      {
+        "category": "located_below_final_top_5_cutoff",
+        "final_stack_recorded_rank": 8,
+        "gold_link": "/wiki/Defender_(association_football)",
+        "hybrid_rrf_recorded_rank": 8,
+        "model": "gemini",
+        "question_id": "81543d246a8b836a"
+      },
+      {
+        "category": "located_below_final_top_5_cutoff",
+        "final_stack_recorded_rank": 8,
+        "gold_link": "/wiki/Defender_(association_football)",
+        "hybrid_rrf_recorded_rank": 8,
+        "model": "openai",
+        "question_id": "81543d246a8b836a"
+      },
+      {
+        "category": "outside_both_recorded_top_20",
+        "final_stack_recorded_rank": null,
+        "gold_link": "/wiki/Apple_Vale,_Queensland",
+        "hybrid_rrf_recorded_rank": null,
+        "model": "claude",
+        "question_id": "9aaa28c38dc798ab"
+      },
+      {
+        "category": "outside_both_recorded_top_20",
+        "final_stack_recorded_rank": null,
+        "gold_link": "/wiki/Apple_Vale,_Queensland",
+        "hybrid_rrf_recorded_rank": null,
+        "model": "gemini",
+        "question_id": "9aaa28c38dc798ab"
+      },
+      {
+        "category": "outside_both_recorded_top_20",
+        "final_stack_recorded_rank": null,
+        "gold_link": "/wiki/Apple_Vale,_Queensland",
+        "hybrid_rrf_recorded_rank": null,
+        "model": "openai",
+        "question_id": "9aaa28c38dc798ab"
+      },
+      {
+        "category": "outside_both_recorded_top_20",
+        "final_stack_recorded_rank": null,
+        "gold_link": "/wiki/SS_Sylvan_Arrow",
+        "hybrid_rrf_recorded_rank": null,
+        "model": "gemini",
+        "question_id": "d6114eb5c7e3b208"
+      },
+      {
+        "category": "outside_both_recorded_top_20",
+        "final_stack_recorded_rank": null,
+        "gold_link": "/wiki/SS_Sylvan_Arrow",
+        "hybrid_rrf_recorded_rank": null,
+        "model": "openai",
+        "question_id": "d6114eb5c7e3b208"
+      }
+    ],
+    "scope": "correct-selection records where the final hybrid-RRF-plus-BGE-reranker stack does not deliver the dataset-traced passage at k=5",
+    "summary": {
+      "located_below_final_top_5_cutoff": 6,
+      "model_records": {
+        "claude": 4,
+        "gemini": 5,
+        "openai": 5
+      },
+      "outside_both_recorded_top_20": 8,
+      "rank_transitions": [
+        {
+          "final_stack_recorded_rank": 7,
+          "hybrid_rrf_recorded_rank": 5,
+          "records": 3
+        },
+        {
+          "final_stack_recorded_rank": 8,
+          "hybrid_rrf_recorded_rank": 8,
+          "records": 3
+        }
+      ],
+      "selection_without_delivery_records": 14,
+      "unique_question_ids": 5
+    }
+  },
+  "inputs": {
+    "container_policy": "bind exact scientific member bytes; do not bind the mutable outer reviewer-artifact ZIP hash",
+    "members": {
+      "data/results/released/hybridqa_natural_v2/bridge_confirmatory/details.jsonl": {
+        "bytes": 4991925,
+        "records": 1800,
+        "sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5"
+      },
+      "data/results/released/hybridqa_natural_v3/answer_confirmatory/association_rows.jsonl": {
+        "bytes": 202618,
+        "records": 1800,
+        "sha256": "8432fafd71f2ac35d034f5858029fdc15969748e7cca4d355be4b6c837c6f8a1"
+      },
+      "data/results/released/hybridqa_natural_v3/answer_confirmatory/details.jsonl": {
+        "bytes": 11600206,
+        "records": 6600,
+        "sha256": "0e4877be9bb7983f407c632d0c8bc28cf73b4787f53cc330945db2b9d0cc4a72"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/bge_m3/details.jsonl": {
+        "bytes": 23539533,
+        "records": 2400,
+        "sha256": "ce73c83e1ac0ef6b77f129b8f23060dcfb4fceb02c1070cc5454ff8889c317ec"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/colbert_v2/details.jsonl": {
+        "bytes": 21114400,
+        "records": 2400,
+        "sha256": "6411ec10ab55373e2c745c652678f26529045fc33ea9dd5b5ca2205213bd7bc2"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/hybrid_rrf/details.jsonl": {
+        "bytes": 5308408,
+        "records": 2400,
+        "sha256": "916fc87fb3865dc4a13e13997286028b0bc71a6a456f70648d86b683005af1d7"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/hybrid_rrf_bge_reranker_v2_m3/details.jsonl": {
+        "bytes": 6894412,
+        "records": 2400,
+        "sha256": "0550dc6690e3e44191474ae489905565b0081e887fd5836ea76d01edd9969a81"
+      }
+    }
+  },
+  "join_verification": {
+    "all_correct_selection_retrieval_rows_succeeded": true,
+    "bm25_association_join_match": true,
+    "bridge_rows": 1800,
+    "correct_selection_denominators": {
+      "claude": 456,
+      "gemini": 498,
+      "openai": 509
+    },
+    "exact_frozen_query_match": true,
+    "exact_gold_link_match": true,
+    "exact_question_model_keyset_match": true,
+    "predicted_query_rows_per_stack": {
+      "bge_m3": 1800,
+      "bm25": 1800,
+      "colbert_v2": 1800,
+      "hybrid_rrf": 1800,
+      "hybrid_rrf_bge_reranker_v2_m3": 1800
+    },
+    "rows_per_model": {
+      "claude": 600,
+      "gemini": 600,
+      "openai": 600
+    },
+    "unique_question_ids": 600,
+    "unique_question_model_keys": 1800,
+    "unknown_selection_rows": {
+      "claude": 0,
+      "gemini": 0,
+      "openai": 6
+    }
+  },
+  "paired_bm25_to_hybrid_rerank": {
+    "models": {
+      "claude": {
+        "bm25_hit_final_hit": 330,
+        "bm25_hit_final_miss": 1,
+        "bm25_miss_final_hit": 122,
+        "bm25_miss_final_miss": 3,
+        "display_name": "Claude"
+      },
+      "gemini": {
+        "bm25_hit_final_hit": 366,
+        "bm25_hit_final_miss": 1,
+        "bm25_miss_final_hit": 127,
+        "bm25_miss_final_miss": 4,
+        "display_name": "Gemini"
+      },
+      "openai": {
+        "bm25_hit_final_hit": 375,
+        "bm25_hit_final_miss": 1,
+        "bm25_miss_final_hit": 129,
+        "bm25_miss_final_miss": 4,
+        "display_name": "GPT"
+      }
+    },
+    "pooled_descriptive": {
+      "bm25_hit_final_hit": 1071,
+      "bm25_hit_final_miss": 3,
+      "bm25_miss_final_hit": 378,
+      "bm25_miss_final_miss": 11
+    }
+  },
+  "results": {
+    "bge_m3": {
+      "display_name": "BGE-M3",
+      "models": {
+        "claude": {
+          "correct_selection_denominator": 456,
+          "delivered_at_5": 436,
+          "delivery_rate": 0.956140350877193,
+          "display_name": "Claude",
+          "selection_without_delivery": 20,
+          "selection_without_delivery_rate": 0.043859649122807015
+        },
+        "gemini": {
+          "correct_selection_denominator": 498,
+          "delivered_at_5": 476,
+          "delivery_rate": 0.9558232931726908,
+          "display_name": "Gemini",
+          "selection_without_delivery": 22,
+          "selection_without_delivery_rate": 0.04417670682730924
+        },
+        "openai": {
+          "correct_selection_denominator": 509,
+          "delivered_at_5": 486,
+          "delivery_rate": 0.9548133595284872,
+          "display_name": "GPT",
+          "selection_without_delivery": 23,
+          "selection_without_delivery_rate": 0.04518664047151277
+        }
+      },
+      "pooled_descriptive": {
+        "correct_selection_denominator": 1463,
+        "delivered_at_5": 1398,
+        "delivery_rate": 0.9555707450444293,
+        "selection_without_delivery": 65,
+        "selection_without_delivery_rate": 0.04442925495557074
+      }
+    },
+    "bm25": {
+      "display_name": "BM25",
+      "models": {
+        "claude": {
+          "correct_selection_denominator": 456,
+          "delivered_at_5": 331,
+          "delivery_rate": 0.7258771929824561,
+          "display_name": "Claude",
+          "selection_without_delivery": 125,
+          "selection_without_delivery_rate": 0.2741228070175439
+        },
+        "gemini": {
+          "correct_selection_denominator": 498,
+          "delivered_at_5": 367,
+          "delivery_rate": 0.7369477911646586,
+          "display_name": "Gemini",
+          "selection_without_delivery": 131,
+          "selection_without_delivery_rate": 0.26305220883534136
+        },
+        "openai": {
+          "correct_selection_denominator": 509,
+          "delivered_at_5": 376,
+          "delivery_rate": 0.7387033398821218,
+          "display_name": "GPT",
+          "selection_without_delivery": 133,
+          "selection_without_delivery_rate": 0.26129666011787817
+        }
+      },
+      "pooled_descriptive": {
+        "correct_selection_denominator": 1463,
+        "delivered_at_5": 1074,
+        "delivery_rate": 0.734107997265892,
+        "selection_without_delivery": 389,
+        "selection_without_delivery_rate": 0.265892002734108
+      }
+    },
+    "colbert_v2": {
+      "display_name": "ColBERTv2",
+      "models": {
+        "claude": {
+          "correct_selection_denominator": 456,
+          "delivered_at_5": 450,
+          "delivery_rate": 0.9868421052631579,
+          "display_name": "Claude",
+          "selection_without_delivery": 6,
+          "selection_without_delivery_rate": 0.013157894736842105
+        },
+        "gemini": {
+          "correct_selection_denominator": 498,
+          "delivered_at_5": 491,
+          "delivery_rate": 0.9859437751004017,
+          "display_name": "Gemini",
+          "selection_without_delivery": 7,
+          "selection_without_delivery_rate": 0.014056224899598393
+        },
+        "openai": {
+          "correct_selection_denominator": 509,
+          "delivered_at_5": 502,
+          "delivery_rate": 0.9862475442043221,
+          "display_name": "GPT",
+          "selection_without_delivery": 7,
+          "selection_without_delivery_rate": 0.0137524557956778
+        }
+      },
+      "pooled_descriptive": {
+        "correct_selection_denominator": 1463,
+        "delivered_at_5": 1443,
+        "delivery_rate": 0.9863294600136705,
+        "selection_without_delivery": 20,
+        "selection_without_delivery_rate": 0.01367053998632946
+      }
+    },
+    "hybrid_rrf": {
+      "display_name": "Hybrid RRF",
+      "models": {
+        "claude": {
+          "correct_selection_denominator": 456,
+          "delivered_at_5": 409,
+          "delivery_rate": 0.8969298245614035,
+          "display_name": "Claude",
+          "selection_without_delivery": 47,
+          "selection_without_delivery_rate": 0.10307017543859649
+        },
+        "gemini": {
+          "correct_selection_denominator": 498,
+          "delivered_at_5": 448,
+          "delivery_rate": 0.8995983935742972,
+          "display_name": "Gemini",
+          "selection_without_delivery": 50,
+          "selection_without_delivery_rate": 0.10040160642570281
+        },
+        "openai": {
+          "correct_selection_denominator": 509,
+          "delivered_at_5": 458,
+          "delivery_rate": 0.899803536345776,
+          "display_name": "GPT",
+          "selection_without_delivery": 51,
+          "selection_without_delivery_rate": 0.10019646365422397
+        }
+      },
+      "pooled_descriptive": {
+        "correct_selection_denominator": 1463,
+        "delivered_at_5": 1315,
+        "delivery_rate": 0.898838004101162,
+        "selection_without_delivery": 148,
+        "selection_without_delivery_rate": 0.10116199589883801
+      }
+    },
+    "hybrid_rrf_bge_reranker_v2_m3": {
+      "display_name": "Hybrid RRF + BGE reranker",
+      "models": {
+        "claude": {
+          "correct_selection_denominator": 456,
+          "delivered_at_5": 452,
+          "delivery_rate": 0.9912280701754386,
+          "display_name": "Claude",
+          "selection_without_delivery": 4,
+          "selection_without_delivery_rate": 0.008771929824561403
+        },
+        "gemini": {
+          "correct_selection_denominator": 498,
+          "delivered_at_5": 493,
+          "delivery_rate": 0.9899598393574297,
+          "display_name": "Gemini",
+          "selection_without_delivery": 5,
+          "selection_without_delivery_rate": 0.010040160642570281
+        },
+        "openai": {
+          "correct_selection_denominator": 509,
+          "delivered_at_5": 504,
+          "delivery_rate": 0.9901768172888016,
+          "display_name": "GPT",
+          "selection_without_delivery": 5,
+          "selection_without_delivery_rate": 0.009823182711198428
+        }
+      },
+      "pooled_descriptive": {
+        "correct_selection_denominator": 1463,
+        "delivered_at_5": 1449,
+        "delivery_rate": 0.9904306220095693,
+        "selection_without_delivery": 14,
+        "selection_without_delivery_rate": 0.009569377990430622
+      }
+    }
+  },
+  "schema_version": 2,
+  "status": "verified_no_call_replay"
+}

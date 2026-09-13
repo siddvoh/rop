@@ -1,0 +1,125 @@
+{
+  "comparisons": {
+    "claude:predicted_fact_vs_question_only": {
+      "condition": "predicted_fact",
+      "condition_exact_match": 59.166666666666664,
+      "condition_f1": 67.75058727105942,
+      "em_both_exact": 221,
+      "em_condition_only_exact": 134,
+      "em_neither_exact": 211,
+      "em_reference_only_exact": 34,
+      "item_count": 600,
+      "model": "claude",
+      "reference_condition": "question_only",
+      "reference_exact_match": 42.5,
+      "reference_f1": 53.44293839545387
+    },
+    "claude:query_rewrite_vs_question_only": {
+      "condition": "query_rewrite",
+      "condition_exact_match": 63.5,
+      "condition_f1": 72.38149704326175,
+      "em_both_exact": 233,
+      "em_condition_only_exact": 148,
+      "em_neither_exact": 197,
+      "em_reference_only_exact": 22,
+      "item_count": 600,
+      "model": "claude",
+      "reference_condition": "question_only",
+      "reference_exact_match": 42.5,
+      "reference_f1": 53.44293839545387
+    },
+    "gemini:oracle_passage_vs_no_kb": {
+      "condition": "oracle_passage",
+      "condition_exact_match": 80.66666666666667,
+      "condition_f1": 89.0800444925445,
+      "em_both_exact": 293,
+      "em_condition_only_exact": 191,
+      "em_neither_exact": 103,
+      "em_reference_only_exact": 13,
+      "item_count": 600,
+      "model": "gemini",
+      "reference_condition": "no_kb",
+      "reference_exact_match": 51.0,
+      "reference_f1": 62.72089446501211
+    },
+    "gemini:predicted_fact_vs_question_only": {
+      "condition": "predicted_fact",
+      "condition_exact_match": 67.83333333333333,
+      "condition_f1": 76.96311327561328,
+      "em_both_exact": 318,
+      "em_condition_only_exact": 89,
+      "em_neither_exact": 159,
+      "em_reference_only_exact": 34,
+      "item_count": 600,
+      "model": "gemini",
+      "reference_condition": "question_only",
+      "reference_exact_match": 58.666666666666664,
+      "reference_f1": 68.11609706083391
+    },
+    "gemini:query_rewrite_vs_question_only": {
+      "condition": "query_rewrite",
+      "condition_exact_match": 70.83333333333333,
+      "condition_f1": 78.78364155337839,
+      "em_both_exact": 323,
+      "em_condition_only_exact": 102,
+      "em_neither_exact": 146,
+      "em_reference_only_exact": 29,
+      "item_count": 600,
+      "model": "gemini",
+      "reference_condition": "question_only",
+      "reference_exact_match": 58.666666666666664,
+      "reference_f1": 68.11609706083391
+    },
+    "openai:predicted_fact_vs_question_only": {
+      "condition": "predicted_fact",
+      "condition_exact_match": 62.5,
+      "condition_f1": 75.89058192123208,
+      "em_both_exact": 298,
+      "em_condition_only_exact": 77,
+      "em_neither_exact": 199,
+      "em_reference_only_exact": 26,
+      "item_count": 600,
+      "model": "openai",
+      "reference_condition": "question_only",
+      "reference_exact_match": 54.0,
+      "reference_f1": 69.37679839653524
+    },
+    "openai:query_rewrite_vs_question_only": {
+      "condition": "query_rewrite",
+      "condition_exact_match": 66.33333333333333,
+      "condition_f1": 79.1521637719006,
+      "em_both_exact": 304,
+      "em_condition_only_exact": 94,
+      "em_neither_exact": 182,
+      "em_reference_only_exact": 20,
+      "item_count": 600,
+      "model": "openai",
+      "reference_condition": "question_only",
+      "reference_exact_match": 54.0,
+      "reference_f1": 69.37679839653524
+    }
+  },
+  "conditions_by_model": {
+    "claude": [
+      "question_only",
+      "predicted_fact",
+      "query_rewrite"
+    ],
+    "gemini": [
+      "question_only",
+      "predicted_fact",
+      "query_rewrite",
+      "no_kb",
+      "oracle_passage"
+    ],
+    "openai": [
+      "question_only",
+      "predicted_fact",
+      "query_rewrite"
+    ]
+  },
+  "item_count": 600,
+  "record_count": 6600,
+  "schema_version": "rop-answer-analysis-v1",
+  "status": "verified"
+}

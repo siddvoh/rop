@@ -1,0 +1,923 @@
+{
+  "answer_calls": 0,
+  "api_calls": 0,
+  "corpus_wide_round_trip": {
+    "exact_decoded_equality": {
+      "preservation": {
+        "1": {
+          "denominator": 286270,
+          "numerator": 286270,
+          "rate": 1.0
+        },
+        "20": {
+          "denominator": 286270,
+          "numerator": 286270,
+          "rate": 1.0
+        },
+        "5": {
+          "denominator": 286270,
+          "numerator": 286270,
+          "rate": 1.0
+        }
+      },
+      "queries": 286270
+    },
+    "title_only_bm25": {
+      "empty_lexical_queries": 141,
+      "nonempty_lexical_queries": 286129,
+      "preservation": {
+        "1": {
+          "denominator": 286270,
+          "numerator": 270891,
+          "rate": 0.9462779893107905
+        },
+        "20": {
+          "denominator": 286270,
+          "numerator": 281012,
+          "rate": 0.981632724351137
+        },
+        "5": {
+          "denominator": 286270,
+          "numerator": 278603,
+          "rate": 0.9732175917839802
+        }
+      },
+      "queries": 286270,
+      "ranking_identity_sha256": "19691613c4f554f37282e4ff4d2cd6e17550104c3651f267f749d780f3c55e58"
+    },
+    "uniform_title_body_bm25": {
+      "reason": "The combined executor is evaluated on every frozen primary selection; a 286,270-query corpus sweep is not needed for the primary-cohort preservation claim.",
+      "status": "not_run_corpus_wide"
+    }
+  },
+  "executor_specifications": {
+    "decoded_title_projection": {
+      "fragment_or_anchor_stripping": false,
+      "steps": [
+        "remove the literal /wiki/ prefix",
+        "UTF-8 percent-decode",
+        "replace underscores with spaces",
+        "collapse Unicode whitespace"
+      ]
+    },
+    "exact_decoded_equality": {
+      "index": "one-to-one decoded-title to exact identifier map",
+      "query": "exact case-sensitive Unicode string equality",
+      "ranking": "the unique equality match, or an empty result",
+      "ties": "impossible in the verified frozen inventory"
+    },
+    "title_only_bm25": {
+      "bm25_column_weights": [
+        1.0
+      ],
+      "cutoff": 20,
+      "document_tokenizer": "unicode61 with SQLite defaults",
+      "index": "ephemeral SQLite FTS5 over decoded title only",
+      "minimum_query_token_length": 2,
+      "query_operator": "OR",
+      "query_token_deduplication": "first occurrence retained",
+      "query_token_pattern": "[a-z0-9]+ on lowercase decoded title",
+      "tie_break": "ascending frozen PID (FTS rowid)"
+    },
+    "uniform_title_body_bm25": {
+      "bm25_column_weights": {
+        "body": 1.0,
+        "title": 1.0
+      },
+      "cutoff": 20,
+      "document_tokenizer": "unicode61 with SQLite defaults",
+      "index": "ephemeral SQLite FTS5 over decoded title and exact frozen passage body",
+      "minimum_query_token_length": 2,
+      "query_operator": "OR",
+      "query_token_deduplication": "first occurrence retained",
+      "query_token_pattern": "[a-z0-9]+ on lowercase decoded title",
+      "tie_break": "ascending frozen PID (FTS rowid)",
+      "weight_selection": "fixed uniform weights; no outcome tuning"
+    }
+  },
+  "inputs": {
+    "artifact_members": {
+      "data/results/released/hybridqa_natural_v2/bridge_confirmatory/details.jsonl": {
+        "bytes": 4991925,
+        "records": 1800,
+        "sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/links.jsonl": {
+        "bytes": 15250846,
+        "records": 286270,
+        "sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+      }
+    },
+    "source_bm25_database": {
+      "body_stream_sha256": "963b5a269aadd8b201e772c388256437752a156c55ea4e393bae267d43d84646",
+      "bytes": 418295808,
+      "document_count": 286270,
+      "manifest_bytes": 513,
+      "manifest_sha256": "8d5b4d1aab29040a3b88cc8d63c7dc09165fb3546dab98ed7827440d3ccd6c48",
+      "quick_check": "ok",
+      "sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+      "source_file_count": 15314,
+      "source_inventory_sha256": "f29607c884b1a4b85325b0cac4995f3dc8116f1ab7744f17db18fb0215c354dd"
+    }
+  },
+  "inventory": {
+    "ascii_or_query_collision_group_count": 3164,
+    "decoded_title_collision_count": 0,
+    "distinct_ascii_or_query_count": 282223,
+    "distinct_decoded_title_count": 286270,
+    "empty_ascii_or_query_count": 141,
+    "identifier_count": 286270,
+    "identifier_title_mapping_sha256": "5a093f364ac32aa244080eb9759299fd31efdc7a68ba07504f851f44c5bafeb5",
+    "identifiers_in_ascii_or_query_collision_groups": 7211
+  },
+  "model_calls": 0,
+  "network_used": false,
+  "primary_cohort": {
+    "all_planned_rows": 1800,
+    "invalid_selector_rows": 6,
+    "planned_by_model": {
+      "claude": 600,
+      "gemini": 600,
+      "openai": 600
+    },
+    "primary_observation_identity_sha256": "2ac43dd0528f703600a2026aab48a71729df788a3a9df88a6ba56401e3b89acb",
+    "resolvable_by_model": {
+      "claude": 599,
+      "gemini": 599,
+      "openai": 594
+    },
+    "resolvable_selected_ids": 1792,
+    "selection_correct_by_model": {
+      "claude": 456,
+      "gemini": 498,
+      "openai": 509
+    },
+    "selection_correct_rows": 1463,
+    "unresolvable_valid_selected_ids": 2,
+    "valid_by_model": {
+      "claude": 600,
+      "gemini": 600,
+      "openai": 594
+    },
+    "valid_selector_rows": 1794
+  },
+  "primary_selected_id_preservation": {
+    "exact_decoded_equality": {
+      "per_model": {
+        "claude": {
+          "empty_lexical_queries": 0,
+          "planned_rows": 600,
+          "resolvable_selected_ids": 599,
+          "selected_id_preservation_all_planned": {
+            "1": {
+              "denominator": 600,
+              "numerator": 599,
+              "rate": 0.9983333333333333
+            },
+            "20": {
+              "denominator": 600,
+              "numerator": 599,
+              "rate": 0.9983333333333333
+            },
+            "5": {
+              "denominator": 600,
+              "numerator": 599,
+              "rate": 0.9983333333333333
+            }
+          },
+          "selected_id_preservation_on_resolvable": {
+            "1": {
+              "denominator": 599,
+              "numerator": 599,
+              "rate": 1.0
+            },
+            "20": {
+              "denominator": 599,
+              "numerator": 599,
+              "rate": 1.0
+            },
+            "5": {
+              "denominator": 599,
+              "numerator": 599,
+              "rate": 1.0
+            }
+          },
+          "selection_delivery_joint_all_planned": {
+            "1": {
+              "c0_h0": 144,
+              "c0_h1": 0,
+              "c1_h0": 0,
+              "c1_h1": 456
+            },
+            "20": {
+              "c0_h0": 144,
+              "c0_h1": 0,
+              "c1_h0": 0,
+              "c1_h1": 456
+            },
+            "5": {
+              "c0_h0": 144,
+              "c0_h1": 0,
+              "c1_h0": 0,
+              "c1_h1": 456
+            }
+          },
+          "valid_selector_rows": 600
+        },
+        "gemini": {
+          "empty_lexical_queries": 0,
+          "planned_rows": 600,
+          "resolvable_selected_ids": 599,
+          "selected_id_preservation_all_planned": {
+            "1": {
+              "denominator": 600,
+              "numerator": 599,
+              "rate": 0.9983333333333333
+            },
+            "20": {
+              "denominator": 600,
+              "numerator": 599,
+              "rate": 0.9983333333333333
+            },
+            "5": {
+              "denominator": 600,
+              "numerator": 599,
+              "rate": 0.9983333333333333
+            }
+          },
+          "selected_id_preservation_on_resolvable": {
+            "1": {
+              "denominator": 599,
+              "numerator": 599,
+              "rate": 1.0
+            },
+            "20": {
+              "denominator": 599,
+              "numerator": 599,
+              "rate": 1.0
+            },
+            "5": {
+              "denominator": 599,
+              "numerator": 599,
+              "rate": 1.0
+            }
+          },
+          "selection_delivery_joint_all_planned": {
+            "1": {
+              "c0_h0": 102,
+              "c0_h1": 0,
+              "c1_h0": 0,
+              "c1_h1": 498
+            },
+            "20": {
+              "c0_h0": 102,
+              "c0_h1": 0,
+              "c1_h0": 0,
+              "c1_h1": 498
+            },
+            "5": {
+              "c0_h0": 102,
+              "c0_h1": 0,
+              "c1_h0": 0,
+              "c1_h1": 498
+            }
+          },
+          "valid_selector_rows": 600
+        },
+        "openai": {
+          "empty_lexical_queries": 0,
+          "planned_rows": 600,
+          "resolvable_selected_ids": 594,
+          "selected_id_preservation_all_planned": {
+            "1": {
+              "denominator": 600,
+              "numerator": 594,
+              "rate": 0.99
+            },
+            "20": {
+              "denominator": 600,
+              "numerator": 594,
+              "rate": 0.99
+            },
+            "5": {
+              "denominator": 600,
+              "numerator": 594,
+              "rate": 0.99
+            }
+          },
+          "selected_id_preservation_on_resolvable": {
+            "1": {
+              "denominator": 594,
+              "numerator": 594,
+              "rate": 1.0
+            },
+            "20": {
+              "denominator": 594,
+              "numerator": 594,
+              "rate": 1.0
+            },
+            "5": {
+              "denominator": 594,
+              "numerator": 594,
+              "rate": 1.0
+            }
+          },
+          "selection_delivery_joint_all_planned": {
+            "1": {
+              "c0_h0": 91,
+              "c0_h1": 0,
+              "c1_h0": 0,
+              "c1_h1": 509
+            },
+            "20": {
+              "c0_h0": 91,
+              "c0_h1": 0,
+              "c1_h0": 0,
+              "c1_h1": 509
+            },
+            "5": {
+              "c0_h0": 91,
+              "c0_h1": 0,
+              "c1_h0": 0,
+              "c1_h1": 509
+            }
+          },
+          "valid_selector_rows": 594
+        }
+      },
+      "pooled_descriptive": {
+        "empty_lexical_queries": 0,
+        "planned_rows": 1800,
+        "resolvable_selected_ids": 1792,
+        "selected_id_preservation_all_planned": {
+          "1": {
+            "denominator": 1800,
+            "numerator": 1792,
+            "rate": 0.9955555555555555
+          },
+          "20": {
+            "denominator": 1800,
+            "numerator": 1792,
+            "rate": 0.9955555555555555
+          },
+          "5": {
+            "denominator": 1800,
+            "numerator": 1792,
+            "rate": 0.9955555555555555
+          }
+        },
+        "selected_id_preservation_on_resolvable": {
+          "1": {
+            "denominator": 1792,
+            "numerator": 1792,
+            "rate": 1.0
+          },
+          "20": {
+            "denominator": 1792,
+            "numerator": 1792,
+            "rate": 1.0
+          },
+          "5": {
+            "denominator": 1792,
+            "numerator": 1792,
+            "rate": 1.0
+          }
+        },
+        "selection_delivery_joint_all_planned": {
+          "1": {
+            "c0_h0": 337,
+            "c0_h1": 0,
+            "c1_h0": 0,
+            "c1_h1": 1463
+          },
+          "20": {
+            "c0_h0": 337,
+            "c0_h1": 0,
+            "c1_h0": 0,
+            "c1_h1": 1463
+          },
+          "5": {
+            "c0_h0": 337,
+            "c0_h1": 0,
+            "c1_h0": 0,
+            "c1_h1": 1463
+          }
+        },
+        "valid_selector_rows": 1794
+      },
+      "ranking_identity_sha256": "cf0e41d71061a95787d07396a683cd9185f652492cf15ce67fb2331c17f44ec0",
+      "unique_valid_selected_id_queries_executed": 723
+    },
+    "title_only_bm25": {
+      "per_model": {
+        "claude": {
+          "empty_lexical_queries": 0,
+          "planned_rows": 600,
+          "resolvable_selected_ids": 599,
+          "selected_id_preservation_all_planned": {
+            "1": {
+              "denominator": 600,
+              "numerator": 548,
+              "rate": 0.9133333333333333
+            },
+            "20": {
+              "denominator": 600,
+              "numerator": 583,
+              "rate": 0.9716666666666667
+            },
+            "5": {
+              "denominator": 600,
+              "numerator": 571,
+              "rate": 0.9516666666666667
+            }
+          },
+          "selected_id_preservation_on_resolvable": {
+            "1": {
+              "denominator": 599,
+              "numerator": 548,
+              "rate": 0.9148580968280468
+            },
+            "20": {
+              "denominator": 599,
+              "numerator": 583,
+              "rate": 0.9732888146911519
+            },
+            "5": {
+              "denominator": 599,
+              "numerator": 571,
+              "rate": 0.9532554257095158
+            }
+          },
+          "selection_delivery_joint_all_planned": {
+            "1": {
+              "c0_h0": 144,
+              "c0_h1": 0,
+              "c1_h0": 43,
+              "c1_h1": 413
+            },
+            "20": {
+              "c0_h0": 134,
+              "c0_h1": 10,
+              "c1_h0": 13,
+              "c1_h1": 443
+            },
+            "5": {
+              "c0_h0": 136,
+              "c0_h1": 8,
+              "c1_h0": 23,
+              "c1_h1": 433
+            }
+          },
+          "valid_selector_rows": 600
+        },
+        "gemini": {
+          "empty_lexical_queries": 0,
+          "planned_rows": 600,
+          "resolvable_selected_ids": 599,
+          "selected_id_preservation_all_planned": {
+            "1": {
+              "denominator": 600,
+              "numerator": 550,
+              "rate": 0.9166666666666666
+            },
+            "20": {
+              "denominator": 600,
+              "numerator": 585,
+              "rate": 0.975
+            },
+            "5": {
+              "denominator": 600,
+              "numerator": 576,
+              "rate": 0.96
+            }
+          },
+          "selected_id_preservation_on_resolvable": {
+            "1": {
+              "denominator": 599,
+              "numerator": 550,
+              "rate": 0.9181969949916527
+            },
+            "20": {
+              "denominator": 599,
+              "numerator": 585,
+              "rate": 0.9766277128547579
+            },
+            "5": {
+              "denominator": 599,
+              "numerator": 576,
+              "rate": 0.9616026711185309
+            }
+          },
+          "selection_delivery_joint_all_planned": {
+            "1": {
+              "c0_h0": 102,
+              "c0_h1": 0,
+              "c1_h0": 44,
+              "c1_h1": 454
+            },
+            "20": {
+              "c0_h0": 96,
+              "c0_h1": 6,
+              "c1_h0": 12,
+              "c1_h1": 486
+            },
+            "5": {
+              "c0_h0": 97,
+              "c0_h1": 5,
+              "c1_h0": 21,
+              "c1_h1": 477
+            }
+          },
+          "valid_selector_rows": 600
+        },
+        "openai": {
+          "empty_lexical_queries": 0,
+          "planned_rows": 600,
+          "resolvable_selected_ids": 594,
+          "selected_id_preservation_all_planned": {
+            "1": {
+              "denominator": 600,
+              "numerator": 546,
+              "rate": 0.91
+            },
+            "20": {
+              "denominator": 600,
+              "numerator": 579,
+              "rate": 0.965
+            },
+            "5": {
+              "denominator": 600,
+              "numerator": 569,
+              "rate": 0.9483333333333334
+            }
+          },
+          "selected_id_preservation_on_resolvable": {
+            "1": {
+              "denominator": 594,
+              "numerator": 546,
+              "rate": 0.9191919191919192
+            },
+            "20": {
+              "denominator": 594,
+              "numerator": 579,
+              "rate": 0.9747474747474747
+            },
+            "5": {
+              "denominator": 594,
+              "numerator": 569,
+              "rate": 0.9579124579124579
+            }
+          },
+          "selection_delivery_joint_all_planned": {
+            "1": {
+              "c0_h0": 91,
+              "c0_h1": 0,
+              "c1_h0": 44,
+              "c1_h1": 465
+            },
+            "20": {
+              "c0_h0": 83,
+              "c0_h1": 8,
+              "c1_h0": 13,
+              "c1_h1": 496
+            },
+            "5": {
+              "c0_h0": 84,
+              "c0_h1": 7,
+              "c1_h0": 22,
+              "c1_h1": 487
+            }
+          },
+          "valid_selector_rows": 594
+        }
+      },
+      "pooled_descriptive": {
+        "empty_lexical_queries": 0,
+        "planned_rows": 1800,
+        "resolvable_selected_ids": 1792,
+        "selected_id_preservation_all_planned": {
+          "1": {
+            "denominator": 1800,
+            "numerator": 1644,
+            "rate": 0.9133333333333333
+          },
+          "20": {
+            "denominator": 1800,
+            "numerator": 1747,
+            "rate": 0.9705555555555555
+          },
+          "5": {
+            "denominator": 1800,
+            "numerator": 1716,
+            "rate": 0.9533333333333334
+          }
+        },
+        "selected_id_preservation_on_resolvable": {
+          "1": {
+            "denominator": 1792,
+            "numerator": 1644,
+            "rate": 0.9174107142857143
+          },
+          "20": {
+            "denominator": 1792,
+            "numerator": 1747,
+            "rate": 0.9748883928571429
+          },
+          "5": {
+            "denominator": 1792,
+            "numerator": 1716,
+            "rate": 0.9575892857142857
+          }
+        },
+        "selection_delivery_joint_all_planned": {
+          "1": {
+            "c0_h0": 337,
+            "c0_h1": 0,
+            "c1_h0": 131,
+            "c1_h1": 1332
+          },
+          "20": {
+            "c0_h0": 313,
+            "c0_h1": 24,
+            "c1_h0": 38,
+            "c1_h1": 1425
+          },
+          "5": {
+            "c0_h0": 317,
+            "c0_h1": 20,
+            "c1_h0": 66,
+            "c1_h1": 1397
+          }
+        },
+        "valid_selector_rows": 1794
+      },
+      "ranking_identity_sha256": "4bc5ed1583af38a836d974229a0f0fff7a57c2943eb9a01816fd8e3b513786f3",
+      "unique_valid_selected_id_queries_executed": 723
+    },
+    "uniform_title_body_bm25": {
+      "per_model": {
+        "claude": {
+          "empty_lexical_queries": 0,
+          "planned_rows": 600,
+          "resolvable_selected_ids": 599,
+          "selected_id_preservation_all_planned": {
+            "1": {
+              "denominator": 600,
+              "numerator": 394,
+              "rate": 0.6566666666666666
+            },
+            "20": {
+              "denominator": 600,
+              "numerator": 524,
+              "rate": 0.8733333333333333
+            },
+            "5": {
+              "denominator": 600,
+              "numerator": 479,
+              "rate": 0.7983333333333333
+            }
+          },
+          "selected_id_preservation_on_resolvable": {
+            "1": {
+              "denominator": 599,
+              "numerator": 394,
+              "rate": 0.657762938230384
+            },
+            "20": {
+              "denominator": 599,
+              "numerator": 524,
+              "rate": 0.8747913188647746
+            },
+            "5": {
+              "denominator": 599,
+              "numerator": 479,
+              "rate": 0.7996661101836394
+            }
+          },
+          "selection_delivery_joint_all_planned": {
+            "1": {
+              "c0_h0": 142,
+              "c0_h1": 2,
+              "c1_h0": 162,
+              "c1_h1": 294
+            },
+            "20": {
+              "c0_h0": 121,
+              "c0_h1": 23,
+              "c1_h0": 56,
+              "c1_h1": 400
+            },
+            "5": {
+              "c0_h0": 129,
+              "c0_h1": 15,
+              "c1_h0": 93,
+              "c1_h1": 363
+            }
+          },
+          "valid_selector_rows": 600
+        },
+        "gemini": {
+          "empty_lexical_queries": 0,
+          "planned_rows": 600,
+          "resolvable_selected_ids": 599,
+          "selected_id_preservation_all_planned": {
+            "1": {
+              "denominator": 600,
+              "numerator": 398,
+              "rate": 0.6633333333333333
+            },
+            "20": {
+              "denominator": 600,
+              "numerator": 529,
+              "rate": 0.8816666666666667
+            },
+            "5": {
+              "denominator": 600,
+              "numerator": 489,
+              "rate": 0.815
+            }
+          },
+          "selected_id_preservation_on_resolvable": {
+            "1": {
+              "denominator": 599,
+              "numerator": 398,
+              "rate": 0.664440734557596
+            },
+            "20": {
+              "denominator": 599,
+              "numerator": 529,
+              "rate": 0.8831385642737897
+            },
+            "5": {
+              "denominator": 599,
+              "numerator": 489,
+              "rate": 0.8163606010016694
+            }
+          },
+          "selection_delivery_joint_all_planned": {
+            "1": {
+              "c0_h0": 101,
+              "c0_h1": 1,
+              "c1_h0": 170,
+              "c1_h1": 328
+            },
+            "20": {
+              "c0_h0": 82,
+              "c0_h1": 20,
+              "c1_h0": 59,
+              "c1_h1": 439
+            },
+            "5": {
+              "c0_h0": 89,
+              "c0_h1": 13,
+              "c1_h0": 94,
+              "c1_h1": 404
+            }
+          },
+          "valid_selector_rows": 600
+        },
+        "openai": {
+          "empty_lexical_queries": 0,
+          "planned_rows": 600,
+          "resolvable_selected_ids": 594,
+          "selected_id_preservation_all_planned": {
+            "1": {
+              "denominator": 600,
+              "numerator": 393,
+              "rate": 0.655
+            },
+            "20": {
+              "denominator": 600,
+              "numerator": 521,
+              "rate": 0.8683333333333333
+            },
+            "5": {
+              "denominator": 600,
+              "numerator": 481,
+              "rate": 0.8016666666666666
+            }
+          },
+          "selected_id_preservation_on_resolvable": {
+            "1": {
+              "denominator": 594,
+              "numerator": 393,
+              "rate": 0.6616161616161617
+            },
+            "20": {
+              "denominator": 594,
+              "numerator": 521,
+              "rate": 0.877104377104377
+            },
+            "5": {
+              "denominator": 594,
+              "numerator": 481,
+              "rate": 0.8097643097643098
+            }
+          },
+          "selection_delivery_joint_all_planned": {
+            "1": {
+              "c0_h0": 90,
+              "c0_h1": 1,
+              "c1_h0": 175,
+              "c1_h1": 334
+            },
+            "20": {
+              "c0_h0": 70,
+              "c0_h1": 21,
+              "c1_h0": 60,
+              "c1_h1": 449
+            },
+            "5": {
+              "c0_h0": 79,
+              "c0_h1": 12,
+              "c1_h0": 97,
+              "c1_h1": 412
+            }
+          },
+          "valid_selector_rows": 594
+        }
+      },
+      "pooled_descriptive": {
+        "empty_lexical_queries": 0,
+        "planned_rows": 1800,
+        "resolvable_selected_ids": 1792,
+        "selected_id_preservation_all_planned": {
+          "1": {
+            "denominator": 1800,
+            "numerator": 1185,
+            "rate": 0.6583333333333333
+          },
+          "20": {
+            "denominator": 1800,
+            "numerator": 1574,
+            "rate": 0.8744444444444445
+          },
+          "5": {
+            "denominator": 1800,
+            "numerator": 1449,
+            "rate": 0.805
+          }
+        },
+        "selected_id_preservation_on_resolvable": {
+          "1": {
+            "denominator": 1792,
+            "numerator": 1185,
+            "rate": 0.6612723214285714
+          },
+          "20": {
+            "denominator": 1792,
+            "numerator": 1574,
+            "rate": 0.8783482142857143
+          },
+          "5": {
+            "denominator": 1792,
+            "numerator": 1449,
+            "rate": 0.80859375
+          }
+        },
+        "selection_delivery_joint_all_planned": {
+          "1": {
+            "c0_h0": 333,
+            "c0_h1": 4,
+            "c1_h0": 507,
+            "c1_h1": 956
+          },
+          "20": {
+            "c0_h0": 273,
+            "c0_h1": 64,
+            "c1_h0": 175,
+            "c1_h1": 1288
+          },
+          "5": {
+            "c0_h0": 297,
+            "c0_h1": 40,
+            "c1_h0": 284,
+            "c1_h1": 1179
+          }
+        },
+        "valid_selector_rows": 1794
+      },
+      "ranking_identity_sha256": "1ac63d1eee2b3bdd2da37c21beba59e7ab14895755efde72810a6bfad0fd1bd7",
+      "unique_valid_selected_id_queries_executed": 723
+    }
+  },
+  "replay": {
+    "corpus_title_only_target_enforced": true,
+    "outcome_targets_enforced": true,
+    "scratch_database_is_scientific_input": false,
+    "scratch_database_retained": false,
+    "script_sha256": "11f565e372ba7444cd5ec671c892d7ff36b2e891a33c22211b5cebdbad9bec83"
+  },
+  "schema_version": 1,
+  "scope": {
+    "claim": "Preservation of the selector-emitted identifier under three deterministic decoded-title executors",
+    "not_claimed": [
+      "a model's ability to infer the selected identifier",
+      "new answer-generation outcomes",
+      "causality of retrieval on answer correctness",
+      "deployment or cross-dataset generalization"
+    ],
+    "primary_cohort_note": "The same 600 questions occur for each hosted-model family; pooled rows are a descriptive inventory, not independent samples."
+  },
+  "status": "verified_zero_call_identifier_aware_executor_audit"
+}

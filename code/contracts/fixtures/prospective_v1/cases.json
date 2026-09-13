@@ -1,0 +1,553 @@
+{
+  "bundle_version": "rop-fixture/v1",
+  "cases": [
+    {
+      "case_id": "hard_any_alias_pass",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_verdict": "PASS",
+      "record": {
+        "record_id": "pass_alias",
+        "selector": {
+          "selected_key": "doc:alpha"
+        },
+        "returned": {
+          "object_id": [
+            "noise:0",
+            "alpha-alias",
+            "doc:beta"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_any_other_object_fail",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_verdict": "FAIL",
+      "record": {
+        "record_id": "fail_other_object",
+        "selector": {
+          "selected_key": "doc:alpha"
+        },
+        "returned": {
+          "object_id": [
+            "doc:beta",
+            "noise:1",
+            "noise:2"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_lossless_witness_pass_without_raw_key",
+      "manifest_locator": "witness_manifest.json",
+      "envelope_locator": "witness_run_envelope.json",
+      "expected_verdict": "PASS",
+      "record": {
+        "record_id": "witness_pass",
+        "selector": {
+          "identity_witness": {
+            "value": "title:Alpha",
+            "binding_sha256": "6ad28a7d1f66436c89ef1da64d01693cc8eb4fa211648cab403c502ce996bd34"
+          }
+        },
+        "returned": {
+          "object_id": [
+            "alpha-alias"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_lossless_witness_binding_mismatch",
+      "manifest_locator": "witness_manifest.json",
+      "envelope_locator": "witness_run_envelope.json",
+      "expected_verdict": "SELECTOR_ERROR",
+      "record": {
+        "record_id": "witness_bad_binding",
+        "selector": {
+          "identity_witness": {
+            "value": "title:Alpha",
+            "binding_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "returned": {
+          "object_id": [
+            "doc:alpha"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_lossless_witness_unknown_value",
+      "manifest_locator": "witness_manifest.json",
+      "envelope_locator": "witness_run_envelope.json",
+      "expected_verdict": "RESOLUTION_ERROR",
+      "record": {
+        "record_id": "witness_unknown",
+        "selector": {
+          "identity_witness": {
+            "value": "title:Unknown",
+            "binding_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "returned": {
+          "object_id": [
+            "doc:alpha"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_selector_error",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_verdict": "SELECTOR_ERROR",
+      "record": {
+        "record_id": "selector_error",
+        "selector": {
+          "selected_key": 17
+        },
+        "returned": {
+          "object_id": [
+            "doc:alpha"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_resolution_error",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_verdict": "RESOLUTION_ERROR",
+      "record": {
+        "record_id": "resolution_error",
+        "selector": {
+          "selected_key": "doc:unknown"
+        },
+        "returned": {
+          "object_id": [
+            "doc:alpha"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_unverifiable",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_verdict": "UNVERIFIABLE",
+      "record": {
+        "record_id": "unverifiable",
+        "selector": {
+          "selected_key": "doc:alpha"
+        },
+        "returned": {
+          "wrong_field": [
+            "doc:alpha"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "prompt_cannot_activate_soft",
+      "manifest_locator": "soft_manifest.json",
+      "envelope_locator": "soft_run_envelope.json",
+      "expected_verdict": "NOT_APPLICABLE",
+      "record": {
+        "record_id": "soft_despite_prompt",
+        "selector": {
+          "selected_key": "doc:alpha"
+        },
+        "returned": {
+          "object_id": []
+        }
+      }
+    },
+    {
+      "case_id": "missing_hard_retention_invalid",
+      "manifest_locator": "invalid_manifest.json",
+      "envelope_locator": "invalid_run_envelope.json",
+      "expected_verdict": "DECLARATION_INVALID",
+      "record": {
+        "record_id": "declaration_invalid",
+        "selector": {
+          "selected_key": "doc:alpha"
+        },
+        "returned": {
+          "object_id": [
+            "doc:alpha"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_all_members_pass",
+      "manifest_locator": "all_manifest.json",
+      "envelope_locator": "all_run_envelope.json",
+      "expected_verdict": "PASS",
+      "record": {
+        "record_id": "all_members_pass",
+        "selector": {
+          "selected_key": "doc:gamma"
+        },
+        "returned": {
+          "object_id": [
+            "chunk:gamma:0",
+            "noise:0",
+            "chunk:gamma:1"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_all_members_fail",
+      "manifest_locator": "all_manifest.json",
+      "envelope_locator": "all_run_envelope.json",
+      "expected_verdict": "FAIL",
+      "record": {
+        "record_id": "all_members_fail",
+        "selector": {
+          "selected_key": "doc:gamma"
+        },
+        "returned": {
+          "object_id": [
+            "chunk:gamma:0",
+            "doc:beta",
+            "noise:0"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_key_set_any_accepts_one_object",
+      "manifest_locator": "set_manifest.json",
+      "envelope_locator": "set_run_envelope.json",
+      "expected_verdict": "PASS",
+      "record": {
+        "record_id": "set_any_pass",
+        "selector": {
+          "selected_key": [
+            "doc:alpha",
+            "doc:beta"
+          ]
+        },
+        "returned": {
+          "object_id": [
+            "noise:0",
+            "doc:beta"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_key_set_all_accepts_one_complete_object",
+      "manifest_locator": "set_all_manifest.json",
+      "envelope_locator": "set_all_run_envelope.json",
+      "expected_verdict": "PASS",
+      "record": {
+        "record_id": "set_all_pass",
+        "selector": {
+          "selected_key": [
+            "doc:alpha",
+            "doc:gamma"
+          ]
+        },
+        "returned": {
+          "object_id": [
+            "chunk:gamma:0",
+            "noise:0",
+            "chunk:gamma:1"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "hard_key_set_all_accepts_singleton_alternative",
+      "manifest_locator": "set_all_manifest.json",
+      "envelope_locator": "set_all_run_envelope.json",
+      "expected_verdict": "PASS",
+      "record": {
+        "record_id": "set_all_singleton_pass",
+        "selector": {
+          "selected_key": [
+            "doc:beta",
+            "doc:gamma"
+          ]
+        },
+        "returned": {
+          "object_id": [
+            "chunk:beta:0"
+          ]
+        }
+      }
+    }
+  ],
+  "run_cases": [
+    {
+      "run_case_id": "strict_run_pass",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_run_status": "RUN_PASS",
+      "records": [
+        {
+          "record_id": "run_alpha",
+          "selector": {"selected_key": "doc:alpha"},
+          "returned": {"object_id": ["alpha-alias"]}
+        },
+        {
+          "record_id": "run_beta",
+          "selector": {"selected_key": "doc:beta"},
+          "returned": {"object_id": ["doc:beta"]}
+        }
+      ]
+    },
+    {
+      "run_case_id": "dotted_record_id_run_pass",
+      "manifest_locator": "dotted_id_manifest.json",
+      "envelope_locator": "dotted_id_run_envelope.json",
+      "expected_run_status": "RUN_PASS",
+      "records": [
+        {
+          "record_id": "decoy_alpha",
+          "identity": {
+            "record_key": "run_alpha"
+          },
+          "selector": {
+            "selected_key": "doc:alpha"
+          },
+          "returned": {
+            "object_id": [
+              "doc:alpha"
+            ]
+          }
+        },
+        {
+          "record_id": "decoy_beta",
+          "identity": {
+            "record_key": "run_beta"
+          },
+          "selector": {
+            "selected_key": "doc:beta"
+          },
+          "returned": {
+            "object_id": [
+              "doc:beta"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "run_case_id": "lossless_witness_run_pass",
+      "manifest_locator": "witness_manifest.json",
+      "envelope_locator": "witness_run_envelope.json",
+      "expected_run_status": "RUN_PASS",
+      "records": [
+        {
+          "record_id": "run_alpha",
+          "selector": {
+            "identity_witness": {
+              "value": "title:Alpha",
+              "binding_sha256": "46c6abd476136626e4d176185ebd3ca5fe320cf0391f2c40ba6e78fa0d22805f"
+            }
+          },
+          "returned": {
+            "object_id": [
+              "doc:alpha"
+            ]
+          }
+        },
+        {
+          "record_id": "run_beta",
+          "selector": {
+            "identity_witness": {
+              "value": "title:Beta",
+              "binding_sha256": "bc95fd9dd7d7049baa800a937e6beef16b61342f1a5ae29033ef109883d46949"
+            }
+          },
+          "returned": {
+            "object_id": [
+              "doc:beta"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "run_case_id": "dotted_record_id_run_duplicate",
+      "manifest_locator": "dotted_id_manifest.json",
+      "envelope_locator": "dotted_id_run_envelope.json",
+      "expected_run_status": "RUN_INVALID",
+      "records": [
+        {
+          "record_id": "decoy_duplicate_one",
+          "identity": {
+            "record_key": "run_alpha"
+          },
+          "selector": {
+            "selected_key": "doc:alpha"
+          },
+          "returned": {
+            "object_id": [
+              "doc:alpha"
+            ]
+          }
+        },
+        {
+          "record_id": "decoy_duplicate_two",
+          "identity": {
+            "record_key": "run_alpha"
+          },
+          "selector": {
+            "selected_key": "doc:alpha"
+          },
+          "returned": {
+            "object_id": [
+              "doc:alpha"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "run_case_id": "dotted_record_id_run_missing",
+      "manifest_locator": "dotted_id_manifest.json",
+      "envelope_locator": "dotted_id_run_envelope.json",
+      "expected_run_status": "RUN_UNVERIFIABLE",
+      "records": [
+        {
+          "record_id": "decoy_missing",
+          "identity": {
+            "record_key": "run_alpha"
+          },
+          "selector": {
+            "selected_key": "doc:alpha"
+          },
+          "returned": {
+            "object_id": [
+              "doc:alpha"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "run_case_id": "strict_run_fail_precedes_error",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_run_status": "RUN_FAIL",
+      "records": [
+        {
+          "record_id": "run_alpha",
+          "selector": {"selected_key": "doc:alpha"},
+          "returned": {"object_id": []}
+        },
+        {
+          "record_id": "run_beta",
+          "selector": {"selected_key": 17},
+          "returned": {"object_id": ["doc:beta"]}
+        }
+      ]
+    },
+    {
+      "run_case_id": "strict_run_unverifiable_record",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_run_status": "RUN_UNVERIFIABLE",
+      "records": [
+        {
+          "record_id": "run_alpha",
+          "selector": {"selected_key": "doc:alpha"},
+          "returned": {"object_id": ["doc:alpha"]}
+        },
+        {
+          "record_id": "run_beta",
+          "selector": {"selected_key": "doc:beta"},
+          "returned": {"wrong_field": ["doc:beta"]}
+        }
+      ]
+    },
+    {
+      "run_case_id": "strict_run_unverifiable_missing",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_run_status": "RUN_UNVERIFIABLE",
+      "records": [
+        {
+          "record_id": "run_alpha",
+          "selector": {"selected_key": "doc:alpha"},
+          "returned": {"object_id": ["doc:alpha"]}
+        }
+      ]
+    },
+    {
+      "run_case_id": "strict_run_invalid_declaration",
+      "manifest_locator": "invalid_manifest.json",
+      "envelope_locator": "invalid_run_envelope.json",
+      "expected_run_status": "RUN_INVALID",
+      "records": [
+        {
+          "record_id": "run_alpha",
+          "selector": {"selected_key": "doc:alpha"},
+          "returned": {"object_id": ["doc:alpha"]}
+        },
+        {
+          "record_id": "run_beta",
+          "selector": {"selected_key": "doc:beta"},
+          "returned": {"object_id": ["doc:beta"]}
+        }
+      ]
+    },
+    {
+      "run_case_id": "strict_run_invalid_population_binding",
+      "manifest_locator": "population_invalid_manifest.json",
+      "envelope_locator": "population_invalid_run_envelope.json",
+      "expected_run_status": "RUN_INVALID",
+      "records": [
+        {
+          "record_id": "run_alpha",
+          "selector": {"selected_key": "doc:alpha"},
+          "returned": {"object_id": ["doc:alpha"]}
+        },
+        {
+          "record_id": "run_beta",
+          "selector": {"selected_key": "doc:beta"},
+          "returned": {"object_id": ["doc:beta"]}
+        }
+      ]
+    },
+    {
+      "run_case_id": "strict_run_invalid_precedes_record_fail",
+      "manifest_locator": "hard_manifest.json",
+      "envelope_locator": "hard_run_envelope.json",
+      "expected_run_status": "RUN_INVALID",
+      "records": [
+        {
+          "record_id": "run_alpha",
+          "selector": {"selected_key": "doc:alpha"},
+          "returned": {"object_id": []}
+        },
+        {
+          "record_id": "run_alpha",
+          "selector": {"selected_key": "doc:alpha"},
+          "returned": {"object_id": ["doc:alpha"]}
+        }
+      ]
+    },
+    {
+      "run_case_id": "soft_run_not_applicable",
+      "manifest_locator": "soft_manifest.json",
+      "envelope_locator": "soft_run_envelope.json",
+      "expected_run_status": "NOT_APPLICABLE",
+      "records": [
+        {
+          "record_id": "soft_record",
+          "selector": {"selected_key": "doc:alpha"},
+          "returned": {"object_id": []}
+        }
+      ]
+    }
+  ]
+}

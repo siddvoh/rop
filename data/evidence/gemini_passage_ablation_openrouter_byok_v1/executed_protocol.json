@@ -1,0 +1,79 @@
+{
+  "analysis": {
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20260714,
+    "invalid_or_unsuccessful_outcomes": "retained and scored zero EM and F1",
+    "primary_contrast": "paired item-mean EM for intact minus trace_drop over 64 items",
+    "secondary_contrasts": [
+      "sham_drop minus trace_drop",
+      "intact minus sham_drop"
+    ]
+  },
+  "cohort": {
+    "definition": "64 HybridQA records with a prior predicted-fact EM rescue and the recorded selection and trace conditions",
+    "item_count": 64,
+    "sham_eligible_item_count": 59
+  },
+  "execution_settings": {
+    "concurrency": 561,
+    "logical_calls": 561,
+    "maximum_wire_attempts_per_call": 2,
+    "one_barrier_parallel_launch": true,
+    "preflight_calls": 3
+  },
+  "experiment_id": "gemini_passage_ablation_openrouter_byok_v1",
+  "interventions": {
+    "intact": "unchanged prompt",
+    "sham_drop": "remove the answer-safe non-traced block closest to the traced block in rendered length",
+    "trace_drop": "remove the block whose link matches the traced gold link while preserving all remaining prompt bytes and order"
+  },
+  "model_route": {
+    "allow_fallbacks": false,
+    "byok_required": true,
+    "direct_google_api_usage": false,
+    "model": "google/gemini-3.1-pro-preview",
+    "openrouter_cost_required_usd": 0.0,
+    "provider_pin": [
+      "google-ai-studio"
+    ],
+    "routed_provider": "Google AI Studio",
+    "transport": "OpenRouter BYOK"
+  },
+  "repeats_per_available_arm": 3,
+  "request": {
+    "maximum_output_tokens": 4096,
+    "reasoning_effort": "medium",
+    "seed": null,
+    "strict_json_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "answer": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "answer"
+      ],
+      "type": "object"
+    },
+    "temperature": 1.0
+  },
+  "schema_version": 1,
+  "setting_provenance": {
+    "fixed_before_hosted_execution": [
+      "cohort",
+      "prompt interventions",
+      "three repeats per available arm",
+      "prehashed task schedule",
+      "primary and secondary contrasts",
+      "bootstrap procedure and seed",
+      "zero scoring for invalid or unsuccessful outcomes"
+    ],
+    "set_for_this_hosted_execution": {
+      "concurrency": 561,
+      "maximum_wire_attempts_per_call": 2,
+      "temperature": 1.0,
+      "transport": "OpenRouter BYOK pinned to Google AI Studio"
+    }
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "api_calls": 0,
+  "bm25_to_bge_m3_contrast": {
+    "base_seed": 20260716,
+    "complementary_record_weighted": {
+      "k20_H": {
+        "bootstrap_standard_error_percentage_points": 2.6104225686865874,
+        "paper_rounded_one_decimal": [
+          -9.8,
+          0.3
+        ],
+        "percentile_95_stability_interval_percentage_points": [
+          -9.770161743232618,
+          0.30959752321981426
+        ],
+        "point": {
+          "denominator": 329,
+          "numerator": -15,
+          "percentage_points": -4.5592705167173255,
+          "rate_delta": -0.04559270516717325
+        }
+      },
+      "k20_P": {
+        "bootstrap_standard_error_percentage_points": 2.9184234360899657,
+        "paper_rounded_one_decimal": [
+          8.9,
+          20.2
+        ],
+        "percentile_95_stability_interval_percentage_points": [
+          8.882521489971346,
+          20.241691842900302
+        ],
+        "point": {
+          "denominator": 7,
+          "numerator": 1,
+          "percentage_points": 14.285714285714285,
+          "rate_delta": 0.14285714285714285
+        }
+      },
+      "k5_H": {
+        "bootstrap_standard_error_percentage_points": 2.5762924900385045,
+        "paper_rounded_one_decimal": [
+          -9.5,
+          0.6
+        ],
+        "percentile_95_stability_interval_percentage_points": [
+          -9.455790767673298,
+          0.6211180124223602
+        ],
+        "point": {
+          "denominator": 47,
+          "numerator": -2,
+          "percentage_points": -4.25531914893617,
+          "rate_delta": -0.0425531914893617
+        }
+      },
+      "k5_P": {
+        "bootstrap_standard_error_percentage_points": 3.457431557985588,
+        "paper_rounded_one_decimal": [
+          12.6,
+          26.1
+        ],
+        "percentile_95_stability_interval_percentage_points": [
+          12.576641196135336,
+          26.10093219864509
+        ],
+        "point": {
+          "denominator": 47,
+          "numerator": 9,
+          "percentage_points": 19.148936170212767,
+          "rate_delta": 0.19148936170212766
+        }
+      }
+    },
+    "derived_seed": 16709038045988039055,
+    "draw_projection_sha256": "e43ac836b42baa6b7b81b218a273a32f21976486796ff912cc153afbc2eb9551",
+    "equal_question": {
+      "k20_H": {
+        "bootstrap_standard_error_percentage_points": 2.0821569498474526,
+        "paper_rounded_one_decimal": [
+          -7.7,
+          0.4
+        ],
+        "percentile_95_stability_interval_percentage_points": [
+          -7.708333333333333,
+          0.4166666666666667
+        ],
+        "point": {
+          "denominator": 480,
+          "numerator": -17,
+          "percentage_points": -3.5416666666666665,
+          "rate_delta": -0.035416666666666666
+        }
+      },
+      "k20_P": {
+        "bootstrap_standard_error_percentage_points": 2.632814191403554,
+        "paper_rounded_one_decimal": [
+          8.8,
+          19.0
+        ],
+        "percentile_95_stability_interval_percentage_points": [
+          8.75,
+          18.958333333333332
+        ],
+        "point": {
+          "denominator": 960,
+          "numerator": 131,
+          "percentage_points": 13.645833333333332,
+          "rate_delta": 0.13645833333333332
+        }
+      },
+      "k5_H": {
+        "bootstrap_standard_error_percentage_points": 2.1187265019446833,
+        "paper_rounded_one_decimal": [
+          -7.5,
+          0.8
+        ],
+        "percentile_95_stability_interval_percentage_points": [
+          -7.5,
+          0.8333333333333334
+        ],
+        "point": {
+          "denominator": 32,
+          "numerator": -1,
+          "percentage_points": -3.125,
+          "rate_delta": -0.03125
+        }
+      },
+      "k5_P": {
+        "bootstrap_standard_error_percentage_points": 3.2516154094177847,
+        "paper_rounded_one_decimal": [
+          14.5,
+          27.2
+        ],
+        "percentile_95_stability_interval_percentage_points": [
+          14.479166666666666,
+          27.1875
+        ],
+        "point": {
+          "denominator": 960,
+          "numerator": 199,
+          "percentage_points": 20.729166666666668,
+          "rate_delta": 0.20729166666666668
+        }
+      }
+    },
+    "method": "paired question-cluster bootstrap; sample 160 unique question IDs with replacement and carry every contributing hosted-model row for each sampled question; linear percentile interval",
+    "opposite_direction_draws": {
+      "20": {
+        "denominator": 10000,
+        "numerator": 9547,
+        "rate": 0.9547
+      },
+      "5": {
+        "denominator": 10000,
+        "numerator": 9267,
+        "rate": 0.9267
+      }
+    },
+    "samples": 10000,
+    "seed_derivation": "SHA-256(20260716:body_only_bm25_vs_bge_m3_mismatch_question_cluster_v1) first 64 bits",
+    "seed_label": "body_only_bm25_vs_bge_m3_mismatch_question_cluster_v1"
+  },
+  "clock_used": false,
+  "credentials_used": false,
+  "definition": {
+    "H_at_k": "dataset-traced-object PID occurs in the same ranking",
+    "P_at_k": "selected-object PID occurs in the recorded top-k ranking",
+    "cluster_unit": "one unique question ID with all contributing model rows",
+    "contrast": "BGE-M3 minus body-only BM25 at cutoffs 5 and 20",
+    "grid": "all ten unordered stack pairs at cutoffs 1, 5, and 20",
+    "question_equal_weighting": "average over available model rows within each question and then weight all 160 questions equally",
+    "record_unit": "one frozen (question_id, hosted_model) record",
+    "subset": "valid selector rows whose selected and traced identifiers resolve to distinct canonical passage PIDs"
+  },
+  "denominators_and_dependence": {
+    "model_question_records": 329,
+    "question_model_multiplicity": {
+      "exactly_1": 55,
+      "exactly_2": 41,
+      "exactly_3": 64
+    },
+    "question_set_sha256": "5f451a619152521d3af146d54afc9153dcb06f2745b34ddf6eae25e27b1c0aad",
+    "questions_with_multiple_model_rows": {
+      "denominator": 160,
+      "numerator": 105,
+      "rate": 0.65625
+    },
+    "records_by_model": {
+      "claude": 143,
+      "gemini": 101,
+      "openai": 85
+    },
+    "records_from_questions_with_multiple_model_rows": {
+      "denominator": 329,
+      "numerator": 274,
+      "rate": 0.8328267477203647
+    },
+    "unique_question_clusters": 160
+  },
+  "inputs": {
+    "container_policy": "bind exact scientific member bytes, not the outer ZIP",
+    "members": {
+      "code/configs/experiments/hybridqa_natural_v2.yaml": {
+        "bytes": 3437,
+        "records": 90,
+        "sha256": "378d0257f568dc6306c6455b528ed56ae76208e4af9b726bbadc4e51ddf358d0"
+      },
+      "code/configs/experiments/hybridqa_retriever_sensitivity_v1.yaml": {
+        "bytes": 2534,
+        "records": 76,
+        "sha256": "5673d2cca5fef9a9d49515ff40175c8b7464b93ab948d5b346afc2a106574cb7"
+      },
+      "code/src/ccr/retrieval/hybridqa_bridge.py": {
+        "bytes": 2729,
+        "records": 55,
+        "sha256": "5e0f0fa578a741e29e8f91dd5f683ba6ba1afa96f8f3beaf230ec0729e4c879b"
+      },
+      "data/results/released/hybridqa_natural_v2/bridge_confirmatory/details.jsonl": {
+        "bytes": 4991925,
+        "records": 1800,
+        "sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5"
+      },
+      "data/results/released/hybridqa_natural_v2/bridge_confirmatory/run_manifest.json": {
+        "bytes": 743,
+        "records": 11,
+        "sha256": "e34355963f3142f9d9ae2f3d162258d6b86cd757ffcea1a50b442eeb0f154a4c"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/bge_m3/details.jsonl": {
+        "bytes": 23539533,
+        "records": 2400,
+        "sha256": "ce73c83e1ac0ef6b77f129b8f23060dcfb4fceb02c1070cc5454ff8889c317ec"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/colbert_v2/details.jsonl": {
+        "bytes": 21114400,
+        "records": 2400,
+        "sha256": "6411ec10ab55373e2c745c652678f26529045fc33ea9dd5b5ca2205213bd7bc2"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/hybrid_rrf/details.jsonl": {
+        "bytes": 5308408,
+        "records": 2400,
+        "sha256": "916fc87fb3865dc4a13e13997286028b0bc71a6a456f70648d86b683005af1d7"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/hybrid_rrf_bge_reranker_v2_m3/details.jsonl": {
+        "bytes": 6894412,
+        "records": 2400,
+        "sha256": "0550dc6690e3e44191474ae489905565b0081e887fd5836ea76d01edd9969a81"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/links.jsonl": {
+        "bytes": 15250846,
+        "records": 286270,
+        "sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/provenance.json": {
+        "bytes": 2761,
+        "records": 72,
+        "sha256": "282deccdf7f4dd318fab6051af2956ca6a915d5fa1c4deffb7589f51284864ec"
+      }
+    },
+    "outcome_projection_sha256": "3678b65eda73775ccd50aa7a27ef5682cebc538dd8f5311f47102dbecec80cb5"
+  },
+  "interpretation_boundaries": [
+    "The percentile ranges are post-selection stability intervals conditional on the fixed mismatch stratum, not confirmatory population confidence intervals.",
+    "The 30 grid cells are complete and mutually dependent, not 30 sampled independent trials; a binomial interval for 14/30 is invalid.",
+    "A paired permutation p-value is not reported because stack labels were not randomized and the highlighted contrast was selected retrospectively.",
+    "Resampling observed questions does not correct retrospective contrast selection or estimate interface, failure, or deployment prevalence."
+  ],
+  "joint_grid_reversal_stability": {
+    "base_seed": 20260716,
+    "derived_seed": 14507245148007068347,
+    "draw_projection_sha256": "f14a9f6aca5b16b6df77298e9070ece2c6e693c330740bb0d9adcc48552c4f39",
+    "method": "question-cluster bootstrap that recomputes all five stacks, three cutoffs, and 30 dependent pairwise P/H sign relations jointly in every draw",
+    "original_reversal_cell_stability": {
+      "cells": [
+        {
+          "cutoff": 1,
+          "draws_retaining_opposite_direction": 6320,
+          "left_stack": "visible_label_bge_m3",
+          "retention_rate": 0.632,
+          "right_stack": "visible_label_hybrid_rrf"
+        },
+        {
+          "cutoff": 1,
+          "draws_retaining_opposite_direction": 9539,
+          "left_stack": "visible_label_bm25",
+          "retention_rate": 0.9539,
+          "right_stack": "visible_label_bge_m3"
+        },
+        {
+          "cutoff": 1,
+          "draws_retaining_opposite_direction": 9539,
+          "left_stack": "visible_label_bm25",
+          "retention_rate": 0.9539,
+          "right_stack": "visible_label_colbert_v2"
+        },
+        {
+          "cutoff": 1,
+          "draws_retaining_opposite_direction": 9539,
+          "left_stack": "visible_label_bm25",
+          "retention_rate": 0.9539,
+          "right_stack": "visible_label_hybrid_reranker"
+        },
+        {
+          "cutoff": 1,
+          "draws_retaining_opposite_direction": 8693,
+          "left_stack": "visible_label_bm25",
+          "retention_rate": 0.8693,
+          "right_stack": "visible_label_hybrid_rrf"
+        },
+        {
+          "cutoff": 1,
+          "draws_retaining_opposite_direction": 6353,
+          "left_stack": "visible_label_colbert_v2",
+          "retention_rate": 0.6353,
+          "right_stack": "visible_label_hybrid_rrf"
+        },
+        {
+          "cutoff": 1,
+          "draws_retaining_opposite_direction": 6353,
+          "left_stack": "visible_label_hybrid_rrf",
+          "retention_rate": 0.6353,
+          "right_stack": "visible_label_hybrid_reranker"
+        },
+        {
+          "cutoff": 5,
+          "draws_retaining_opposite_direction": 7661,
+          "left_stack": "visible_label_bge_m3",
+          "retention_rate": 0.7661,
+          "right_stack": "visible_label_hybrid_rrf"
+        },
+        {
+          "cutoff": 5,
+          "draws_retaining_opposite_direction": 9243,
+          "left_stack": "visible_label_bm25",
+          "retention_rate": 0.9243,
+          "right_stack": "visible_label_bge_m3"
+        },
+        {
+          "cutoff": 5,
+          "draws_retaining_opposite_direction": 7553,
+          "left_stack": "visible_label_bm25",
+          "retention_rate": 0.7553,
+          "right_stack": "visible_label_colbert_v2"
+        },
+        {
+          "cutoff": 5,
+          "draws_retaining_opposite_direction": 8477,
+          "left_stack": "visible_label_bm25",
+          "retention_rate": 0.8477,
+          "right_stack": "visible_label_hybrid_rrf"
+        },
+        {
+          "cutoff": 20,
+          "draws_retaining_opposite_direction": 7736,
+          "left_stack": "visible_label_bge_m3",
+          "retention_rate": 0.7736,
+          "right_stack": "visible_label_hybrid_rrf"
+        },
+        {
+          "cutoff": 20,
+          "draws_retaining_opposite_direction": 9546,
+          "left_stack": "visible_label_bm25",
+          "retention_rate": 0.9546,
+          "right_stack": "visible_label_bge_m3"
+        },
+        {
+          "cutoff": 20,
+          "draws_retaining_opposite_direction": 7431,
+          "left_stack": "visible_label_bm25",
+          "retention_rate": 0.7431,
+          "right_stack": "visible_label_hybrid_rrf"
+        }
+      ],
+      "maximum_retention_rate": 0.9546,
+      "median_retention_rate": 0.81065,
+      "minimum_retention_rate": 0.632
+    },
+    "point_grid": {
+      "opposite_direction": 14,
+      "same_direction": 13,
+      "tie_involved": 3
+    },
+    "reversal_count_stability": {
+      "bootstrap_mean": 12.3852,
+      "bootstrap_standard_error": 2.397497812215051,
+      "draws_at_least_point": {
+        "denominator": 10000,
+        "numerator": 3729,
+        "rate": 0.3729
+      },
+      "draws_equal_to_point": {
+        "denominator": 10000,
+        "numerator": 1897,
+        "rate": 0.1897
+      },
+      "frequency": {
+        "10": 794,
+        "11": 1331,
+        "12": 1426,
+        "13": 1595,
+        "14": 1897,
+        "15": 1240,
+        "16": 473,
+        "17": 102,
+        "18": 14,
+        "19": 2,
+        "2": 4,
+        "20": 1,
+        "3": 11,
+        "4": 31,
+        "5": 60,
+        "6": 113,
+        "7": 193,
+        "8": 257,
+        "9": 456
+      },
+      "maximum": 20,
+      "minimum": 2,
+      "percentile_95_stability_interval": [
+        7.0,
+        16.0
+      ],
+      "point": 14
+    },
+    "samples": 10000,
+    "seed_derivation": "SHA-256(20260716:mismatch_grid_direction_reversal_question_cluster_v1) first 64 bits",
+    "seed_label": "mismatch_grid_direction_reversal_question_cluster_v1"
+  },
+  "model_calls": 0,
+  "network_used": false,
+  "random_used": true,
+  "randomness": "deterministic local Python random.Random streams from fixed SHA-256-derived seeds; no system entropy",
+  "retrieval_calls": 0,
+  "schema_version": 1,
+  "status": "verified_no_call_mismatch_metric_inversion_uncertainty"
+}

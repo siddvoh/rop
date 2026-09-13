@@ -1,0 +1,12 @@
+{
+  "bm25_db_sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+  "bridge_details_sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5",
+  "cohort_file_sha256": "b54ee430f0f9b28e813b254e712edac734173bc215d239ac110bbdb941b0c7b6",
+  "cohort_sha256": "dfc6fe5183ccdbea9c2c8278e02000e063a86de8aa9825e33d008903ff230f5f",
+  "experiment_config_sha256": "17b2fa520d5706907c030650bbff002d5ca344562dcc5cab5cd587bbcc3354a9",
+  "experiment_id": "hybridqa_natural_v3",
+  "query_rewrite_implementation_sha256": "d7dda8a26ad434a73ae676ae9fa602ac0a2db5f3a97b916c634b5af2edd8fe9a",
+  "result_set_sha256": "341cce097a21462e0e3aa14779cab19a376566a0b6c132db995ac35639bfaf0a",
+  "runner_implementation_sha256": "79c0e19f1a2a5fc8f02dd22c16ddabb1b678df519593e4781277dfeb2e9fe9b5",
+  "runtime_config_sha256": "4c5e6bb553a8c39962f80716b684261881184c06f782b3733d787e15e93017c7"
+}

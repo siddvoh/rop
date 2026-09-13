@@ -1,0 +1,10 @@
+{
+  "policy_version": "rop-policy/v1",
+  "policy_authority_id": "prospective-fixture-policy-authority-v1",
+  "producer_id": "prospective-fixture-producer-v1",
+  "target_interface_id": "fixture-ranker",
+  "target_interface_version": "fixture-ranker-api/v1",
+  "selection_mode": "hard",
+  "policy_revision": "hard/fixture-r1",
+  "run_profile": "rop-run-profile/v1"
+}

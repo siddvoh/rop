@@ -1,0 +1,75 @@
+version: 1
+experiment_id: hybridqa_natural_v1
+status: frozen_before_model_outcomes
+
+dataset:
+  source_candidates: data/released/hybridqa_natural_candidates/train_strict_candidates.json
+  discovery_candidates: data/released/hybridqa_natural_candidates/dev_strict_candidates.json
+  confirmatory_size: 600
+  max_questions_per_table: 1
+  selection_salt: ccr-hybridqa-natural-v1-confirmatory
+  frozen_output: data/released/hybridqa_natural_v1/confirmatory_cohort.json
+
+models: [claude, openai, gemini]
+
+retrievers:
+  - bm25
+  - bge_m3
+  - colbert_v2
+  - hybrid_rrf
+  - hybrid_rrf_bge_reranker_v2_m3
+
+conditions:
+  primary: [question_only, predicted_fact]
+  causal_controls: [question_plus_fact, gold_fact, wrong_fact, no_kb, oracle_passage]
+  strong_baselines: [query_rewrite]
+
+retrieval:
+  corpus: all_linked_wikipedia_passages
+  primary_k: 5
+  report_k: [1, 5, 20]
+  bm25:
+    implementation: sqlite_fts5
+    index_version: hybridqa-sqlite-fts5-v1
+    document_tokenizer: unicode61
+    query_token_pattern: "[a-z0-9]+"
+    minimum_query_token_length: 2
+    deduplicate_query_tokens: true
+    query_operator: OR
+    ranking: bm25
+    tie_break: ascending_fts_rowid
+    passage_deduplication: first_link_in_sorted_source_file_order
+    retrieve_k: 20
+
+generation:
+  reasoning_effort: medium
+  temperature: null
+  max_output_tokens: 4096
+  strict_json: true
+
+primary_outcomes:
+  - gold_passage_recall_at_5
+  - normalized_exact_match
+  - token_f1
+
+statistics:
+  paired_bootstrap_samples: 10000
+  paired_test: exact_mcnemar
+  confidence_level: 0.95
+  multiplicity: holm
+  unit: question
+  table_cluster_robustness: true
+
+success_gates:
+  - gold_fact_recall_at_5_minus_question_recall_at_5 >= 0.30
+  - predicted_fact_em_minus_question_em > 0 with adjusted_p < 0.05
+  - directionally_consistent_answer_effect_in_all_three_models
+  - wrong_fact_and_no_kb_remove_most_of_the_gain
+  - three_gate_predictor_outperforms_c1_only_predictor
+  - stronger_retriever_results_are_reported_without_selective_omission
+
+freeze_policy:
+  discovery_split_may_be_used_for_debugging: true
+  confirmatory_answers_may_be_used_only_by_automatic_scorer: true
+  confirmatory_prompts_or_thresholds_may_not_be_changed_after_first_model_call: true
+  all_failures_and_exclusions_must_be_logged: true

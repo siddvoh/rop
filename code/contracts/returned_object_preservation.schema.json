@@ -1,0 +1,601 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ccr:returned-object-preservation-contract:v1",
+  "title": "Returned-object preservation contract",
+  "description": "Prospective run-bound declaration for preserving a selected corpus object, identified by a raw key or bound lossless witness, in a returned identifier set.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "binding",
+    "authority",
+    "selection",
+    "verdict_policy",
+    "run_policy"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "rop/v1"
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declaration_id",
+        "declared_phase",
+        "config_locator",
+        "config_sha256"
+      ],
+      "properties": {
+        "declaration_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+        },
+        "declared_phase": {
+          "const": "pre_outcome"
+        },
+        "config_locator": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "config_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "normative_source",
+        "manifest_authority",
+        "natural_language_prompt"
+      ],
+      "properties": {
+        "normative_source": {
+          "const": "run_bound_manifest"
+        },
+        "manifest_authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authority_id",
+            "policy_authority_id",
+            "producer_id",
+            "policy_basis",
+            "target_interface_id",
+            "interface_version",
+            "policy_revision",
+            "chronology_basis",
+            "log_provenance_basis",
+            "hash_scope",
+            "adversarial_producer_resistance"
+          ],
+          "properties": {
+            "authority_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+            },
+            "policy_authority_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+            },
+            "producer_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+            },
+            "policy_basis": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "locator",
+                "sha256"
+              ],
+              "properties": {
+                "locator": {
+                  "type": "string",
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            },
+            "target_interface_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+            },
+            "interface_version": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+            },
+            "policy_revision": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+            },
+            "chronology_basis": {
+              "const": "trusted_manifest_authority"
+            },
+            "log_provenance_basis": {
+              "const": "trusted_producer"
+            },
+            "hash_scope": {
+              "const": "byte_binding_and_replay_only"
+            },
+            "adversarial_producer_resistance": {
+              "const": false
+            }
+          }
+        },
+        "natural_language_prompt": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "role",
+            "locator",
+            "sha256",
+            "can_activate",
+            "can_override_manifest"
+          ],
+          "properties": {
+            "role": {
+              "const": "provenance_only"
+            },
+            "locator": {
+              "type": "string",
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "can_activate": {
+              "const": false
+            },
+            "can_override_manifest": {
+              "const": false
+            }
+          }
+        }
+      }
+    },
+    "selection": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "source_field",
+            "type",
+            "namespace"
+          ],
+          "properties": {
+            "mode": {
+              "const": "hard"
+            },
+            "source_field": {
+              "type": "string",
+              "pattern": "^[A-Za-z_][A-Za-z0-9_.-]*$"
+            },
+            "type": {
+              "enum": [
+                "corpus_key",
+                "corpus_uri",
+                "composite_corpus_key",
+                "corpus_key_set"
+              ]
+            },
+            "namespace": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "identity_witness",
+            "type",
+            "namespace"
+          ],
+          "properties": {
+            "mode": {
+              "const": "hard"
+            },
+            "identity_witness": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "witness_version",
+                "source_field",
+                "artifact_locator",
+                "artifact_sha256",
+                "decoding",
+                "record_binding",
+                "authentication_basis"
+              ],
+              "properties": {
+                "witness_version": {
+                  "const": "rop-identity-witness/v1"
+                },
+                "source_field": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z_][A-Za-z0-9_.-]*$"
+                },
+                "artifact_locator": {
+                  "type": "string",
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+                },
+                "artifact_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "decoding": {
+                  "const": "bound_exact_inverse_map"
+                },
+                "record_binding": {
+                  "const": "sha256_canonical_json"
+                },
+                "authentication_basis": {
+                  "const": "trusted_producer_record_binding"
+                }
+              }
+            },
+            "type": {
+              "enum": [
+                "corpus_key",
+                "corpus_uri",
+                "composite_corpus_key",
+                "corpus_key_set"
+              ]
+            },
+            "namespace": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "soft",
+                "open"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "population": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "population_version",
+        "declared_phase",
+        "sealed_before",
+        "artifact_locator",
+        "artifact_sha256",
+        "record_id_field",
+        "expected_count"
+      ],
+      "properties": {
+        "population_version": {
+          "const": "rop-population/v1"
+        },
+        "declared_phase": {
+          "const": "pre_outcome"
+        },
+        "sealed_before": {
+          "const": "returned_ids"
+        },
+        "artifact_locator": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "artifact_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "record_id_field": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]*$"
+        },
+        "expected_count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "resolver": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "artifact_locator",
+        "artifact_sha256",
+        "returns"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+        },
+        "artifact_locator": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "artifact_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "returns": {
+          "enum": [
+            "alias_set",
+            "chunk_set",
+            "alias_or_chunk_set"
+          ]
+        }
+      }
+    },
+    "returned_set": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "component",
+        "revision",
+        "implementation_locator",
+        "implementation_sha256",
+        "id_field",
+        "cutoff"
+      ],
+      "properties": {
+        "component": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}$"
+        },
+        "implementation_locator": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "implementation_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "id_field": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]*$"
+        },
+        "cutoff": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "quantifier",
+        "over"
+      ],
+      "properties": {
+        "quantifier": {
+          "enum": [
+            "any",
+            "all"
+          ]
+        },
+        "over": {
+          "const": "resolver_returned_ids"
+        }
+      }
+    },
+    "verdict_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_verdicts",
+        "declaration_invalid",
+        "soft_or_open",
+        "selected_key_invalid",
+        "selected_key_unresolvable",
+        "returned_id_log_missing_or_malformed",
+        "retention_satisfied",
+        "retention_violated",
+        "ledger_policy",
+        "metric_denominator"
+      ],
+      "properties": {
+        "total_verdicts": {
+          "const": true
+        },
+        "declaration_invalid": {
+          "const": "DECLARATION_INVALID"
+        },
+        "soft_or_open": {
+          "const": "NOT_APPLICABLE"
+        },
+        "selected_key_invalid": {
+          "const": "SELECTOR_ERROR"
+        },
+        "selected_key_unresolvable": {
+          "const": "RESOLUTION_ERROR"
+        },
+        "returned_id_log_missing_or_malformed": {
+          "const": "UNVERIFIABLE"
+        },
+        "retention_satisfied": {
+          "const": "PASS"
+        },
+        "retention_violated": {
+          "const": "FAIL"
+        },
+        "ledger_policy": {
+          "const": "retain_every_record"
+        },
+        "metric_denominator": {
+          "const": "hard_resolvable_verifiable_only"
+        }
+      }
+    },
+    "run_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_version",
+        "invalid_declaration_or_population",
+        "expected_hard_record_failed",
+        "expected_hard_record_missing_or_unverifiable",
+        "all_expected_hard_records_passed",
+        "soft_or_open",
+        "status_histogram",
+        "eligible_expected_coverage",
+        "diagnostic_pass_fraction",
+        "diagnostic_is_conformance_verdict"
+      ],
+      "properties": {
+        "profile_version": {
+          "const": "rop-run-profile/v1"
+        },
+        "invalid_declaration_or_population": {
+          "const": "RUN_INVALID"
+        },
+        "expected_hard_record_failed": {
+          "const": "RUN_FAIL"
+        },
+        "expected_hard_record_missing_or_unverifiable": {
+          "const": "RUN_UNVERIFIABLE"
+        },
+        "all_expected_hard_records_passed": {
+          "const": "RUN_PASS"
+        },
+        "soft_or_open": {
+          "const": "NOT_APPLICABLE"
+        },
+        "status_histogram": {
+          "const": "always"
+        },
+        "eligible_expected_coverage": {
+          "const": "eligible_over_expected"
+        },
+        "diagnostic_pass_fraction": {
+          "const": "PASS/(PASS+FAIL)"
+        },
+        "diagnostic_is_conformance_verdict": {
+          "const": false
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "selection"
+        ],
+        "properties": {
+          "selection": {
+            "required": [
+              "mode"
+            ],
+            "properties": {
+              "mode": {
+                "const": "hard"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "resolver",
+          "returned_set",
+          "retention",
+          "population"
+        ]
+      },
+      "else": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "resolver"
+              ]
+            },
+            {
+              "required": [
+                "returned_set"
+              ]
+            },
+            {
+              "required": [
+                "retention"
+              ]
+            },
+            {
+              "required": [
+                "population"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "retention"
+        ],
+        "properties": {
+          "retention": {
+            "required": [
+              "quantifier"
+            ],
+            "properties": {
+              "quantifier": {
+                "const": "all"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "resolver": {
+            "required": [
+              "returns"
+            ],
+            "properties": {
+              "returns": {
+                "enum": [
+                  "chunk_set",
+                  "alias_or_chunk_set"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

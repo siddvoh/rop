@@ -1,0 +1,39 @@
+{
+  "archive": {
+    "bytes": 3909370,
+    "member_count": 5,
+    "sha256": "470dae7dea93cb59bb5badf1568264db6493b3c2780a1d544aebddd7ff99984d"
+  },
+  "executed_identity": {
+    "configuration": {
+      "global_seed": 12345,
+      "max_output_tokens": 4096,
+      "presence_penalty": 1.5,
+      "reasoning": true,
+      "temperature": 0.6,
+      "top_k": 20,
+      "top_p": 0.95
+    },
+    "controller_sha256": "694af8c22ddf236e7d73c06d705dd567eddaa281d078847bd01cb87125b0fbbe",
+    "executed_config_sha256": "fa25d97c4c2cfb1e51e66074188032152f21cd6427257e8a05241b7300e3951f",
+    "generation_identity_sha256": "61dc9e260f5052989bcfadd0d80751b2349f406eaa1ef80b497118e7101e3cfb",
+    "item_count": 335,
+    "model": "Qwen/Qwen3-32B-AWQ",
+    "model_revision": "0499c3ac83fdef8810b907a23894ba91e95eddd8",
+    "payload_sha256": "dd7740bea740466e6785ecf7b0b8609064b4c0d1bfdff0f233299c57485d2584",
+    "retrieval_identity_sha256": "710e4007dc33f3f12872aef2d0688809adecd84a20cde0ab25b117f63e538988"
+  },
+  "outputs": {
+    "items.jsonl": {
+      "bytes": 1076456,
+      "record_count": 335,
+      "sha256": "d9a96cd8730db8877ef6cec3c2362b0f993660a8cd2897e89ef3fa8edf30b6ef"
+    },
+    "summary.json": {
+      "bytes": 16770,
+      "sha256": "8451f4a649c036bad3fb46225018e64b987c77d61f843dcfb7a6544c4d797bd4"
+    }
+  },
+  "schema_version": 2,
+  "status": "verified"
+}

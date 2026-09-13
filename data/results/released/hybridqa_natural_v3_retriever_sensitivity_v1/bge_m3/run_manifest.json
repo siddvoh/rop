@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "experiment_id": "hybridqa_natural_v3",
+  "run_id": "hybridqa_natural_v3_retriever_sensitivity_v1",
+  "retriever": "bge_m3",
+  "record_count": 2400,
+  "cohort_file_sha256": "b54ee430f0f9b28e813b254e712edac734173bc215d239ac110bbdb941b0c7b6",
+  "bridge_details_sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5",
+  "bm25_db_sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+  "bm25_manifest_sha256": "86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283",
+  "query_records_sha256": "c93ad05829f2d848c5305b08914d9f9df5f9e7a4f7e50b10a888fc8f8f6cd2df",
+  "passage_links_sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303",
+  "source_archive_sha256": "15f2d8b07ca77c115977204076a7fd3b9a95ae0d2fa256e5327aa31021cdbfb6",
+  "result_set_sha256": "fe5b6b444c6720079bf99de73c8365c6cd50f331a26e13b4684700af5edd07d3"
+}

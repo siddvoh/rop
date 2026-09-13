@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "independently_verified_and_promoted",
+  "source_archive_sha256": "15f2d8b07ca77c115977204076a7fd3b9a95ae0d2fa256e5327aa31021cdbfb6",
+  "source_archive_bytes": 17337951,
+  "source_final_report_sha256": "44f5fca85758b5460c8933008f0272ab71633f81b9dbc86d0950806ba01d23ec",
+  "source_aggregate_summary_sha256": "631a61cd57097e1ec284fe626938848d4bd2cf3d3318ddfd819abb0b7fd0f860",
+  "source_verification_sha256": "a8ba511422efdd5870c1731b79422a807fa0bdb9199a362452b6ef824c38abd4",
+  "source_frozen_config_sha256": "dd9e942ae411c60e916ac26d17e5f2357a4b270345d6524da91f2883779ba0a7",
+  "query_metadata": {
+    "cohort_sha256": "b54ee430f0f9b28e813b254e712edac734173bc215d239ac110bbdb941b0c7b6",
+    "bridge_details_sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5",
+    "cohort_size": 600,
+    "models": [
+      "claude",
+      "openai",
+      "gemini"
+    ],
+    "query_record_count": 2400,
+    "callable_query_count": 2394,
+    "upstream_invalid_by_model": {
+      "openai": 6
+    }
+  },
+  "prepare_manifest": {
+    "schema_version": 1,
+    "status": "prepared",
+    "cohort_sha256": "b54ee430f0f9b28e813b254e712edac734173bc215d239ac110bbdb941b0c7b6",
+    "bridge_details_sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5",
+    "cohort_size": 600,
+    "models": [
+      "claude",
+      "openai",
+      "gemini"
+    ],
+    "query_record_count": 2400,
+    "callable_query_count": 2394,
+    "upstream_invalid_by_model": {
+      "openai": 6
+    },
+    "bm25_db_sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+    "bm25_manifest_sha256": "86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283",
+    "bm25_source_inventory_sha256": "f29607c884b1a4b85325b0cac4995f3dc8116f1ab7744f17db18fb0215c354dd",
+    "document_count": 286270,
+    "queries_sha256": "c93ad05829f2d848c5305b08914d9f9df5f9e7a4f7e50b10a888fc8f8f6cd2df",
+    "collection_sha256": "00ec63c9867b86838422b67d1f588155648f06c5a783445cd267514e723f48db",
+    "links_sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+  },
+  "models": {
+    "bge_m3": {
+      "model_name": "BAAI/bge-m3",
+      "model_revision": "5617a9f61b028005a4858fdac845db406aefb181"
+    },
+    "colbert_v2": {
+      "model_name": "colbert-ir/colbertv2.0",
+      "model_revision": "c1e84128e85ef755c096a95bdb06b47793b13acf"
+    },
+    "bge_reranker_v2_m3": {
+      "model_name": "BAAI/bge-reranker-v2-m3",
+      "model_revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+    }
+  },
+  "environment": {
+    "python": "3.12.13",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "memory_gib": 79.250732421875,
+    "cpu_count": 12
+  },
+  "api_calls": 0
+}

@@ -1,0 +1,95 @@
+version: 1
+experiment_id: hybridqa_natural_v3
+status: public_scientific_projection
+
+source_execution:
+  executed_config_sha256: a0ec556959f830e5e789c1b03204609f15889614881f7ef60ad24bcd10beb9b1
+  note: request records retain the executed configuration and task hashes
+
+dataset:
+  candidates: data/released/hybridqa_natural_candidates/train_strict_candidates.json
+  confirmatory_cohort: data/released/hybridqa_natural_v3/confirmatory_cohort.json
+  confirmatory_size: 600
+  max_questions_per_table: 1
+  selection_salt: ccr-hybridqa-natural-v1-confirmatory
+
+models: [claude, openai, gemini]
+
+retrievers:
+  - bm25
+  - bge_m3
+  - colbert_v2
+  - hybrid_rrf
+  - hybrid_rrf_bge_reranker_v2_m3
+
+answer_conditions:
+  hosted_all_models:
+    - question_only
+    - predicted_fact
+    - query_rewrite
+  gemini_deletion_cohort_provenance:
+    - no_kb
+    - oracle_passage
+
+retrieval:
+  corpus: all_linked_wikipedia_passages
+  primary_k: 5
+  report_k: [1, 5, 20]
+  bm25:
+    implementation: sqlite_fts5
+    index_version: hybridqa-sqlite-fts5-v1
+    document_tokenizer: unicode61
+    query_token_pattern: "[a-z0-9]+"
+    minimum_query_token_length: 2
+    deduplicate_query_tokens: true
+    query_operator: OR
+    ranking: bm25
+    tie_break: ascending_fts_rowid
+    retrieve_k: 20
+
+bridge_prediction:
+  prompt_version: hybridqa_bridge_selection_v1
+  implementation: code/src/ccr/retrieval/hybridqa_bridge.py
+  implementation_sha256: 5e0f0fa578a741e29e8f91dd5f683ba6ba1afa96f8f3beaf230ec0729e4c879b
+  model_input: [question, full_table_title_headers_cells_and_explicit_links]
+  output_fields: [selected_link, retrieval_fact]
+  primary_predicted_query: deterministic_human_readable_label_of_selected_link
+  diagnostic_predicted_query: model_generated_retrieval_fact
+  max_output_tokens: 4096
+  table_truncation: none
+
+query_rewrite:
+  prompt_version: hybridqa-query-rewrite-v1
+  implementation: code/src/ccr/retrieval/hybridqa_query_rewrite.py
+  implementation_sha256: d7dda8a26ad434a73ae676ae9fa602ac0a2db5f3a97b916c634b5af2edd8fe9a
+  model_input: [question, full_table_title_headers_cells_and_explicit_links]
+  output_field: search_query
+  table_truncation: none
+  max_output_tokens: 4096
+  invalid_query_policy: unissued_answer_cell
+
+answering:
+  prompt_version: hybridqa-answer-v1
+  implementation: code/src/ccr/runtime/hybridqa_answers.py
+  public_implementation_sha256: ca16bb6b73d5d96d15f5ca2da6839f4e8ce647c0a6b8fbfd3ee854fbc36679c6
+  executed_implementation_sha256: a3bc57578fd5beee30778abd5024165a686f45c835b31ec4fba2010f4cb20e9a
+  scorer: code/src/ccr/evaluation/hybridqa.py
+  scorer_sha256: 9943455e75306c5c302b061c8a00eded0bac1830faa01f23a4e2ddf7ec552a00
+  evidence_top_k: 5
+  passage_char_limit: null
+  evidence_order: ascending_retrieval_rank
+  full_table_visible: true
+  gold_answer_visible: false
+  output_field: answer
+  invalid_output_policy: count_as_zero
+
+generation:
+  reasoning_effort: medium
+  temperature: null
+  max_output_tokens: 4096
+  strict_json: true
+
+reported_outcomes:
+  - returned_object_membership
+  - normalized_exact_match
+  - token_f1

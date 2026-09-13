@@ -1,0 +1,28 @@
+{
+  "run_id": "hybridqa_natural_v3_query_rewrite_confirmatory",
+  "condition": "query_rewrite_v1",
+  "item_count": 600,
+  "models": {
+    "claude": {
+      "records": 600,
+      "succeeded": 600,
+      "valid_json": 600,
+      "recall_at_5": 0.6666666666666666,
+      "cost_usd": 8.786015
+    },
+    "openai": {
+      "records": 600,
+      "succeeded": 600,
+      "valid_json": 598,
+      "recall_at_5": 0.74,
+      "cost_usd": 10.144991
+    },
+    "gemini": {
+      "records": 600,
+      "succeeded": 600,
+      "valid_json": 600,
+      "recall_at_5": 0.645,
+      "cost_usd": 0.0
+    }
+  }
+}

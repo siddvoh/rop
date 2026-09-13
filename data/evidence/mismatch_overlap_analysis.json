@@ -1,0 +1,348 @@
+{
+  "api_calls": 0,
+  "definition": {
+    "H": "canonical dataset-traced-object PID occurs in the same canonicalized recorded top five",
+    "P": "canonical selected-object PID occurs in the canonicalized recorded visible-label top five",
+    "canonical_object_identity": "zero-based passage PID in the exact frozen links.jsonl resolver; its one-to-one link map makes exact link membership equivalent",
+    "cutoff": 5,
+    "question_overlap_unit": "one question_id, with contributing hosted-model families deduplicated",
+    "record_unit": "one frozen (question_id, model) record",
+    "scope": "retrospective deterministic replay of frozen rows; no new reader call and no claim that pooled model-question records are independent",
+    "subset": "valid selections whose selected and dataset-traced IDs both resolve to distinct passage PIDs under the frozen resolver"
+  },
+  "inputs": {
+    "container_policy": "bind exact scientific member bytes, not the outer ZIP",
+    "members": {
+      "data/results/released/hybridqa_natural_v2/bridge_confirmatory/details.jsonl": {
+        "bytes": 4991925,
+        "records": 1800,
+        "sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/hybrid_rrf_bge_reranker_v2_m3/details.jsonl": {
+        "bytes": 6894412,
+        "records": 2400,
+        "sha256": "0550dc6690e3e44191474ae489905565b0081e887fd5836ea76d01edd9969a81"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/links.jsonl": {
+        "bytes": 15250846,
+        "records": 286270,
+        "sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+      }
+    }
+  },
+  "network_used": false,
+  "schema_version": 1,
+  "stacks": {
+    "visible_label_bm25": {
+      "per_model": {
+        "claude": {
+          "display_name": "Claude",
+          "p_x_h_at_5": {
+            "records": 143,
+            "selected_id_not_preserved_traced_passage_hit": 2,
+            "selected_id_not_preserved_traced_passage_miss": 38,
+            "selected_id_preserved_traced_passage_hit": 15,
+            "selected_id_preserved_traced_passage_miss": 88
+          },
+          "preservation_given_traced_hit": {
+            "denominator": 17,
+            "numerator": 15,
+            "rate": 0.8823529411764706
+          },
+          "selected_trace_disagreement": {
+            "count": 90,
+            "definition": "P differs from H on the same frozen record",
+            "denominator": 143,
+            "rate": 0.6293706293706294
+          }
+        },
+        "gemini": {
+          "display_name": "Gemini",
+          "p_x_h_at_5": {
+            "records": 101,
+            "selected_id_not_preserved_traced_passage_hit": 1,
+            "selected_id_not_preserved_traced_passage_miss": 18,
+            "selected_id_preserved_traced_passage_hit": 14,
+            "selected_id_preserved_traced_passage_miss": 68
+          },
+          "preservation_given_traced_hit": {
+            "denominator": 15,
+            "numerator": 14,
+            "rate": 0.9333333333333333
+          },
+          "selected_trace_disagreement": {
+            "count": 69,
+            "definition": "P differs from H on the same frozen record",
+            "denominator": 101,
+            "rate": 0.6831683168316832
+          }
+        },
+        "openai": {
+          "display_name": "GPT",
+          "p_x_h_at_5": {
+            "records": 85,
+            "selected_id_not_preserved_traced_passage_hit": 0,
+            "selected_id_not_preserved_traced_passage_miss": 18,
+            "selected_id_preserved_traced_passage_hit": 13,
+            "selected_id_preserved_traced_passage_miss": 54
+          },
+          "preservation_given_traced_hit": {
+            "denominator": 13,
+            "numerator": 13,
+            "rate": 1.0
+          },
+          "selected_trace_disagreement": {
+            "count": 54,
+            "definition": "P differs from H on the same frozen record",
+            "denominator": 85,
+            "rate": 0.6352941176470588
+          }
+        }
+      },
+      "pooled_model_question_records": {
+        "independence_warning": "descriptive only: the same question may contribute one record for each hosted-model family",
+        "p_x_h_at_5": {
+          "records": 329,
+          "selected_id_not_preserved_traced_passage_hit": 3,
+          "selected_id_not_preserved_traced_passage_miss": 74,
+          "selected_id_preserved_traced_passage_hit": 42,
+          "selected_id_preserved_traced_passage_miss": 210
+        },
+        "preservation_given_traced_hit": {
+          "denominator": 45,
+          "numerator": 42,
+          "rate": 0.9333333333333333
+        },
+        "selected_trace_disagreement": {
+          "count": 213,
+          "definition": "P differs from H on the same frozen record",
+          "denominator": 329,
+          "rate": 0.6474164133738601
+        }
+      },
+      "preserved_and_traced_hit_question_overlap": {
+        "all_three_model_families": 11,
+        "model_family_multiplicity": {
+          "exactly_1": 3,
+          "exactly_2": 3,
+          "exactly_3": 11
+        },
+        "model_question_records": 42,
+        "pairwise_question_overlap": {
+          "claude_and_gemini": 13,
+          "claude_and_openai": 11,
+          "openai_and_gemini": 12
+        },
+        "question_id_set_sha256": "a7b42aec6f590db54ebedb41e9655858740bfca398efcd03ec75a37ee961a4e6",
+        "question_model_map_sha256": "b0458c6b77ed874662b4b06c48b2242cb8e132f3bb4aa70733b6eed229cb9859",
+        "question_share_appearing_in_multiple_model_families": {
+          "denominator": 17,
+          "numerator": 14,
+          "rate": 0.8235294117647058
+        },
+        "questions_appearing_in_multiple_model_families": 14,
+        "record_share_from_questions_appearing_in_multiple_model_families": {
+          "denominator": 42,
+          "numerator": 39,
+          "rate": 0.9285714285714286
+        },
+        "records_from_questions_appearing_in_multiple_model_families": 39,
+        "unique_question_ids": 17
+      },
+      "question_collapsed_preservation_given_traced_hit": {
+        "all_contributing_traced_hit_rows_preserved": {
+          "denominator": 19,
+          "numerator": 17,
+          "rate": 0.8947368421052632
+        },
+        "mixed_preservation_across_contributing_model_families": 0,
+        "no_contributing_traced_hit_rows_preserved": 2
+      },
+      "traced_hit_question_overlap": {
+        "all_three_model_families": 11,
+        "model_family_multiplicity": {
+          "exactly_1": 4,
+          "exactly_2": 4,
+          "exactly_3": 11
+        },
+        "model_question_records": 45,
+        "pairwise_question_overlap": {
+          "claude_and_gemini": 14,
+          "claude_and_openai": 11,
+          "openai_and_gemini": 12
+        },
+        "question_id_set_sha256": "da1f93ebc22e340719168aa4664f1108b1e6e123f79bfa6aa8203d0cf4a6ff7e",
+        "question_model_map_sha256": "5814972b357c1beb5d697ed6c843722edaaf813253ba0ed13392a6adf5f2d33b",
+        "question_share_appearing_in_multiple_model_families": {
+          "denominator": 19,
+          "numerator": 15,
+          "rate": 0.7894736842105263
+        },
+        "questions_appearing_in_multiple_model_families": 15,
+        "record_share_from_questions_appearing_in_multiple_model_families": {
+          "denominator": 45,
+          "numerator": 41,
+          "rate": 0.9111111111111111
+        },
+        "records_from_questions_appearing_in_multiple_model_families": 41,
+        "unique_question_ids": 19
+      }
+    },
+    "visible_label_hybrid_reranker": {
+      "per_model": {
+        "claude": {
+          "display_name": "Claude",
+          "p_x_h_at_5": {
+            "records": 143,
+            "selected_id_not_preserved_traced_passage_hit": 0,
+            "selected_id_not_preserved_traced_passage_miss": 2,
+            "selected_id_preserved_traced_passage_hit": 14,
+            "selected_id_preserved_traced_passage_miss": 127
+          },
+          "preservation_given_traced_hit": {
+            "denominator": 14,
+            "numerator": 14,
+            "rate": 1.0
+          },
+          "selected_trace_disagreement": {
+            "count": 127,
+            "definition": "P differs from H on the same frozen record",
+            "denominator": 143,
+            "rate": 0.8881118881118881
+          }
+        },
+        "gemini": {
+          "display_name": "Gemini",
+          "p_x_h_at_5": {
+            "records": 101,
+            "selected_id_not_preserved_traced_passage_hit": 0,
+            "selected_id_not_preserved_traced_passage_miss": 1,
+            "selected_id_preserved_traced_passage_hit": 17,
+            "selected_id_preserved_traced_passage_miss": 83
+          },
+          "preservation_given_traced_hit": {
+            "denominator": 17,
+            "numerator": 17,
+            "rate": 1.0
+          },
+          "selected_trace_disagreement": {
+            "count": 83,
+            "definition": "P differs from H on the same frozen record",
+            "denominator": 101,
+            "rate": 0.8217821782178217
+          }
+        },
+        "openai": {
+          "display_name": "GPT",
+          "p_x_h_at_5": {
+            "records": 85,
+            "selected_id_not_preserved_traced_passage_hit": 0,
+            "selected_id_not_preserved_traced_passage_miss": 0,
+            "selected_id_preserved_traced_passage_hit": 17,
+            "selected_id_preserved_traced_passage_miss": 68
+          },
+          "preservation_given_traced_hit": {
+            "denominator": 17,
+            "numerator": 17,
+            "rate": 1.0
+          },
+          "selected_trace_disagreement": {
+            "count": 68,
+            "definition": "P differs from H on the same frozen record",
+            "denominator": 85,
+            "rate": 0.8
+          }
+        }
+      },
+      "pooled_model_question_records": {
+        "independence_warning": "descriptive only: the same question may contribute one record for each hosted-model family",
+        "p_x_h_at_5": {
+          "records": 329,
+          "selected_id_not_preserved_traced_passage_hit": 0,
+          "selected_id_not_preserved_traced_passage_miss": 3,
+          "selected_id_preserved_traced_passage_hit": 48,
+          "selected_id_preserved_traced_passage_miss": 278
+        },
+        "preservation_given_traced_hit": {
+          "denominator": 48,
+          "numerator": 48,
+          "rate": 1.0
+        },
+        "selected_trace_disagreement": {
+          "count": 278,
+          "definition": "P differs from H on the same frozen record",
+          "denominator": 329,
+          "rate": 0.8449848024316109
+        }
+      },
+      "preserved_and_traced_hit_question_overlap": {
+        "all_three_model_families": 11,
+        "model_family_multiplicity": {
+          "exactly_1": 7,
+          "exactly_2": 4,
+          "exactly_3": 11
+        },
+        "model_question_records": 48,
+        "pairwise_question_overlap": {
+          "claude_and_gemini": 12,
+          "claude_and_openai": 11,
+          "openai_and_gemini": 14
+        },
+        "question_id_set_sha256": "ac440519d88a853d3ea4d8d7afaba8bb098c880428189f5f740ac5e1185f1173",
+        "question_model_map_sha256": "fc71d9697af49d7327ad3e173724fa2f2b1bb21c4ceff1a1b1282940ab5249d1",
+        "question_share_appearing_in_multiple_model_families": {
+          "denominator": 22,
+          "numerator": 15,
+          "rate": 0.6818181818181818
+        },
+        "questions_appearing_in_multiple_model_families": 15,
+        "record_share_from_questions_appearing_in_multiple_model_families": {
+          "denominator": 48,
+          "numerator": 41,
+          "rate": 0.8541666666666666
+        },
+        "records_from_questions_appearing_in_multiple_model_families": 41,
+        "unique_question_ids": 22
+      },
+      "question_collapsed_preservation_given_traced_hit": {
+        "all_contributing_traced_hit_rows_preserved": {
+          "denominator": 22,
+          "numerator": 22,
+          "rate": 1.0
+        },
+        "mixed_preservation_across_contributing_model_families": 0,
+        "no_contributing_traced_hit_rows_preserved": 0
+      },
+      "traced_hit_question_overlap": {
+        "all_three_model_families": 11,
+        "model_family_multiplicity": {
+          "exactly_1": 7,
+          "exactly_2": 4,
+          "exactly_3": 11
+        },
+        "model_question_records": 48,
+        "pairwise_question_overlap": {
+          "claude_and_gemini": 12,
+          "claude_and_openai": 11,
+          "openai_and_gemini": 14
+        },
+        "question_id_set_sha256": "ac440519d88a853d3ea4d8d7afaba8bb098c880428189f5f740ac5e1185f1173",
+        "question_model_map_sha256": "fc71d9697af49d7327ad3e173724fa2f2b1bb21c4ceff1a1b1282940ab5249d1",
+        "question_share_appearing_in_multiple_model_families": {
+          "denominator": 22,
+          "numerator": 15,
+          "rate": 0.6818181818181818
+        },
+        "questions_appearing_in_multiple_model_families": 15,
+        "record_share_from_questions_appearing_in_multiple_model_families": {
+          "denominator": 48,
+          "numerator": 41,
+          "rate": 0.8541666666666666
+        },
+        "records_from_questions_appearing_in_multiple_model_families": 41,
+        "unique_question_ids": 22
+      }
+    }
+  },
+  "status": "verified_no_call_mismatch_question_overlap_replay"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "independently_verified",
+  "retriever": "hybrid_rrf",
+  "record_count": 2400,
+  "upstream_invalid_count": 6,
+  "details_sha256": "916fc87fb3865dc4a13e13997286028b0bc71a6a456f70648d86b683005af1d7",
+  "summary_sha256": "00c55a96566d517237c80f13f731e8bf2da5e699245064975e34a155d8753df6",
+  "result_set_sha256": "28f7e746eb6bc0d0eaf66f5da7afb97999938b3cf25e0c9fb1f8ad4074779399",
+  "checks": [
+    "source_archive_checksum",
+    "source_crc",
+    "frozen_query_identity",
+    "passage_pid_link_binding",
+    "ranking_shape_and_order",
+    "paired_metric_recomputation",
+    "holm_family_recomputation"
+  ]
+}

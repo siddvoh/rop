@@ -1,0 +1,18 @@
+{
+  "status": "independently_verified",
+  "retriever": "colbert_v2",
+  "record_count": 2400,
+  "upstream_invalid_count": 6,
+  "details_sha256": "6411ec10ab55373e2c745c652678f26529045fc33ea9dd5b5ca2205213bd7bc2",
+  "summary_sha256": "f05c9b493b417ba10f88dd18e30f8527b07ead0d6b15b9e2b3606532fb1765e4",
+  "result_set_sha256": "0d23e942eb654a7338e24a9ab832027ae902dd1879c81dde65d02f547f84d6be",
+  "checks": [
+    "source_archive_checksum",
+    "source_crc",
+    "frozen_query_identity",
+    "passage_pid_link_binding",
+    "ranking_shape_and_order",
+    "paired_metric_recomputation",
+    "holm_family_recomputation"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "archive": {
+    "bytes": 23477757,
+    "filename": "ccr_primary_hosted_call_archive.zip",
+    "sha256": "f787a437efd7c61852f35c7fc89f79e4f31fb17c96fd56fd962ae162156a797d",
+    "trusted_expected_sha256": "f787a437efd7c61852f35c7fc89f79e4f31fb17c96fd56fd962ae162156a797d"
+  },
+  "archive_manifest_sha256": "e5fddf485d178a61bd1d4b2db8e7f487257f084cf80ae6ac08af4f85c5f39893",
+  "coverage": {
+    "compact_rows_bound_one_to_one": 10200,
+    "issued_by_experiment": {
+      "answer": 6592,
+      "bridge": 1800,
+      "rewrite": 1800
+    },
+    "issued_calls": 10192,
+    "issued_model_counts": {
+      "answer/claude": 1800,
+      "answer/gemini": 3000,
+      "answer/openai": 1792,
+      "bridge/claude": 600,
+      "bridge/gemini": 600,
+      "bridge/openai": 600,
+      "rewrite/claude": 600,
+      "rewrite/gemini": 600,
+      "rewrite/openai": 600
+    },
+    "logical_task_rows": 10192,
+    "max_attempt": 2,
+    "planned_answer_cells": 6600,
+    "response_bearing_terminal_rows": 10192,
+    "retried_logical_tasks": 2,
+    "retryable_failed_attempts": 2,
+    "terminal_attempt_distribution": {
+      "1": 10190,
+      "2": 2
+    },
+    "transport_attempts_started": 10194,
+    "unissued_answer_cells": 8,
+    "unissued_by_condition": {
+      "predicted_fact": 6,
+      "query_rewrite": 2
+    }
+  },
+  "network_used": false,
+  "paper_scope": {
+    "answer_conditions_by_model": {
+      "claude": [
+        "question_only",
+        "predicted_fact",
+        "query_rewrite"
+      ],
+      "gemini": [
+        "question_only",
+        "predicted_fact",
+        "query_rewrite",
+        "no_kb",
+        "oracle_passage"
+      ],
+      "openai": [
+        "question_only",
+        "predicted_fact",
+        "query_rewrite"
+      ]
+    }
+  },
+  "parse_validity": {
+    "answer/false": 20,
+    "answer/true": 6572,
+    "bridge/false": 6,
+    "bridge/true": 1794,
+    "rewrite/false": 2,
+    "rewrite/true": 1798
+  },
+  "privacy": {
+    "credentials_retained": 0,
+    "email_addresses_retained": 0,
+    "machine_local_paths_retained": 0,
+    "provider_transport_metadata_retained": 0,
+    "response_material": "strict-parser-visible text"
+  },
+  "schema_version": 1,
+  "status": "verified"
+}

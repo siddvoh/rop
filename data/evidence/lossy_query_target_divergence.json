@@ -1,0 +1,1433 @@
+{
+  "api_calls": 0,
+  "clock_used": false,
+  "credentials_used": false,
+  "definition": {
+    "H_at_k": "dataset-traced passage PID occurs in that same ranking",
+    "P_at_k": "selected-object PID occurs in the named recorded BM25 top-k ranking",
+    "population": "valid selector outputs whose selected and dataset-traced identifiers both resolve to distinct PIDs under the frozen passage resolver",
+    "query_scope": "four already-recorded body-only BM25 query forms; no ranking is rerun",
+    "record_unit": "one frozen (question_id, hosted_model) selector record"
+  },
+  "inputs": {
+    "code/configs/experiments/hybridqa_natural_v2.yaml": {
+      "bytes": 3437,
+      "records": 90,
+      "sha256": "378d0257f568dc6306c6455b528ed56ae76208e4af9b726bbadc4e51ddf358d0"
+    },
+    "code/configs/experiments/hybridqa_natural_v3.yaml": {
+      "bytes": 3054,
+      "records": 84,
+      "sha256": "42ea9f7975a9c34e43630b12255aec50bae5e13cbfab3499b6bfd0ece987bbd4"
+    },
+    "code/src/ccr/retrieval/bm25.py": {
+      "bytes": 8140,
+      "records": 202,
+      "sha256": "55dcd1da941803e6ef3a2e48e191913de44ad971814d01d8d54b98b84bf074d3"
+    },
+    "code/src/ccr/retrieval/hybridqa_bridge.py": {
+      "bytes": 2729,
+      "records": 55,
+      "sha256": "5e0f0fa578a741e29e8f91dd5f683ba6ba1afa96f8f3beaf230ec0729e4c879b"
+    },
+    "code/src/ccr/retrieval/hybridqa_query_rewrite.py": {
+      "bytes": 1448,
+      "records": 37,
+      "sha256": "d7dda8a26ad434a73ae676ae9fa602ac0a2db5f3a97b916c634b5af2edd8fe9a"
+    },
+    "data/results/released/hybridqa_natural_v2/bridge_confirmatory/details.jsonl": {
+      "bytes": 4991925,
+      "records": 1800,
+      "sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5"
+    },
+    "data/results/released/hybridqa_natural_v2/bridge_confirmatory/run_manifest.json": {
+      "bytes": 743,
+      "records": 11,
+      "sha256": "e34355963f3142f9d9ae2f3d162258d6b86cd757ffcea1a50b442eeb0f154a4c"
+    },
+    "data/results/released/hybridqa_natural_v3/answer_confirmatory/details.jsonl": {
+      "bytes": 11600206,
+      "records": 6600,
+      "sha256": "0e4877be9bb7983f407c632d0c8bc28cf73b4787f53cc330945db2b9d0cc4a72"
+    },
+    "data/results/released/hybridqa_natural_v3/query_rewrite_confirmatory/run_manifest.json": {
+      "bytes": 902,
+      "records": 12,
+      "sha256": "318a510df8a4dfa1be26dab877e902cdca39175f807e5a2cd3621a91f92426ad"
+    },
+    "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/links.jsonl": {
+      "bytes": 15250846,
+      "records": 286270,
+      "sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+    }
+  },
+  "licensed_conclusions": {
+    "direct_rewrite_result": "At k=5 under direct query rewrite, P and H disagree on 175/329 intent-to-treat model-question records (53.2%); the exact cells are P1H1=48, P1H0=140, P0H1=35, P0H0=106.",
+    "not_only_decoded_id_construction": "P and H remain different empirical events under the co-generated retrieval_fact, the selected-ID-independent direct rewrite, and the many-to-one original-question query; divergence is therefore not created solely by deterministic title decoding B(U).",
+    "original_question_many_to_one_result": "The original-question query is exactly shared by records with distinct selected objects for 40/160 question clusters (105/329 records); at k=5 its P/H disagreement is 106/329 (32.2%).",
+    "retrieval_fact_result": "At k=5 under model-generated retrieval_fact, P/H disagreement is 217/329 (66.0%), close to 213/329 (64.7%) under decoded titles."
+  },
+  "limitations": {
+    "dependence": "329 model-question records arise from 160 questions and pooled rows are descriptive",
+    "no_causal_answer_claim": true,
+    "no_cross_corpus_or_deployment_claim": true,
+    "query_rewrite_is_not_a_handoff_conformance_test": "direct rewrite bypasses selected_link, so it tests whether target divergence survives a U-independent query, not whether a downstream component violated an obligation to preserve U",
+    "question_only_is_not_a_handoff_conformance_test": "the original question likewise does not consume U and is only a lossy-query control",
+    "retrieval_fact_identity_orientation": "the retrieval_fact prompt asks for a human-readable name for the same selected entity; 291/329 C0 executed term queries equal the decoded-title terms",
+    "retrospective": true,
+    "same_corpus": "all results use the same frozen HybridQA passage corpus and body-only BM25 executor"
+  },
+  "model_calls": 0,
+  "network_used": false,
+  "population_verification": {
+    "all_returned_ids_resolve": true,
+    "canonical_object_distinct_records": 329,
+    "question_model_multiplicity": {
+      "exactly_1": 55,
+      "exactly_2": 41,
+      "exactly_3": 64
+    },
+    "raw_selected_traced_identifier_differences": 331,
+    "records_by_model": {
+      "claude": 143,
+      "gemini": 101,
+      "openai": 85
+    },
+    "returned_id_occurrences_resolved_through_20": 25834,
+    "row_level_target_and_cell_digest_sha256": "c5e869a4ec0538ec3e74e23e3fec7ae928beaa8e8d4bb9e89e3cb86e6789f7bf",
+    "unique_question_clusters": 160,
+    "unresolvable_selected_identifiers": 2
+  },
+  "query_forms": {
+    "decoded_selected_title_bm25": {
+      "cutoffs": {
+        "1": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 58,
+              "p0_h1": 2,
+              "p1_h0": 83,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 85,
+                "rate": 0.5944055944055944
+              },
+              "p_minus_h_percentage_points": 56.64335664335665,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 83,
+                "rate": 0.5804195804195804
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 2,
+                "rate": 0.013986013986013986
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 33,
+              "p0_h1": 1,
+              "p1_h0": 67,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 68,
+                "rate": 0.6732673267326733
+              },
+              "p_minus_h_percentage_points": 65.34653465346534,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 67,
+                "rate": 0.6633663366336634
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 1,
+                "rate": 0.009900990099009901
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 29,
+              "p0_h1": 2,
+              "p1_h0": 54,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 56,
+                "rate": 0.6588235294117647
+              },
+              "p_minus_h_percentage_points": 61.1764705882353,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 54,
+                "rate": 0.6352941176470588
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 2,
+                "rate": 0.023529411764705882
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 120,
+            "p0_h1": 5,
+            "p1_h0": 204,
+            "p1_h1": 0,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 209,
+              "rate": 0.6352583586626139
+            },
+            "p_minus_h_percentage_points": 60.48632218844985,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 204,
+              "rate": 0.6200607902735562
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 5,
+              "rate": 0.015197568389057751
+            }
+          }
+        },
+        "20": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 26,
+              "p0_h1": 0,
+              "p1_h0": 95,
+              "p1_h1": 22,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 95,
+                "rate": 0.6643356643356644
+              },
+              "p_minus_h_percentage_points": 66.43356643356644,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 117,
+                "rate": 0.8181818181818182
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 22,
+                "rate": 0.15384615384615385
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 13,
+              "p0_h1": 0,
+              "p1_h0": 69,
+              "p1_h1": 19,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 69,
+                "rate": 0.6831683168316832
+              },
+              "p_minus_h_percentage_points": 68.31683168316832,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 88,
+                "rate": 0.8712871287128713
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 19,
+                "rate": 0.18811881188118812
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 15,
+              "p0_h1": 0,
+              "p1_h0": 50,
+              "p1_h1": 20,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 50,
+                "rate": 0.5882352941176471
+              },
+              "p_minus_h_percentage_points": 58.8235294117647,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 70,
+                "rate": 0.8235294117647058
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 20,
+                "rate": 0.23529411764705882
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 54,
+            "p0_h1": 0,
+            "p1_h0": 214,
+            "p1_h1": 61,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 214,
+              "rate": 0.6504559270516718
+            },
+            "p_minus_h_percentage_points": 65.04559270516717,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 275,
+              "rate": 0.8358662613981763
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 61,
+              "rate": 0.18541033434650456
+            }
+          }
+        },
+        "5": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 38,
+              "p0_h1": 2,
+              "p1_h0": 88,
+              "p1_h1": 15,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 90,
+                "rate": 0.6293706293706294
+              },
+              "p_minus_h_percentage_points": 60.13986013986014,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 103,
+                "rate": 0.7202797202797203
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 17,
+                "rate": 0.11888111888111888
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 18,
+              "p0_h1": 1,
+              "p1_h0": 68,
+              "p1_h1": 14,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 69,
+                "rate": 0.6831683168316832
+              },
+              "p_minus_h_percentage_points": 66.33663366336634,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 82,
+                "rate": 0.8118811881188119
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 15,
+                "rate": 0.1485148514851485
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 18,
+              "p0_h1": 0,
+              "p1_h0": 54,
+              "p1_h1": 13,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 54,
+                "rate": 0.6352941176470588
+              },
+              "p_minus_h_percentage_points": 63.529411764705884,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 67,
+                "rate": 0.788235294117647
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 13,
+                "rate": 0.15294117647058825
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 74,
+            "p0_h1": 3,
+            "p1_h0": 210,
+            "p1_h1": 42,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 213,
+              "rate": 0.6474164133738601
+            },
+            "p_minus_h_percentage_points": 62.91793313069909,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 252,
+              "rate": 0.7659574468085106
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 45,
+              "rate": 0.13677811550151975
+            }
+          }
+        }
+      },
+      "query_semantics": {
+        "construction": "deterministic decoded visible title B(U)",
+        "role": "reference condition challenged as injective",
+        "selected_id_is_query_input": true
+      }
+    },
+    "direct_query_rewrite_bm25": {
+      "cutoffs": {
+        "1": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 74,
+              "p0_h1": 15,
+              "p1_h0": 54,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 69,
+                "rate": 0.4825174825174825
+              },
+              "p_minus_h_percentage_points": 27.272727272727273,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 54,
+                "rate": 0.3776223776223776
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 15,
+                "rate": 0.1048951048951049
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 51,
+              "p0_h1": 7,
+              "p1_h0": 43,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 50,
+                "rate": 0.49504950495049505
+              },
+              "p_minus_h_percentage_points": 35.64356435643565,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 43,
+                "rate": 0.42574257425742573
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 7,
+                "rate": 0.06930693069306931
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 33,
+              "p0_h1": 15,
+              "p1_h0": 37,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 52,
+                "rate": 0.611764705882353
+              },
+              "p_minus_h_percentage_points": 25.88235294117647,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 37,
+                "rate": 0.43529411764705883
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 15,
+                "rate": 0.17647058823529413
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 158,
+            "p0_h1": 37,
+            "p1_h0": 134,
+            "p1_h1": 0,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 171,
+              "rate": 0.5197568389057751
+            },
+            "p_minus_h_percentage_points": 29.48328267477204,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 134,
+              "rate": 0.4072948328267477
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 37,
+              "rate": 0.11246200607902736
+            }
+          }
+        },
+        "20": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 33,
+              "p0_h1": 18,
+              "p1_h0": 57,
+              "p1_h1": 35,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 75,
+                "rate": 0.5244755244755245
+              },
+              "p_minus_h_percentage_points": 27.272727272727273,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 92,
+                "rate": 0.6433566433566433
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 53,
+                "rate": 0.3706293706293706
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 19,
+              "p0_h1": 12,
+              "p1_h0": 54,
+              "p1_h1": 16,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 66,
+                "rate": 0.6534653465346535
+              },
+              "p_minus_h_percentage_points": 41.584158415841586,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 70,
+                "rate": 0.693069306930693
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 28,
+                "rate": 0.27722772277227725
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 15,
+              "p0_h1": 12,
+              "p1_h0": 28,
+              "p1_h1": 30,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 40,
+                "rate": 0.47058823529411764
+              },
+              "p_minus_h_percentage_points": 18.823529411764707,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 58,
+                "rate": 0.6823529411764706
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 42,
+                "rate": 0.49411764705882355
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 67,
+            "p0_h1": 42,
+            "p1_h0": 139,
+            "p1_h1": 81,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 181,
+              "rate": 0.5501519756838906
+            },
+            "p_minus_h_percentage_points": 29.48328267477204,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 220,
+              "rate": 0.668693009118541
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 123,
+              "rate": 0.3738601823708207
+            }
+          }
+        },
+        "5": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 53,
+              "p0_h1": 14,
+              "p1_h0": 55,
+              "p1_h1": 21,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 69,
+                "rate": 0.4825174825174825
+              },
+              "p_minus_h_percentage_points": 28.67132867132867,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 76,
+                "rate": 0.5314685314685315
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 35,
+                "rate": 0.24475524475524477
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 28,
+              "p0_h1": 10,
+              "p1_h0": 52,
+              "p1_h1": 11,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 62,
+                "rate": 0.6138613861386139
+              },
+              "p_minus_h_percentage_points": 41.584158415841586,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 63,
+                "rate": 0.6237623762376238
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 21,
+                "rate": 0.2079207920792079
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 25,
+              "p0_h1": 11,
+              "p1_h0": 33,
+              "p1_h1": 16,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 44,
+                "rate": 0.5176470588235295
+              },
+              "p_minus_h_percentage_points": 25.88235294117647,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 49,
+                "rate": 0.5764705882352941
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 27,
+                "rate": 0.3176470588235294
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 106,
+            "p0_h1": 35,
+            "p1_h0": 140,
+            "p1_h1": 48,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 175,
+              "rate": 0.5319148936170213
+            },
+            "p_minus_h_percentage_points": 31.914893617021278,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 188,
+              "rate": 0.5714285714285714
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 83,
+              "rate": 0.25227963525835867
+            }
+          }
+        }
+      },
+      "query_semantics": {
+        "complete_case_at_5": {
+          "p0_h0": 105,
+          "p0_h1": 35,
+          "p1_h0": 140,
+          "p1_h1": 48,
+          "p_h_disagreement": {
+            "denominator": 328,
+            "numerator": 175,
+            "rate": 0.5335365853658537
+          },
+          "p_minus_h_percentage_points": 32.01219512195122,
+          "records": 328,
+          "selected_object_preserved": {
+            "denominator": 328,
+            "numerator": 188,
+            "rate": 0.573170731707317
+          },
+          "traced_passage_delivered": {
+            "denominator": 328,
+            "numerator": 83,
+            "rate": 0.2530487804878049
+          }
+        },
+        "construction": "a separate model call receives only question and full rendered table and may name an entity, relation, or both; selected_link is absent from its implementation",
+        "intent_to_treat_status_counts": {
+          "succeeded": 328,
+          "upstream_invalid": 1
+        },
+        "selected_id_is_query_input": false
+      }
+    },
+    "model_generated_retrieval_fact_bm25": {
+      "cutoffs": {
+        "1": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 54,
+              "p0_h1": 3,
+              "p1_h0": 86,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 89,
+                "rate": 0.6223776223776224
+              },
+              "p_minus_h_percentage_points": 58.04195804195804,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 86,
+                "rate": 0.6013986013986014
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 3,
+                "rate": 0.02097902097902098
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 33,
+              "p0_h1": 1,
+              "p1_h0": 67,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 68,
+                "rate": 0.6732673267326733
+              },
+              "p_minus_h_percentage_points": 65.34653465346534,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 67,
+                "rate": 0.6633663366336634
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 1,
+                "rate": 0.009900990099009901
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 29,
+              "p0_h1": 2,
+              "p1_h0": 54,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 56,
+                "rate": 0.6588235294117647
+              },
+              "p_minus_h_percentage_points": 61.1764705882353,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 54,
+                "rate": 0.6352941176470588
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 2,
+                "rate": 0.023529411764705882
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 116,
+            "p0_h1": 6,
+            "p1_h0": 207,
+            "p1_h1": 0,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 213,
+              "rate": 0.6474164133738601
+            },
+            "p_minus_h_percentage_points": 61.09422492401216,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 207,
+              "rate": 0.6291793313069909
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 6,
+              "rate": 0.0182370820668693
+            }
+          }
+        },
+        "20": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 22,
+              "p0_h1": 0,
+              "p1_h0": 98,
+              "p1_h1": 23,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 98,
+                "rate": 0.6853146853146853
+              },
+              "p_minus_h_percentage_points": 68.53146853146853,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 121,
+                "rate": 0.8461538461538461
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 23,
+                "rate": 0.16083916083916083
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 13,
+              "p0_h1": 0,
+              "p1_h0": 69,
+              "p1_h1": 19,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 69,
+                "rate": 0.6831683168316832
+              },
+              "p_minus_h_percentage_points": 68.31683168316832,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 88,
+                "rate": 0.8712871287128713
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 19,
+                "rate": 0.18811881188118812
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 15,
+              "p0_h1": 0,
+              "p1_h0": 50,
+              "p1_h1": 20,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 50,
+                "rate": 0.5882352941176471
+              },
+              "p_minus_h_percentage_points": 58.8235294117647,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 70,
+                "rate": 0.8235294117647058
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 20,
+                "rate": 0.23529411764705882
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 50,
+            "p0_h1": 0,
+            "p1_h0": 217,
+            "p1_h1": 62,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 217,
+              "rate": 0.6595744680851063
+            },
+            "p_minus_h_percentage_points": 65.95744680851064,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 279,
+              "rate": 0.8480243161094225
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 62,
+              "rate": 0.1884498480243161
+            }
+          }
+        },
+        "5": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 33,
+              "p0_h1": 3,
+              "p1_h0": 91,
+              "p1_h1": 16,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 94,
+                "rate": 0.6573426573426573
+              },
+              "p_minus_h_percentage_points": 61.53846153846154,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 107,
+                "rate": 0.7482517482517482
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 19,
+                "rate": 0.13286713286713286
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 18,
+              "p0_h1": 1,
+              "p1_h0": 68,
+              "p1_h1": 14,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 69,
+                "rate": 0.6831683168316832
+              },
+              "p_minus_h_percentage_points": 66.33663366336634,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 82,
+                "rate": 0.8118811881188119
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 15,
+                "rate": 0.1485148514851485
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 18,
+              "p0_h1": 0,
+              "p1_h0": 54,
+              "p1_h1": 13,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 54,
+                "rate": 0.6352941176470588
+              },
+              "p_minus_h_percentage_points": 63.529411764705884,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 67,
+                "rate": 0.788235294117647
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 13,
+                "rate": 0.15294117647058825
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 69,
+            "p0_h1": 4,
+            "p1_h0": 213,
+            "p1_h1": 43,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 217,
+              "rate": 0.6595744680851063
+            },
+            "p_minus_h_percentage_points": 63.525835866261396,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 256,
+              "rate": 0.7781155015197568
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 47,
+              "rate": 0.14285714285714285
+            }
+          }
+        }
+      },
+      "query_semantics": {
+        "all_valid_record_form_audit": {
+          "claude": {
+            "executed_fact_terms_differ_from_decoded_title_terms": 150,
+            "records": 600,
+            "retrieval_fact_differs_from_decoded_title": 156,
+            "selected_ids_with_multiple_exact_retrieval_facts": 2,
+            "selected_ids_with_multiple_executed_bm25_term_queries": 2,
+            "unique_selected_ids": 590
+          },
+          "gemini": {
+            "executed_fact_terms_differ_from_decoded_title_terms": 6,
+            "records": 600,
+            "retrieval_fact_differs_from_decoded_title": 9,
+            "selected_ids_with_multiple_exact_retrieval_facts": 0,
+            "selected_ids_with_multiple_executed_bm25_term_queries": 0,
+            "unique_selected_ids": 587
+          },
+          "openai": {
+            "executed_fact_terms_differ_from_decoded_title_terms": 2,
+            "records": 594,
+            "retrieval_fact_differs_from_decoded_title": 11,
+            "selected_ids_with_multiple_exact_retrieval_facts": 0,
+            "selected_ids_with_multiple_executed_bm25_term_queries": 0,
+            "unique_selected_ids": 583
+          },
+          "pooled": {
+            "executed_fact_terms_differ_from_decoded_title_terms": 158,
+            "records": 1794,
+            "retrieval_fact_differs_from_decoded_title": 176,
+            "selected_ids_with_multiple_exact_retrieval_facts": 136,
+            "selected_ids_with_multiple_executed_bm25_term_queries": 125,
+            "unique_selected_ids": 723
+          }
+        },
+        "c0_equivalence_to_decoded_title": {
+          "claude": {
+            "exact_raw_fact_equals_decoded_title": 104,
+            "executed_term_query_equals_decoded_title_terms": 105,
+            "full_top20_ranking_equals_decoded_title_ranking": 107,
+            "ordered_top5_equals_decoded_title_top5": 110,
+            "records": 143
+          },
+          "gemini": {
+            "exact_raw_fact_equals_decoded_title": 100,
+            "executed_term_query_equals_decoded_title_terms": 101,
+            "full_top20_ranking_equals_decoded_title_ranking": 101,
+            "ordered_top5_equals_decoded_title_top5": 101,
+            "records": 101
+          },
+          "openai": {
+            "exact_raw_fact_equals_decoded_title": 85,
+            "executed_term_query_equals_decoded_title_terms": 85,
+            "full_top20_ranking_equals_decoded_title_ranking": 85,
+            "ordered_top5_equals_decoded_title_top5": 85,
+            "records": 85
+          },
+          "pooled": {
+            "exact_raw_fact_equals_decoded_title": 289,
+            "executed_term_query_equals_decoded_title_terms": 291,
+            "full_top20_ranking_equals_decoded_title_ranking": 293,
+            "ordered_top5_equals_decoded_title_top5": 296,
+            "records": 329
+          }
+        },
+        "construction": "retrieval_fact is a separate free-text field co-generated with selected_link from the question and full rendered table; it is not computed by the title decoder",
+        "prompt_constraint": "asked to name the same entity, so it remains identity-oriented",
+        "selected_id_is_query_input": false
+      }
+    },
+    "question_only_bm25": {
+      "cutoffs": {
+        "1": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 125,
+              "p0_h1": 5,
+              "p1_h0": 13,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 18,
+                "rate": 0.1258741258741259
+              },
+              "p_minus_h_percentage_points": 5.594405594405594,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 13,
+                "rate": 0.09090909090909091
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 5,
+                "rate": 0.03496503496503497
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 73,
+              "p0_h1": 2,
+              "p1_h0": 26,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 28,
+                "rate": 0.27722772277227725
+              },
+              "p_minus_h_percentage_points": 23.762376237623762,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 26,
+                "rate": 0.25742574257425743
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 2,
+                "rate": 0.019801980198019802
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 65,
+              "p0_h1": 3,
+              "p1_h0": 17,
+              "p1_h1": 0,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 20,
+                "rate": 0.23529411764705882
+              },
+              "p_minus_h_percentage_points": 16.470588235294116,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 17,
+                "rate": 0.2
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 3,
+                "rate": 0.03529411764705882
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 263,
+            "p0_h1": 10,
+            "p1_h0": 56,
+            "p1_h1": 0,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 66,
+              "rate": 0.2006079027355623
+            },
+            "p_minus_h_percentage_points": 13.98176291793313,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 56,
+              "rate": 0.1702127659574468
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 10,
+              "rate": 0.030395136778115502
+            }
+          }
+        },
+        "20": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 83,
+              "p0_h1": 23,
+              "p1_h0": 26,
+              "p1_h1": 11,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 49,
+                "rate": 0.34265734265734266
+              },
+              "p_minus_h_percentage_points": 2.097902097902098,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 37,
+                "rate": 0.25874125874125875
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 34,
+                "rate": 0.23776223776223776
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 43,
+              "p0_h1": 6,
+              "p1_h0": 38,
+              "p1_h1": 14,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 44,
+                "rate": 0.43564356435643564
+              },
+              "p_minus_h_percentage_points": 31.683168316831683,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 52,
+                "rate": 0.5148514851485149
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 20,
+                "rate": 0.19801980198019803
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 48,
+              "p0_h1": 6,
+              "p1_h0": 23,
+              "p1_h1": 8,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 29,
+                "rate": 0.3411764705882353
+              },
+              "p_minus_h_percentage_points": 20.0,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 31,
+                "rate": 0.36470588235294116
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 14,
+                "rate": 0.16470588235294117
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 174,
+            "p0_h1": 35,
+            "p1_h0": 87,
+            "p1_h1": 33,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 122,
+              "rate": 0.3708206686930091
+            },
+            "p_minus_h_percentage_points": 15.80547112462006,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 120,
+              "rate": 0.364741641337386
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 68,
+              "rate": 0.2066869300911854
+            }
+          }
+        },
+        "5": {
+          "per_model": {
+            "claude": {
+              "display_name": "Claude",
+              "p0_h0": 98,
+              "p0_h1": 17,
+              "p1_h0": 23,
+              "p1_h1": 5,
+              "p_h_disagreement": {
+                "denominator": 143,
+                "numerator": 40,
+                "rate": 0.27972027972027974
+              },
+              "p_minus_h_percentage_points": 4.195804195804196,
+              "records": 143,
+              "selected_object_preserved": {
+                "denominator": 143,
+                "numerator": 28,
+                "rate": 0.1958041958041958
+              },
+              "traced_passage_delivered": {
+                "denominator": 143,
+                "numerator": 22,
+                "rate": 0.15384615384615385
+              }
+            },
+            "gemini": {
+              "display_name": "Gemini",
+              "p0_h0": 53,
+              "p0_h1": 6,
+              "p1_h0": 34,
+              "p1_h1": 8,
+              "p_h_disagreement": {
+                "denominator": 101,
+                "numerator": 40,
+                "rate": 0.39603960396039606
+              },
+              "p_minus_h_percentage_points": 27.722772277227723,
+              "records": 101,
+              "selected_object_preserved": {
+                "denominator": 101,
+                "numerator": 42,
+                "rate": 0.4158415841584158
+              },
+              "traced_passage_delivered": {
+                "denominator": 101,
+                "numerator": 14,
+                "rate": 0.13861386138613863
+              }
+            },
+            "openai": {
+              "display_name": "GPT",
+              "p0_h0": 53,
+              "p0_h1": 5,
+              "p1_h0": 21,
+              "p1_h1": 6,
+              "p_h_disagreement": {
+                "denominator": 85,
+                "numerator": 26,
+                "rate": 0.3058823529411765
+              },
+              "p_minus_h_percentage_points": 18.823529411764707,
+              "records": 85,
+              "selected_object_preserved": {
+                "denominator": 85,
+                "numerator": 27,
+                "rate": 0.3176470588235294
+              },
+              "traced_passage_delivered": {
+                "denominator": 85,
+                "numerator": 11,
+                "rate": 0.12941176470588237
+              }
+            }
+          },
+          "pooled_model_question_records": {
+            "p0_h0": 204,
+            "p0_h1": 28,
+            "p1_h0": 78,
+            "p1_h1": 19,
+            "p_h_disagreement": {
+              "denominator": 329,
+              "numerator": 106,
+              "rate": 0.3221884498480243
+            },
+            "p_minus_h_percentage_points": 15.19756838905775,
+            "records": 329,
+            "selected_object_preserved": {
+              "denominator": 329,
+              "numerator": 97,
+              "rate": 0.2948328267477204
+            },
+            "traced_passage_delivered": {
+              "denominator": 329,
+              "numerator": 47,
+              "rate": 0.14285714285714285
+            }
+          }
+        }
+      },
+      "query_semantics": {
+        "construction": "the original question string, shared across provider-model rows",
+        "distinct_selected_object_multiplicity": {
+          "three": 7,
+          "two": 33
+        },
+        "exact_query_clusters": 160,
+        "queries_mapping_to_multiple_selected_objects": 40,
+        "records_in_those_many_to_one_queries": 105,
+        "same_exact_query_always_has_same_recorded_ranking": true,
+        "selected_id_is_query_input": false
+      }
+    }
+  },
+  "random_used": false,
+  "replay": {
+    "row_level_target_and_cell_digest_sha256": "c5e869a4ec0538ec3e74e23e3fec7ae928beaa8e8d4bb9e89e3cb86e6789f7bf",
+    "script": "scripts/recompute_lossy_query_target_divergence.py",
+    "script_sha256": "529b9e4d76dbe367c7722ecbd745f3c28d38be86883766605fd63936329ae49d"
+  },
+  "retrieval_calls": 0,
+  "schema_version": 1,
+  "status": "verified_zero_call_lossy_query_target_divergence"
+}

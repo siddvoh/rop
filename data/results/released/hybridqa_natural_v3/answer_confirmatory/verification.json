@@ -1,0 +1,58 @@
+{
+  "conditions_by_model": {
+    "claude": [
+      "question_only",
+      "predicted_fact",
+      "query_rewrite"
+    ],
+    "gemini": [
+      "question_only",
+      "predicted_fact",
+      "query_rewrite",
+      "no_kb",
+      "oracle_passage"
+    ],
+    "openai": [
+      "question_only",
+      "predicted_fact",
+      "query_rewrite"
+    ]
+  },
+  "details": {
+    "bytes": 11600206,
+    "records": 6600,
+    "sha256": "0e4877be9bb7983f407c632d0c8bc28cf73b4787f53cc330945db2b9d0cc4a72"
+  },
+  "issued_records": 6592,
+  "network_used": false,
+  "planned_records": 6600,
+  "paper_scoped_fields_only": true,
+  "result_set_sha256": "fb8823a6af13e7b6d3cd4e08b28dec35e5c4e7842ea991c9557b1026da14a4d0",
+  "run_id": "hybridqa_natural_v3_answer_confirmatory",
+  "schema_version": "rop-answer-verification-v1",
+  "source_details_sha256": "f919338178752d3bb4a5893e993159ecc84b3ae95070c31eb142c4eaf3883689",
+  "status": "independently_verified",
+  "status_counts": {
+    "claude": {
+      "succeeded": 1800
+    },
+    "gemini": {
+      "succeeded": 3000
+    },
+    "openai": {
+      "succeeded": 1792,
+      "upstream_invalid": 8
+    }
+  },
+  "terminal_attempt_distribution": {
+    "0": 8,
+    "1": 6590,
+    "2": 2
+  },
+  "unissued_records": 8,
+  "valid_json_records": {
+    "claude": 1800,
+    "gemini": 3000,
+    "openai": 1772
+  }
+}

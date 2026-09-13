@@ -1,0 +1,1 @@
+For provenance only: the selected object is important and should be retained. The run-bound JSON manifest, not this prose, determines whether that statement activates a hard obligation.

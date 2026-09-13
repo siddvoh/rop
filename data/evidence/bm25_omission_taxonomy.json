@@ -1,0 +1,347 @@
+{
+  "api_calls": 0,
+  "definition_and_support_boundary": {
+    "audit_unit": "one frozen valid (question_id, model) selected ID that resolves in links.jsonl",
+    "available_inputs": [
+      "exact selected identifiers",
+      "deterministic visible labels",
+      "top-20 BM25 identifier rankings",
+      "complete 286,270-identifier passage inventory",
+      "frozen BM25 query tokenizer and collection/database hashes"
+    ],
+    "complete_causal_bm25_scoring_attribution_supported": false,
+    "deterministic_mechanism_partition_supported": true,
+    "recorded_ranking_depth": 20,
+    "support_boundary": "The released testbed binds the passage collection by SHA-256 and releases the identifier inventory and top-20 link rankings. It does not release the indexed passage text or per-result BM25 scores for these bridge rows. A selected ID at ranks 6--20 is a verified cutoff-competition omission. When fewer than 20 documents satisfy the frozen OR query, the result set is exhaustive, so an absent selected ID is a verified query-document nonmatch. When all 20 slots are filled and the ID is absent, rank-below-20 and nonmatch cannot be distinguished. Identifier-title term relations are reported separately and are not scoring explanations.",
+    "target_event": "selected ID omitted from the visible-label BM25 top five",
+    "taxonomy_type": "deterministic mechanism partition with an explicit unresolved residual",
+    "unavailable_inputs_required_for_causal_scoring_attribution": [
+      "indexed passage text",
+      "per-result BM25 scores for bridge visible-label rows",
+      "per-term document frequencies and term contributions"
+    ]
+  },
+  "frozen_bm25_query_rule": {
+    "deduplicate_tokens": true,
+    "minimum_token_length": 2,
+    "operator": "OR",
+    "title_relation_uses": "unordered set of retained terms",
+    "token_pattern": "[a-z0-9]+"
+  },
+  "inputs": {
+    "corpus_binding": {
+      "bm25_database_sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+      "document_count": 286270,
+      "passage_collection_sha256": "00ec63c9867b86838422b67d1f588155648f06c5a783445cd267514e723f48db",
+      "passage_identifier_inventory_sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303",
+      "passage_source_inventory_sha256": "f29607c884b1a4b85325b0cac4995f3dc8116f1ab7744f17db18fb0215c354dd"
+    },
+    "execution_contract": {
+      "bm25_retrieval_code_sha256": "55dcd1da941803e6ef3a2e48e191913de44ad971814d01d8d54b98b84bf074d3",
+      "bridge_run_result_set_sha256": "4230d5a1249bcf4810404f936186a582ced3ad16ebce78352df83c26d76b8709",
+      "exhaustive_when_returned_rows_below_depth": true,
+      "no_score_threshold": true,
+      "retrieval_depth": 20
+    },
+    "members": {
+      "code/src/ccr/retrieval/bm25.py": {
+        "bytes": 8140,
+        "sha256": "55dcd1da941803e6ef3a2e48e191913de44ad971814d01d8d54b98b84bf074d3"
+      },
+      "data/results/released/hybridqa_natural_v1/bm25_v1/index_manifest.json": {
+        "bytes": 599,
+        "sha256": "86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283"
+      },
+      "data/results/released/hybridqa_natural_v2/bridge_confirmatory/details.jsonl": {
+        "bytes": 4991925,
+        "records": 1800,
+        "sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5"
+      },
+      "data/results/released/hybridqa_natural_v2/bridge_confirmatory/run_manifest.json": {
+        "bytes": 743,
+        "sha256": "e34355963f3142f9d9ae2f3d162258d6b86cd757ffcea1a50b442eeb0f154a4c"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/links.jsonl": {
+        "bytes": 15250846,
+        "records": 286270,
+        "sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/prepare_manifest.json": {
+        "bytes": 1007,
+        "sha256": "fc1d4ba92c4f4a127525495fc20ffa1f69938178e8d9ff10f0131459168fa3b0"
+      }
+    }
+  },
+  "mechanism_category_meaning": {
+    "cutoff_competition_selected_id_rank_6_to_20": "selected ID matches the query but is removed by the top-five cutoff because its exact recorded rank is 6 through 20",
+    "full_top20_selected_id_absent_rank_or_nonmatch_unresolved": "all 20 returned slots are filled and the selected ID is absent; the released depth cannot distinguish rank below 20 from no query-term match",
+    "query_document_nonmatch_exhaustive_result_set_below_20": "fewer than 20 documents match the OR query and the selected ID is absent, proving that its indexed passage matches none of the retained query terms"
+  },
+  "models": {
+    "claude": {
+      "absent_top20": 96,
+      "coarse_observed_rank_partition": {
+        "selected_id_absent_from_recorded_top20": 96,
+        "selected_id_observed_at_rank_6_to_20": 69,
+        "total_top5_omissions": 165
+      },
+      "corpus_resolvable_selected_ids": 599,
+      "corpus_unresolvable_selected_ids": 1,
+      "display_name": "Claude",
+      "mutually_exclusive_mechanism_categories": {
+        "cutoff_competition_selected_id_rank_6_to_20": {
+          "count": 69,
+          "fraction_of_top5_omissions": 0.41818181818181815
+        },
+        "full_top20_selected_id_absent_rank_or_nonmatch_unresolved": {
+          "count": 91,
+          "fraction_of_top5_omissions": 0.5515151515151515
+        },
+        "query_document_nonmatch_exhaustive_result_set_below_20": {
+          "count": 5,
+          "fraction_of_top5_omissions": 0.030303030303030304
+        }
+      },
+      "partition_verified": true,
+      "rank_6_to_20_distribution": {
+        "10": 7,
+        "11": 4,
+        "12": 0,
+        "13": 3,
+        "14": 4,
+        "15": 5,
+        "16": 3,
+        "17": 1,
+        "18": 5,
+        "19": 2,
+        "20": 1,
+        "6": 9,
+        "7": 14,
+        "8": 4,
+        "9": 7
+      },
+      "records": 600,
+      "secondary_noncausal_identifier_title_categories": {
+        "absent_top20_all_query_terms_in_one_top5_identifier": {
+          "count": 43,
+          "fraction_of_top5_omissions": 0.2606060606060606
+        },
+        "absent_top20_no_query_term_overlap_in_top5_identifiers": {
+          "count": 16,
+          "fraction_of_top5_omissions": 0.09696969696969697
+        },
+        "absent_top20_partial_query_term_overlap_in_top5_identifiers": {
+          "count": 34,
+          "fraction_of_top5_omissions": 0.20606060606060606
+        },
+        "absent_top20_same_query_term_set_in_top5_identifier": {
+          "count": 3,
+          "fraction_of_top5_omissions": 0.01818181818181818
+        },
+        "selected_id_rank_6_to_20": {
+          "count": 69,
+          "fraction_of_top5_omissions": 0.41818181818181815
+        }
+      },
+      "top5_omission_on_corpus_resolvable_selected_ids": {
+        "count": 165,
+        "rate": 0.27545909849749584,
+        "total": 599
+      },
+      "top5_omitted": 165,
+      "top5_preservation_on_corpus_resolvable_selected_ids": {
+        "count": 434,
+        "rate": 0.7245409015025042,
+        "total": 599
+      },
+      "top5_preserved": 434,
+      "valid_outputs": 600
+    },
+    "gemini": {
+      "absent_top20": 87,
+      "coarse_observed_rank_partition": {
+        "selected_id_absent_from_recorded_top20": 87,
+        "selected_id_observed_at_rank_6_to_20": 63,
+        "total_top5_omissions": 150
+      },
+      "corpus_resolvable_selected_ids": 599,
+      "corpus_unresolvable_selected_ids": 1,
+      "display_name": "Gemini",
+      "mutually_exclusive_mechanism_categories": {
+        "cutoff_competition_selected_id_rank_6_to_20": {
+          "count": 63,
+          "fraction_of_top5_omissions": 0.42
+        },
+        "full_top20_selected_id_absent_rank_or_nonmatch_unresolved": {
+          "count": 83,
+          "fraction_of_top5_omissions": 0.5533333333333333
+        },
+        "query_document_nonmatch_exhaustive_result_set_below_20": {
+          "count": 4,
+          "fraction_of_top5_omissions": 0.02666666666666667
+        }
+      },
+      "partition_verified": true,
+      "rank_6_to_20_distribution": {
+        "10": 8,
+        "11": 4,
+        "12": 0,
+        "13": 4,
+        "14": 3,
+        "15": 3,
+        "16": 3,
+        "17": 2,
+        "18": 5,
+        "19": 2,
+        "20": 1,
+        "6": 7,
+        "7": 12,
+        "8": 4,
+        "9": 5
+      },
+      "records": 600,
+      "secondary_noncausal_identifier_title_categories": {
+        "absent_top20_all_query_terms_in_one_top5_identifier": {
+          "count": 43,
+          "fraction_of_top5_omissions": 0.2866666666666667
+        },
+        "absent_top20_no_query_term_overlap_in_top5_identifiers": {
+          "count": 11,
+          "fraction_of_top5_omissions": 0.07333333333333333
+        },
+        "absent_top20_partial_query_term_overlap_in_top5_identifiers": {
+          "count": 30,
+          "fraction_of_top5_omissions": 0.2
+        },
+        "absent_top20_same_query_term_set_in_top5_identifier": {
+          "count": 3,
+          "fraction_of_top5_omissions": 0.02
+        },
+        "selected_id_rank_6_to_20": {
+          "count": 63,
+          "fraction_of_top5_omissions": 0.42
+        }
+      },
+      "top5_omission_on_corpus_resolvable_selected_ids": {
+        "count": 150,
+        "rate": 0.25041736227045075,
+        "total": 599
+      },
+      "top5_omitted": 150,
+      "top5_preservation_on_corpus_resolvable_selected_ids": {
+        "count": 449,
+        "rate": 0.7495826377295493,
+        "total": 599
+      },
+      "top5_preserved": 449,
+      "valid_outputs": 600
+    },
+    "openai": {
+      "absent_top20": 92,
+      "coarse_observed_rank_partition": {
+        "selected_id_absent_from_recorded_top20": 92,
+        "selected_id_observed_at_rank_6_to_20": 59,
+        "total_top5_omissions": 151
+      },
+      "corpus_resolvable_selected_ids": 594,
+      "corpus_unresolvable_selected_ids": 0,
+      "display_name": "GPT",
+      "mutually_exclusive_mechanism_categories": {
+        "cutoff_competition_selected_id_rank_6_to_20": {
+          "count": 59,
+          "fraction_of_top5_omissions": 0.39072847682119205
+        },
+        "full_top20_selected_id_absent_rank_or_nonmatch_unresolved": {
+          "count": 87,
+          "fraction_of_top5_omissions": 0.5761589403973509
+        },
+        "query_document_nonmatch_exhaustive_result_set_below_20": {
+          "count": 5,
+          "fraction_of_top5_omissions": 0.033112582781456956
+        }
+      },
+      "partition_verified": true,
+      "rank_6_to_20_distribution": {
+        "10": 7,
+        "11": 3,
+        "12": 0,
+        "13": 3,
+        "14": 4,
+        "15": 3,
+        "16": 3,
+        "17": 3,
+        "18": 5,
+        "19": 2,
+        "20": 1,
+        "6": 3,
+        "7": 13,
+        "8": 4,
+        "9": 5
+      },
+      "records": 600,
+      "secondary_noncausal_identifier_title_categories": {
+        "absent_top20_all_query_terms_in_one_top5_identifier": {
+          "count": 43,
+          "fraction_of_top5_omissions": 0.2847682119205298
+        },
+        "absent_top20_no_query_term_overlap_in_top5_identifiers": {
+          "count": 14,
+          "fraction_of_top5_omissions": 0.09271523178807947
+        },
+        "absent_top20_partial_query_term_overlap_in_top5_identifiers": {
+          "count": 32,
+          "fraction_of_top5_omissions": 0.2119205298013245
+        },
+        "absent_top20_same_query_term_set_in_top5_identifier": {
+          "count": 3,
+          "fraction_of_top5_omissions": 0.019867549668874173
+        },
+        "selected_id_rank_6_to_20": {
+          "count": 59,
+          "fraction_of_top5_omissions": 0.39072847682119205
+        }
+      },
+      "top5_omission_on_corpus_resolvable_selected_ids": {
+        "count": 151,
+        "rate": 0.2542087542087542,
+        "total": 594
+      },
+      "top5_omitted": 151,
+      "top5_preservation_on_corpus_resolvable_selected_ids": {
+        "count": 443,
+        "rate": 0.7457912457912458,
+        "total": 594
+      },
+      "top5_preserved": 443,
+      "valid_outputs": 594
+    }
+  },
+  "network_used": false,
+  "pooled_model_records": {
+    "corpus_resolvable_selected_ids": 1792,
+    "mechanism_categories": {
+      "cutoff_competition_selected_id_rank_6_to_20": 191,
+      "full_top20_selected_id_absent_rank_or_nonmatch_unresolved": 261,
+      "query_document_nonmatch_exhaustive_result_set_below_20": 14
+    },
+    "partition_verified": true,
+    "secondary_noncausal_identifier_title_categories": {
+      "absent_top20_all_query_terms_in_one_top5_identifier": 129,
+      "absent_top20_no_query_term_overlap_in_top5_identifiers": 41,
+      "absent_top20_partial_query_term_overlap_in_top5_identifiers": 96,
+      "absent_top20_same_query_term_set_in_top5_identifier": 9,
+      "selected_id_rank_6_to_20": 191
+    },
+    "top5_omitted": 466,
+    "top5_preserved": 1326
+  },
+  "schema_version": 1,
+  "secondary_identifier_title_category_priority_and_meaning": {
+    "absent_top20_all_query_terms_in_one_top5_identifier": "no same-set case; one top-5 identifier title contains every query term plus at least one additional term",
+    "absent_top20_no_query_term_overlap_in_top5_identifiers": "no query term occurs in any top-5 identifier title",
+    "absent_top20_partial_query_term_overlap_in_top5_identifiers": "no earlier case; at least one query term occurs in a top-5 identifier title",
+    "absent_top20_same_query_term_set_in_top5_identifier": "selected ID is absent top 20 and a different top-5 identifier title has the same frozen BM25 query-term set",
+    "selected_id_rank_6_to_20": "selected ID is present in the recorded ranking at an exact rank from 6 through 20"
+  },
+  "status": "verified_no_call_bm25_omission_rank_and_identifier_taxonomy"
+}

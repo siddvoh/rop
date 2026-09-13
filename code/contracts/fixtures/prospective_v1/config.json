@@ -1,0 +1,7 @@
+{
+  "config_version": "rop-fixture-config/v1",
+  "fixture_id": "prospective-returned-object-preservation-v1",
+  "declared_phase": "pre_outcome",
+  "returned_component": "fixture-ranker-v1",
+  "cutoff": 3
+}

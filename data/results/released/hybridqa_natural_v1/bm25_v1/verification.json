@@ -1,0 +1,16 @@
+{
+  "status": "independently_verified",
+  "comparison": "gold_fact_minus_question_only_recall_at_5",
+  "absolute_difference": 0.5383333333333333,
+  "paired_bootstrap_95_percentile_interval": [
+    0.49333333333333335,
+    0.5833333333333334
+  ],
+  "paired_bootstrap_samples": 10000,
+  "paired_bootstrap_seed": 20260710,
+  "exact_mcnemar_two_sided_p": 4.301067275016621e-77,
+  "holm_adjusted_p_single_primary_comparison": 4.301067275016621e-77,
+  "discordant_gold_fact_hit": 343,
+  "discordant_question_only_hit": 20,
+  "result_set_sha256": "f12726fbdebc8707b23eb23786ce8d96640f29aea97e11dedf29d928cfc9f6bb"
+}

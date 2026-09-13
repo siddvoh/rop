@@ -1,0 +1,76 @@
+{
+  "api_calls": 0,
+  "byte_identical_to_frozen_database": true,
+  "byte_identical_to_frozen_manifest": true,
+  "frozen_output": {
+    "database_bytes": 418295808,
+    "database_sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+    "document_count": 286270,
+    "duplicate_link_count": 226400,
+    "internal_manifest_bytes": 513,
+    "internal_manifest_sha256": "8d5b4d1aab29040a3b88cc8d63c7dc09165fb3546dab98ed7827440d3ccd6c48",
+    "manifest_bytes": 599,
+    "manifest_sha256": "86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283",
+    "source_file_count": 15314,
+    "source_inventory_sha256": "f29607c884b1a4b85325b0cac4995f3dc8116f1ab7744f17db18fb0215c354dd"
+  },
+  "index_contract": {
+    "builder": "SQLite FTS5",
+    "deduplication": "first link in sorted source-file order",
+    "document_tokenizer": "unicode61 with SQLite defaults",
+    "index_version": "hybridqa-sqlite-fts5-v1",
+    "tie_break": "ascending FTS rowid"
+  },
+  "known_good_rebuild_runtime": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": {
+      "implementation": "CPython",
+      "version": "3.14.5"
+    },
+    "sqlite": {
+      "compile_options": {
+        "canonical_sha256": "99d80fee03818112b412ae76c1b334602ab6b6de6899610155a90a043ed5bbbc",
+        "canonicalization": "lexicographically sorted option strings encoded as UTF-8 canonical JSON",
+        "count": 53
+      },
+      "database_page_size_bytes": 4096,
+      "version": "3.53.1"
+    }
+  },
+  "model_calls": 0,
+  "path_free": true,
+  "rebuild_runtime_acceptance": {
+    "cross_environment_portability_claimed": false,
+    "frozen_output_exact_bytes_observed_in_known_good_runtime": true,
+    "other_runtime_pass_condition": "all frozen output byte counts and SHA-256 identities match exactly"
+  },
+  "reconstructed_output": {
+    "database_bytes": 418295808,
+    "database_sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+    "document_count": 286270,
+    "duplicate_link_count": 226400,
+    "internal_manifest_bytes": 513,
+    "internal_manifest_sha256": "8d5b4d1aab29040a3b88cc8d63c7dc09165fb3546dab98ed7827440d3ccd6c48",
+    "manifest_bytes": 599,
+    "manifest_sha256": "86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283",
+    "source_file_count": 15314,
+    "source_inventory_sha256": "f29607c884b1a4b85325b0cac4995f3dc8116f1ab7744f17db18fb0215c354dd"
+  },
+  "schema_version": 2,
+  "script_sha256": "b25f4b977487c85286750eb78bb04b7e45d7389ba19cad5440d97aaeeb8fee7b",
+  "source_contract": {
+    "archive_url": "https://github.com/wenhuchen/WikiTables-WithLinks/archive/dc066e1a6d5281511d8b73a6107d5ad2824cc2b2.tar.gz",
+    "case_variant_filenames_retained_distinctly": true,
+    "commit": "dc066e1a6d5281511d8b73a6107d5ad2824cc2b2",
+    "curated_inventory_sha256": "f29607c884b1a4b85325b0cac4995f3dc8116f1ab7744f17db18fb0215c354dd",
+    "curated_json_files": 15314,
+    "excluded_files": [
+      "2014_Malaysia_Premier_League_0.json",
+      "2014_Malaysia_Premier_League_1.json"
+    ],
+    "raw_json_files": 15316,
+    "repository": "wenhuchen/WikiTables-WithLinks",
+    "subdirectory": "request_tok"
+  },
+  "status": "verified_exact_public_source_reconstruction"
+}

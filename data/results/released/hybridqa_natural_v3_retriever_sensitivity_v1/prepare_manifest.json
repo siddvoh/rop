@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "cohort_sha256": "b54ee430f0f9b28e813b254e712edac734173bc215d239ac110bbdb941b0c7b6",
+  "bridge_details_sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5",
+  "cohort_size": 600,
+  "models": [
+    "claude",
+    "openai",
+    "gemini"
+  ],
+  "query_record_count": 2400,
+  "callable_query_count": 2394,
+  "upstream_invalid_by_model": {
+    "openai": 6
+  },
+  "bm25_db_sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+  "bm25_manifest_sha256": "86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283",
+  "bm25_source_inventory_sha256": "f29607c884b1a4b85325b0cac4995f3dc8116f1ab7744f17db18fb0215c354dd",
+  "document_count": 286270,
+  "queries_sha256": "c93ad05829f2d848c5305b08914d9f9df5f9e7a4f7e50b10a888fc8f8f6cd2df",
+  "collection_sha256": "00ec63c9867b86838422b67d1f588155648f06c5a783445cd267514e723f48db",
+  "links_sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+}

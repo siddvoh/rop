@@ -1,0 +1,286 @@
+{
+  "api_calls": 0,
+  "definitions": {
+    "h_at_k": "dataset-traced ID occurs among the first k returned IDs",
+    "p_at_k": "selected ID occurs among the first k returned IDs",
+    "title_projection": "remove /wiki/, percent-decode, replace underscores with spaces, and collapse whitespace"
+  },
+  "identifier_title_uniqueness": {
+    "all_title_strings_unique": true,
+    "collision_title_count": 0,
+    "distinct_title_count": 286270,
+    "identifier_count": 286270,
+    "links_sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303",
+    "maximum_title_multiplicity": 1
+  },
+  "inputs": {
+    "archive": {
+      "bytes": 3909370,
+      "member_count": 5,
+      "sha256": "470dae7dea93cb59bb5badf1568264db6493b3c2780a1d544aebddd7ff99984d"
+    },
+    "development_retrieval": {
+      "cutoff": 5,
+      "executed_config_sha256": "5673d2cca5fef9a9d49515ff40175c8b7464b93ab948d5b346afc2a106574cb7",
+      "item_count": 1397,
+      "query_forms": [
+        "question",
+        "decoded_trace_id"
+      ],
+      "retrieval_models": {
+        "bge_m3": {
+          "model": "BAAI/bge-m3",
+          "revision": "5617a9f61b028005a4858fdac845db406aefb181"
+        },
+        "colbert_v2": {
+          "model": "colbert-ir/colbertv2.0",
+          "revision": "c1e84128e85ef755c096a95bdb06b47793b13acf"
+        },
+        "reranker": {
+          "model": "BAAI/bge-reranker-v2-m3",
+          "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+        }
+      },
+      "retrievers": [
+        "bm25",
+        "bge_m3",
+        "colbert_v2",
+        "hybrid_rrf",
+        "hybrid_rrf_bge_reranker_v2_m3"
+      ]
+    },
+    "model_and_retrieval": {
+      "configuration": {
+        "global_seed": 12345,
+        "max_output_tokens": 4096,
+        "presence_penalty": 1.5,
+        "reasoning": true,
+        "temperature": 0.6,
+        "top_k": 20,
+        "top_p": 0.95
+      },
+      "controller_sha256": "694af8c22ddf236e7d73c06d705dd567eddaa281d078847bd01cb87125b0fbbe",
+      "executed_config_sha256": "fa25d97c4c2cfb1e51e66074188032152f21cd6427257e8a05241b7300e3951f",
+      "generation_identity_sha256": "61dc9e260f5052989bcfadd0d80751b2349f406eaa1ef80b497118e7101e3cfb",
+      "item_count": 335,
+      "model": "Qwen/Qwen3-32B-AWQ",
+      "model_revision": "0499c3ac83fdef8810b907a23894ba91e95eddd8",
+      "payload_sha256": "dd7740bea740466e6785ecf7b0b8609064b4c0d1bfdff0f233299c57485d2584",
+      "retrieval_identity_sha256": "710e4007dc33f3f12872aef2d0688809adecd84a20cde0ab25b117f63e538988"
+    },
+    "source_bindings": {
+      "bm25_code_sha256": "55dcd1da941803e6ef3a2e48e191913de44ad971814d01d8d54b98b84bf074d3",
+      "bm25_database_sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+      "bm25_index_manifest_sha256": "86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283",
+      "dev_rankings_sha256": "ce3c8759a649200bfa0ed84829222c1d35dd1daabf475d0fa828aa9041e14a03",
+      "dev_tasks_sha256": "1f398f6a48b4193581fd57f7728b4f71b56ae51ff614140848069c635985208e",
+      "qwen_generation_rows_sha256": "c56ae414b60a3101fc995263edc28e8c429b4a9d4e09e4f88aae6006932ae0f1",
+      "qwen_ranking_rows_sha256": "2d6338738bdb307cb532edbc3f40959e1d674bfa87920db7773c2b872b28441e",
+      "qwen_task_rows_sha256": "3e5e86120e6ba16b0704fc7468756786d807e525d63843c8fb2e2640443d7f17",
+      "resolver_inventory_sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+    }
+  },
+  "model_calls": 0,
+  "network_used": false,
+  "qwen_selected_id_preservation": {
+    "groups": {
+      "all": {
+        "all_rows": 335,
+        "corpus_resolvable_selected_ids": 334,
+        "excluded_unresolvable_selected_ids": {
+          "count": 1,
+          "traced_id_return_at_5": 0
+        },
+        "preservation_by_cutoff_on_resolvable_selected_ids": {
+          "1": {
+            "denominator": 334,
+            "numerator": 294,
+            "rate": 0.8802395209580839
+          },
+          "20": {
+            "denominator": 334,
+            "numerator": 332,
+            "rate": 0.9940119760479041
+          },
+          "5": {
+            "denominator": 334,
+            "numerator": 330,
+            "rate": 0.9880239520958084
+          }
+        },
+        "selected_vs_traced_return_joint_at_5_on_resolvable_selected_ids": {
+          "denominator": 334,
+          "p0_h0": 4,
+          "p0_h1": 0,
+          "p1_h0": 98,
+          "p1_h1": 232
+        }
+      },
+      "c0_selected_id_differs_from_traced_id": {
+        "all_rows": 106,
+        "corpus_resolvable_selected_ids": 105,
+        "excluded_unresolvable_selected_ids": {
+          "count": 1,
+          "traced_id_return_at_5": 0
+        },
+        "preservation_by_cutoff_on_resolvable_selected_ids": {
+          "1": {
+            "denominator": 105,
+            "numerator": 90,
+            "rate": 0.8571428571428571
+          },
+          "20": {
+            "denominator": 105,
+            "numerator": 104,
+            "rate": 0.9904761904761905
+          },
+          "5": {
+            "denominator": 105,
+            "numerator": 104,
+            "rate": 0.9904761904761905
+          }
+        },
+        "selected_vs_traced_return_joint_at_5_on_resolvable_selected_ids": {
+          "denominator": 105,
+          "p0_h0": 1,
+          "p0_h1": 0,
+          "p1_h0": 98,
+          "p1_h1": 6
+        }
+      },
+      "c1_selected_id_matches_traced_id": {
+        "all_rows": 229,
+        "corpus_resolvable_selected_ids": 229,
+        "excluded_unresolvable_selected_ids": {
+          "count": 0,
+          "traced_id_return_at_5": 0
+        },
+        "preservation_by_cutoff_on_resolvable_selected_ids": {
+          "1": {
+            "denominator": 229,
+            "numerator": 204,
+            "rate": 0.8908296943231441
+          },
+          "20": {
+            "denominator": 229,
+            "numerator": 228,
+            "rate": 0.9956331877729258
+          },
+          "5": {
+            "denominator": 229,
+            "numerator": 226,
+            "rate": 0.9868995633187773
+          }
+        },
+        "selected_vs_traced_return_joint_at_5_on_resolvable_selected_ids": {
+          "denominator": 229,
+          "p0_h0": 3,
+          "p0_h1": 0,
+          "p1_h0": 0,
+          "p1_h1": 226
+        }
+      }
+    },
+    "query": "Qwen model-written retrieval fact",
+    "target": "Qwen selected ID"
+  },
+  "schema_version": 2,
+  "status": "verified_zero_call_transfer_scope_audit",
+  "supplied_traced_id_projection_preservation": {
+    "buckets": {
+      "unique_hidden_answer_in_table": {
+        "records": 215,
+        "retrievers": {
+          "bm25": {
+            "preservation_by_cutoff": {
+              "1": {
+                "denominator": 215,
+                "numerator": 129,
+                "rate": 0.6
+              },
+              "20": {
+                "denominator": 215,
+                "numerator": 189,
+                "rate": 0.8790697674418605
+              },
+              "5": {
+                "denominator": 215,
+                "numerator": 178,
+                "rate": 0.827906976744186
+              }
+            },
+            "records": 215
+          },
+          "hybrid_rrf_bge_reranker_v2_m3": {
+            "preservation_by_cutoff": {
+              "1": {
+                "denominator": 215,
+                "numerator": 186,
+                "rate": 0.8651162790697674
+              },
+              "20": {
+                "denominator": 215,
+                "numerator": 213,
+                "rate": 0.9906976744186047
+              },
+              "5": {
+                "denominator": 215,
+                "numerator": 213,
+                "rate": 0.9906976744186047
+              }
+            },
+            "records": 215
+          }
+        }
+      },
+      "unique_hidden_no_selection": {
+        "records": 1182,
+        "retrievers": {
+          "bm25": {
+            "preservation_by_cutoff": {
+              "1": {
+                "denominator": 1182,
+                "numerator": 624,
+                "rate": 0.5279187817258884
+              },
+              "20": {
+                "denominator": 1182,
+                "numerator": 1027,
+                "rate": 0.8688663282571912
+              },
+              "5": {
+                "denominator": 1182,
+                "numerator": 890,
+                "rate": 0.7529610829103215
+              }
+            },
+            "records": 1182
+          },
+          "hybrid_rrf_bge_reranker_v2_m3": {
+            "preservation_by_cutoff": {
+              "1": {
+                "denominator": 1182,
+                "numerator": 1041,
+                "rate": 0.8807106598984772
+              },
+              "20": {
+                "denominator": 1182,
+                "numerator": 1181,
+                "rate": 0.9991539763113367
+              },
+              "5": {
+                "denominator": 1182,
+                "numerator": 1174,
+                "rate": 0.9932318104906938
+              }
+            },
+            "records": 1182
+          }
+        }
+      }
+    },
+    "query": "decoded dataset-traced ID",
+    "records": 1397,
+    "target": "dataset-traced ID"
+  }
+}

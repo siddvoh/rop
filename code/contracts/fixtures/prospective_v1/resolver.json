@@ -1,0 +1,23 @@
+{
+  "resolver_version": "fixture-resolver-v1",
+  "namespace": "fixture.documents",
+  "aliases": {
+    "alpha-alias": "obj:alpha",
+    "doc:alpha": "obj:alpha",
+    "doc:beta": "obj:beta",
+    "doc:gamma": "obj:gamma"
+  },
+  "members": {
+    "obj:alpha": [
+      "chunk:alpha:0",
+      "chunk:alpha:1"
+    ],
+    "obj:beta": [
+      "chunk:beta:0"
+    ],
+    "obj:gamma": [
+      "chunk:gamma:0",
+      "chunk:gamma:1"
+    ]
+  }
+}

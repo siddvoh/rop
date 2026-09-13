@@ -1,0 +1,16 @@
+{
+  "envelope_version": "rop-envelope/v1",
+  "declaration_locator": "hard_manifest.json",
+  "declaration_sha256": "3e5b712f1b658e3e997ab36b2cdfb85f740fa9f3a05dcaa454f1d2a5453fa88d",
+  "declared_phase": "pre_outcome",
+  "sealed_before": "returned_ids",
+  "authority_id": "prospective-fixture-authority-v1",
+  "policy_authority_id": "prospective-fixture-policy-authority-v1",
+  "producer_id": "prospective-fixture-producer-v1",
+  "target_interface_id": "fixture-ranker",
+  "interface_version": "fixture-ranker-api/v1",
+  "policy_revision": "hard/fixture-r1",
+  "population_locator": "population.json",
+  "population_sha256": "6bdf5a6a5b24979e30a024d379c29528a71f74f6d397becfaa7be81db1f4daf3",
+  "chronology_basis": "trusted_manifest_authority"
+}

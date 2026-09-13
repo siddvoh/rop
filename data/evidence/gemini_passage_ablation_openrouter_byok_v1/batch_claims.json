@@ -1,0 +1,18 @@
+{
+  "main": {
+    "all_calls_released_by_one_barrier": true,
+    "logical_call_count": 561,
+    "task_ids_sha256": "cd44146168e0a3879bd1ba2ce82529e75ddda6a7e4b68e3efd24eabac1d19be5"
+  },
+  "preflight": {
+    "all_calls_released_by_one_barrier": true,
+    "logical_call_count": 3,
+    "task_ids": [
+      "8032bcea03d462a947e628ee9af68c16b92a8f6b2bf7891082b70c6b6d11e64d",
+      "24c3e7d7526d74a1e522bb9b483b2bd423a6b5ddd104cf77a436e6b29b827d18",
+      "976b57e020b22982a4fd2a4ab4d689dc11949c217da244da83c2299ff09737b5"
+    ],
+    "task_ids_sha256": "8a1882251f9def74e8d67ec34b3b6b33c9d6d1e3452071b252e9d40e346ecede"
+  },
+  "schema_version": 1
+}

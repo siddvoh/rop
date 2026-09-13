@@ -1,0 +1,11 @@
+{
+  "experiment_id": "hybridqa_natural_v2",
+  "pre_result_git_commit": "f3aeb6c",
+  "cohort_sha256": "dfc6fe5183ccdbea9c2c8278e02000e063a86de8aa9825e33d008903ff230f5f",
+  "cohort_file_sha256": "4ea0d8946be54530fb12905f82dd200b9b6c091d64c60a0a7f50bbe017f6e63f",
+  "experiment_config_sha256": "ddea892f58918eb33601c014a379980ab0a75f997dc04afd424ec8776643cae6",
+  "runtime_config_sha256": "4c5e6bb553a8c39962f80716b684261881184c06f782b3733d787e15e93017c7",
+  "bridge_implementation_sha256": "5e0f0fa578a741e29e8f91dd5f683ba6ba1afa96f8f3beaf230ec0729e4c879b",
+  "index_manifest_sha256": "86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283",
+  "result_set_sha256": "4230d5a1249bcf4810404f936186a582ced3ad16ebce78352df83c26d76b8709"
+}

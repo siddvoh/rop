@@ -1,0 +1,164 @@
+{
+  "retriever": "hybrid_rrf_bge_reranker_v2_m3",
+  "record_count": 2400,
+  "upstream_invalid_count": 6,
+  "upstream_invalid_by_model": {
+    "claude": 0,
+    "openai": 6,
+    "gemini": 0
+  },
+  "recall": {
+    "claude": {
+      "@1": {
+        "question_only": 0.16833333333333333,
+        "predicted_fact": 0.6383333333333333,
+        "paired_difference": 0.47,
+        "paired_bootstrap_95_ci": [
+          0.4266666666666667,
+          0.5166666666666667
+        ],
+        "bootstrap_seed": 5504401824927701096,
+        "question_miss_predicted_hit": 301,
+        "question_hit_predicted_miss": 19,
+        "exact_mcnemar_p_two_sided": 1.886324354721662e-66,
+        "exact_mcnemar_p_holm_adjusted": 2.074956790193828e-65,
+        "holm_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs"
+      },
+      "@5": {
+        "question_only": 0.35833333333333334,
+        "predicted_fact": 0.7766666666666666,
+        "paired_difference": 0.41833333333333333,
+        "paired_bootstrap_95_ci": [
+          0.37,
+          0.465
+        ],
+        "bootstrap_seed": 7545715640569419778,
+        "question_miss_predicted_hit": 283,
+        "question_hit_predicted_miss": 32,
+        "exact_mcnemar_p_two_sided": 2.2190967514262086e-51,
+        "exact_mcnemar_p_holm_adjusted": 6.657290254278626e-51,
+        "holm_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs"
+      },
+      "@20": {
+        "question_only": 0.44666666666666666,
+        "predicted_fact": 0.8,
+        "paired_difference": 0.35333333333333333,
+        "paired_bootstrap_95_ci": [
+          0.305,
+          0.4
+        ],
+        "bootstrap_seed": 17146923801202195463,
+        "question_miss_predicted_hit": 248,
+        "question_hit_predicted_miss": 36,
+        "exact_mcnemar_p_two_sided": 4.155407818206801e-40,
+        "exact_mcnemar_p_holm_adjusted": 4.155407818206801e-40,
+        "holm_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs"
+      }
+    },
+    "openai": {
+      "@1": {
+        "question_only": 0.16833333333333333,
+        "predicted_fact": 0.7133333333333334,
+        "paired_difference": 0.545,
+        "paired_bootstrap_95_ci": [
+          0.5016666666666667,
+          0.5866666666666667
+        ],
+        "bootstrap_seed": 11730085259409091678,
+        "question_miss_predicted_hit": 341,
+        "question_hit_predicted_miss": 14,
+        "exact_mcnemar_p_two_sided": 1.26911021958785e-82,
+        "exact_mcnemar_p_holm_adjusted": 2.7920424830932702e-81,
+        "holm_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs"
+      },
+      "@5": {
+        "question_only": 0.35833333333333334,
+        "predicted_fact": 0.8683333333333333,
+        "paired_difference": 0.51,
+        "paired_bootstrap_95_ci": [
+          0.4666666666666667,
+          0.5533333333333333
+        ],
+        "bootstrap_seed": 7208853607711118491,
+        "question_miss_predicted_hit": 321,
+        "question_hit_predicted_miss": 15,
+        "exact_mcnemar_p_two_sided": 6.553516818395307e-76,
+        "exact_mcnemar_p_holm_adjusted": 1.0485626909432492e-74,
+        "holm_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs"
+      },
+      "@20": {
+        "question_only": 0.44666666666666666,
+        "predicted_fact": 0.8833333333333333,
+        "paired_difference": 0.43666666666666665,
+        "paired_bootstrap_95_ci": [
+          0.3933333333333333,
+          0.48
+        ],
+        "bootstrap_seed": 17944321312634645351,
+        "question_miss_predicted_hit": 279,
+        "question_hit_predicted_miss": 17,
+        "exact_mcnemar_p_two_sided": 3.0253603861350932e-62,
+        "exact_mcnemar_p_holm_adjusted": 2.1177522702945654e-61,
+        "holm_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs"
+      }
+    },
+    "gemini": {
+      "@1": {
+        "question_only": 0.16833333333333333,
+        "predicted_fact": 0.6983333333333334,
+        "paired_difference": 0.53,
+        "paired_bootstrap_95_ci": [
+          0.4866666666666667,
+          0.5733333333333334
+        ],
+        "bootstrap_seed": 7300528907498847253,
+        "question_miss_predicted_hit": 333,
+        "question_hit_predicted_miss": 15,
+        "exact_mcnemar_p_two_sided": 2.7338468779838315e-79,
+        "exact_mcnemar_p_holm_adjusted": 5.19430906816928e-78,
+        "holm_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs"
+      },
+      "@5": {
+        "question_only": 0.35833333333333334,
+        "predicted_fact": 0.8516666666666667,
+        "paired_difference": 0.49333333333333335,
+        "paired_bootstrap_95_ci": [
+          0.4483333333333333,
+          0.5383333333333333
+        ],
+        "bootstrap_seed": 18122972289165741713,
+        "question_miss_predicted_hit": 316,
+        "question_hit_predicted_miss": 20,
+        "exact_mcnemar_p_two_sided": 1.18395411592687e-69,
+        "exact_mcnemar_p_holm_adjusted": 1.539140350704931e-68,
+        "holm_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs"
+      },
+      "@20": {
+        "question_only": 0.44666666666666666,
+        "predicted_fact": 0.865,
+        "paired_difference": 0.41833333333333333,
+        "paired_bootstrap_95_ci": [
+          0.37333333333333335,
+          0.465
+        ],
+        "bootstrap_seed": 16722177773593830873,
+        "question_miss_predicted_hit": 275,
+        "question_hit_predicted_miss": 24,
+        "exact_mcnemar_p_two_sided": 3.4992407423374064e-55,
+        "exact_mcnemar_p_holm_adjusted": 1.7496203711687033e-54,
+        "holm_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs"
+      }
+    }
+  },
+  "statistics": {
+    "paired_bootstrap_samples": 10000,
+    "confidence_level": 0.95,
+    "bootstrap_rng": "numpy.PCG64",
+    "bootstrap_seed_salt": "ccr-hybridqa-retriever-sensitivity-v1",
+    "paired_test": "two_sided_exact_mcnemar",
+    "multiplicity_method": "holm_step_down",
+    "multiplicity_family": "all_4_retrievers_x_3_models_x_3_recall_cutoffs",
+    "multiplicity_family_size": 36
+  },
+  "details_sha256": "0550dc6690e3e44191474ae489905565b0081e887fd5836ea76d01edd9969a81"
+}

@@ -1,0 +1,15 @@
+{
+  "paper_pdf": {
+    "bytes": 318397,
+    "filename": "main.pdf",
+    "sha256": "aadfe7f14018e29c59668d514006a188587912e0cf37b4fd2b101e444892f632"
+  },
+  "paper_source": {
+    "bytes": 65983,
+    "filename": "main.tex",
+    "sha256": "6c8439a0b51e806e774c6ac9b4dcf9e98def7aa0d4c7f72b92a952a5ca361e05"
+  },
+  "paper_title": "Does the Selected Object Reach the Reader? Auditing Identity Handoffs in Grounded Language-Model Pipelines",
+  "schema_version": 1,
+  "status": "bound"
+}

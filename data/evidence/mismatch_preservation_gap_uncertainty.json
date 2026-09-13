@@ -1,0 +1,208 @@
+{
+  "api_calls": 0,
+  "clock_used": false,
+  "credentials_used": false,
+  "definition": {
+    "canonical_object_identity": "zero-based passage PID under the exact one-to-one links.jsonl resolver",
+    "cutoff": 5,
+    "gap_direction": "RRF-plus-rerank preservation minus body-only BM25",
+    "outcome": "canonical selected-object PID occurs in the canonicalized recorded top five",
+    "paired_executors": {
+      "body_only_bm25": "the released predicted_ranking field, queried from the selected ID's visible label over passage body text",
+      "rrf_rerank": "the released hybrid RRF plus BGE-reranker-v2-m3 ranking for the same visible-label query"
+    },
+    "question_macro": "within each contributing question, average the binary outcome over its one to three hosted-model records; then weight all 160 contributing questions equally",
+    "record_unit": "one frozen (question_id, hosted_model) record",
+    "scope": "conditional retrospective uncertainty for this fixed mismatch subset; it does not estimate deployment prevalence or model-call uncertainty",
+    "subset": "valid selections whose selected and dataset-traced IDs both resolve to distinct passage PIDs under the frozen resolver"
+  },
+  "denominators_and_dependence": {
+    "dependence_warning": "the 329 model-question rows are paired across executors but are not 329 independent questions; all rows sharing a question ID must remain together in uncertainty resampling",
+    "paired_model_question_records": 329,
+    "question_model_multiplicity": {
+      "exactly_1": 55,
+      "exactly_2": 41,
+      "exactly_3": 64
+    },
+    "questions_with_multiple_hosted_model_records": {
+      "denominator": 160,
+      "numerator": 105,
+      "rate": 0.65625
+    },
+    "records_by_model": {
+      "claude": 143,
+      "gemini": 101,
+      "openai": 85
+    },
+    "records_from_questions_with_multiple_hosted_model_records": {
+      "denominator": 329,
+      "numerator": 274,
+      "rate": 0.8328267477203647
+    },
+    "unique_question_clusters": 160
+  },
+  "inputs": {
+    "container_policy": "bind exact scientific member bytes, not the outer ZIP",
+    "members": {
+      "data/results/released/hybridqa_natural_v2/bridge_confirmatory/details.jsonl": {
+        "bytes": 4991925,
+        "records": 1800,
+        "sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/hybrid_rrf_bge_reranker_v2_m3/details.jsonl": {
+        "bytes": 6894412,
+        "records": 2400,
+        "sha256": "0550dc6690e3e44191474ae489905565b0081e887fd5836ea76d01edd9969a81"
+      },
+      "data/results/released/hybridqa_natural_v3_retriever_sensitivity_v1/links.jsonl": {
+        "bytes": 15250846,
+        "records": 286270,
+        "sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+      }
+    },
+    "question_id_set_sha256": "5f451a619152521d3af146d54afc9153dcb06f2745b34ddf6eae25e27b1c0aad",
+    "question_projection_sha256": "6a0042d5e245a00aa19671c2082b708fdb8870b767367afab21fbea645176666",
+    "record_projection_sha256": "dc2db0702609c3834b15d83edabbbf8eca5c6ddbfc923e5b2ec0a3c864b57816"
+  },
+  "interpretation": "The equal-question macro is the dependence-robust descriptive summary requested here. The complementary record-weighted cluster interval preserves the paper's 329-record estimand while correcting its uncertainty unit from records to questions.",
+  "model_calls": 0,
+  "network_used": false,
+  "paired_record_weighted": {
+    "body_only_bm25_preservation": {
+      "denominator": 329,
+      "numerator": 252,
+      "rate": 0.7659574468085106
+    },
+    "model_macro_average_gap_percentage_points": 21.857226446626566,
+    "paired_gap_percentage_points": 22.492401215805472,
+    "paired_outcomes": {
+      "body_only_bm25_only_preserves": 0,
+      "rrf_rerank_only_preserves": 74,
+      "same_preservation_state": 255
+    },
+    "per_model": {
+      "claude": {
+        "body_only_bm25_preservation": {
+          "denominator": 143,
+          "numerator": 103,
+          "rate": 0.7202797202797203
+        },
+        "display_name": "Claude",
+        "paired_gap_percentage_points": 26.573426573426573,
+        "records": 143,
+        "rrf_rerank_preservation": {
+          "denominator": 143,
+          "numerator": 141,
+          "rate": 0.986013986013986
+        }
+      },
+      "gemini": {
+        "body_only_bm25_preservation": {
+          "denominator": 101,
+          "numerator": 82,
+          "rate": 0.8118811881188119
+        },
+        "display_name": "Gemini",
+        "paired_gap_percentage_points": 17.821782178217823,
+        "records": 101,
+        "rrf_rerank_preservation": {
+          "denominator": 101,
+          "numerator": 100,
+          "rate": 0.9900990099009901
+        }
+      },
+      "openai": {
+        "body_only_bm25_preservation": {
+          "denominator": 85,
+          "numerator": 67,
+          "rate": 0.788235294117647
+        },
+        "display_name": "GPT",
+        "paired_gap_percentage_points": 21.176470588235293,
+        "records": 85,
+        "rrf_rerank_preservation": {
+          "denominator": 85,
+          "numerator": 85,
+          "rate": 1.0
+        }
+      }
+    },
+    "rrf_rerank_preservation": {
+      "denominator": 329,
+      "numerator": 326,
+      "rate": 0.9908814589665653
+    }
+  },
+  "question_cluster_resampling": {
+    "base_seed": 20260716,
+    "complementary_record_weighted_gap": {
+      "bootstrap_standard_error_percentage_points": 3.3072933813912786,
+      "paper_rounded_one_decimal": [
+        16.3,
+        29.3
+      ],
+      "percentile_95_interval_percentage_points": [
+        16.313321155062177,
+        29.254095376774657
+      ],
+      "point_estimate_percentage_points": 22.492401215805472
+    },
+    "derived_seed": 16771578087979229916,
+    "method": "paired question-cluster bootstrap conditional on the fixed mismatch subset; resample 160 unique question IDs with replacement and carry all contributing hosted-model rows for each sampled question together; linear 2.5th and 97.5th percentile interval",
+    "question_equal_weighted": {
+      "body_only_bm25_preservation": {
+        "bootstrap_standard_error_percentage_points": 3.2717696197825146,
+        "paper_rounded_one_decimal": [
+          68.0,
+          80.8
+        ],
+        "percentile_95_interval_percentage_points": [
+          68.02083333333333,
+          80.83593749999997
+        ],
+        "point_estimate_percentage_points": 74.6875
+      },
+      "paired_preservation_gap": {
+        "bootstrap_standard_error_percentage_points": 3.2018635933962494,
+        "paper_rounded_one_decimal": [
+          17.8,
+          30.4
+        ],
+        "percentile_95_interval_percentage_points": [
+          17.8125,
+          30.416666666666664
+        ],
+        "point_estimate_percentage_points": 23.854166666666664
+      },
+      "rrf_rerank_preservation": {
+        "bootstrap_standard_error_percentage_points": 0.8995282297945791,
+        "paper_rounded_one_decimal": [
+          96.5,
+          100.0
+        ],
+        "percentile_95_interval_percentage_points": [
+          96.45833333333334,
+          100.0
+        ],
+        "point_estimate_percentage_points": 98.54166666666666
+      }
+    },
+    "samples": 10000,
+    "seed_derivation": "SHA-256(20260716:body_only_bm25_vs_rrf_rerank_mismatch_question_cluster_v1) first 64 bits",
+    "sorted_question_order": true
+  },
+  "question_equal_weighted_macro": {
+    "body_only_bm25_preservation_rate": 0.746875,
+    "paired_gap_percentage_points": 23.854166666666664,
+    "question_gap_direction": {
+      "negative": 0,
+      "positive": 43,
+      "zero": 117
+    },
+    "rrf_rerank_preservation_rate": 0.9854166666666666,
+    "unique_questions": 160
+  },
+  "retrieval_calls": 0,
+  "schema_version": 1,
+  "status": "verified_no_call_mismatch_preservation_gap_uncertainty"
+}

@@ -1,0 +1,2008 @@
+{
+  "aligned_identity_arm_inventory": {
+    "claude": {
+      "arms": {
+        "decoded_id_bm25": {
+          "C1_records": 456,
+          "condition": "predicted_fact",
+          "exactly_five_passage_records": 435,
+          "invalid_json_retained_as_exact_zero_among_exactly_five": 0,
+          "succeeded_passage_count_distribution": {
+            "0": 4,
+            "1": 5,
+            "2": 6,
+            "3": 3,
+            "4": 3,
+            "5": 435
+          },
+          "succeeded_records": 456,
+          "valid_json_among_exactly_five": 435
+        },
+        "question": {
+          "C1_records": 456,
+          "condition": "question_only",
+          "exactly_five_passage_records": 456,
+          "invalid_json_retained_as_exact_zero_among_exactly_five": 0,
+          "succeeded_passage_count_distribution": {
+            "5": 456
+          },
+          "succeeded_records": 456,
+          "valid_json_among_exactly_five": 456
+        },
+        "rewrite": {
+          "C1_records": 456,
+          "condition": "query_rewrite",
+          "exactly_five_passage_records": 456,
+          "invalid_json_retained_as_exact_zero_among_exactly_five": 0,
+          "succeeded_passage_count_distribution": {
+            "5": 456
+          },
+          "succeeded_records": 456,
+          "valid_json_among_exactly_five": 456
+        }
+      },
+      "display_name": "Claude",
+      "selected_id_equals_traced_id_records": 456
+    },
+    "gemini": {
+      "arms": {
+        "decoded_id_bm25": {
+          "C1_records": 498,
+          "condition": "predicted_fact",
+          "exactly_five_passage_records": 474,
+          "invalid_json_retained_as_exact_zero_among_exactly_five": 0,
+          "succeeded_passage_count_distribution": {
+            "0": 3,
+            "1": 6,
+            "2": 7,
+            "3": 5,
+            "4": 3,
+            "5": 474
+          },
+          "succeeded_records": 498,
+          "valid_json_among_exactly_five": 474
+        },
+        "question": {
+          "C1_records": 498,
+          "condition": "question_only",
+          "exactly_five_passage_records": 498,
+          "invalid_json_retained_as_exact_zero_among_exactly_five": 0,
+          "succeeded_passage_count_distribution": {
+            "5": 498
+          },
+          "succeeded_records": 498,
+          "valid_json_among_exactly_five": 498
+        },
+        "rewrite": {
+          "C1_records": 498,
+          "condition": "query_rewrite",
+          "exactly_five_passage_records": 481,
+          "invalid_json_retained_as_exact_zero_among_exactly_five": 0,
+          "succeeded_passage_count_distribution": {
+            "0": 2,
+            "1": 4,
+            "2": 4,
+            "3": 4,
+            "4": 3,
+            "5": 481
+          },
+          "succeeded_records": 498,
+          "valid_json_among_exactly_five": 481
+        }
+      },
+      "display_name": "Gemini",
+      "selected_id_equals_traced_id_records": 498
+    },
+    "openai": {
+      "arms": {
+        "decoded_id_bm25": {
+          "C1_records": 509,
+          "condition": "predicted_fact",
+          "exactly_five_passage_records": 482,
+          "invalid_json_retained_as_exact_zero_among_exactly_five": 1,
+          "succeeded_passage_count_distribution": {
+            "0": 4,
+            "1": 7,
+            "2": 7,
+            "3": 5,
+            "4": 4,
+            "5": 482
+          },
+          "succeeded_records": 509,
+          "valid_json_among_exactly_five": 481
+        },
+        "question": {
+          "C1_records": 509,
+          "condition": "question_only",
+          "exactly_five_passage_records": 509,
+          "invalid_json_retained_as_exact_zero_among_exactly_five": 8,
+          "succeeded_passage_count_distribution": {
+            "5": 509
+          },
+          "succeeded_records": 509,
+          "valid_json_among_exactly_five": 501
+        },
+        "rewrite": {
+          "C1_records": 509,
+          "condition": "query_rewrite",
+          "exactly_five_passage_records": 509,
+          "invalid_json_retained_as_exact_zero_among_exactly_five": 1,
+          "succeeded_passage_count_distribution": {
+            "5": 509
+          },
+          "succeeded_records": 509,
+          "valid_json_among_exactly_five": 508
+        }
+      },
+      "display_name": "GPT",
+      "selected_id_equals_traced_id_records": 509
+    }
+  },
+  "api_calls": 0,
+  "definitions": {
+    "P": "whether the shared selected/traced ID occurs in the named arm's ordered top-five evidence list",
+    "aligned_identity_subset": "selector-valid rows whose selected /wiki/ ID exactly equals the dataset-traced /wiki/ ID",
+    "answer_scoring": "frozen exact field with terminal schema-invalid answers scored zero",
+    "membership_aligned_difference": "exact match in the P=1 arm minus exact match in the P=0 arm",
+    "membership_difference": "one arm has P=1 and the other has P=0",
+    "record_unit": "one frozen (question_id, hosted-model family) record",
+    "strict_matched_five": "both named answer calls succeeded and each ordered evidence list contains exactly five passages"
+  },
+  "inputs": {
+    "container_policy": "bind exact scientific and prompt-contract member bytes",
+    "members": {
+      "code/configs/experiments/hybridqa_natural_v3.yaml": {
+        "bytes": 3054,
+        "nonempty_lines": 84,
+        "sha256": "42ea9f7975a9c34e43630b12255aec50bae5e13cbfab3499b6bfd0ece987bbd4"
+      },
+      "code/src/ccr/runtime/hybridqa_answers.py": {
+        "bytes": 6040,
+        "nonempty_lines": 153,
+        "sha256": "ca16bb6b73d5d96d15f5ca2da6839f4e8ce647c0a6b8fbfd3ee854fbc36679c6"
+      },
+      "data/results/released/hybridqa_natural_v2/bridge_confirmatory/details.jsonl": {
+        "bytes": 4991925,
+        "nonempty_lines": 1800,
+        "sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5"
+      },
+      "data/results/released/hybridqa_natural_v3/answer_confirmatory/details.jsonl": {
+        "bytes": 11600206,
+        "nonempty_lines": 6600,
+        "sha256": "0e4877be9bb7983f407c632d0c8bc28cf73b4787f53cc330945db2b9d0cc4a72"
+      }
+    }
+  },
+  "interpretation": {
+    "companion_test": "the paper's Gemini deletion experiment supplies the passage-removal estimate",
+    "context_factors_recorded": [
+      "passage identities",
+      "ranks",
+      "passage lengths",
+      "distractors",
+      "input length"
+    ],
+    "estimand": "answer association on aligned-identity membership-difference rows"
+  },
+  "join_verification": {
+    "answer_records": 6600,
+    "bridge_records": 1800,
+    "exact_retained_answer_inventory": true,
+    "invalid_terminal_answers_not_dropped": true,
+    "same_question_table_model_reader_join": true,
+    "selected_id_equals_traced_id_records": 1463,
+    "unique_question_ids": 600
+  },
+  "network_used": false,
+  "pairwise_matched_five": {
+    "decoded_id_bm25__vs__question": {
+      "arm_a": "decoded_id_bm25",
+      "arm_b": "question",
+      "condition_a": "predicted_fact",
+      "condition_b": "question_only",
+      "eligible_projection_sha256": "8cf262700de635e4f30a6a570e8b1d63525d1647107d6533c0f19b463b3956b6",
+      "models": {
+        "claude": {
+          "P_transitions": {
+            "P0_P0": 106,
+            "P0_P1": 14,
+            "P1_P0": 245,
+            "P1_P1": 70
+          },
+          "arm_a_hit_arm_b_miss": {
+            "P_a": 1,
+            "P_b": 0,
+            "arm_a_em": {
+              "denominator": 245,
+              "numerator": 197,
+              "rate": 0.8040816326530612
+            },
+            "arm_b_em": {
+              "denominator": 245,
+              "numerator": 91,
+              "rate": 0.37142857142857144
+            },
+            "arm_b_minus_arm_a_percentage_points": -43.265306122448976,
+            "paired_outcomes": {
+              "both_exact": 88,
+              "discordant_pairs": 112,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 112,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 9.022943270855312e-29,
+                "p_value_fraction": "234249/2596148429267413814265248164610048",
+                "smaller_discordant_cell": 3
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 109,
+              "neither_exact": 45,
+              "paired_records": 245,
+              "second_name": "arm_b",
+              "second_only_exact": 3
+            },
+            "records": 245
+          },
+          "arm_a_miss_arm_b_hit": {
+            "P_a": 0,
+            "P_b": 1,
+            "arm_a_em": {
+              "denominator": 14,
+              "numerator": 7,
+              "rate": 0.5
+            },
+            "arm_b_em": {
+              "denominator": 14,
+              "numerator": 10,
+              "rate": 0.7142857142857143
+            },
+            "arm_b_minus_arm_a_percentage_points": 21.428571428571427,
+            "paired_outcomes": {
+              "both_exact": 7,
+              "discordant_pairs": 3,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 3,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.25,
+                "p_value_fraction": "1/4",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 0,
+              "neither_exact": 4,
+              "paired_records": 14,
+              "second_name": "arm_b",
+              "second_only_exact": 3
+            },
+            "records": 14
+          },
+          "delivery_aligned": {
+            "hit_context_em": {
+              "denominator": 259,
+              "numerator": 207,
+              "rate": 0.7992277992277992
+            },
+            "hit_minus_miss_percentage_points": 42.084942084942085,
+            "miss_context_em": {
+              "denominator": 259,
+              "numerator": 98,
+              "rate": 0.3783783783783784
+            },
+            "paired_item_resampling": {
+              "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                35.9,
+                48.3
+              ],
+              "percentile_95_interval_percentage_points": [
+                35.907335907335906,
+                48.262548262548265
+              ],
+              "point_estimate_percentage_points": 42.084942084942085,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__question:claude:delivery_aligned) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 95,
+              "discordant_pairs": 115,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 115,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 1.2209240289448443e-29,
+                "p_value_fraction": "31697/2596148429267413814265248164610048",
+                "smaller_discordant_cell": 3
+              },
+              "first_name": "hit_context",
+              "first_only_exact": 112,
+              "neither_exact": 49,
+              "paired_records": 259,
+              "second_name": "miss_context",
+              "second_only_exact": 3
+            },
+            "records": 259,
+            "top5_set_overlap_distribution": {
+              "0": 240,
+              "1": 16,
+              "2": 2,
+              "3": 1
+            }
+          },
+          "display_name": "Claude",
+          "strict_matched_five_records": 435
+        },
+        "gemini": {
+          "P_transitions": {
+            "P0_P0": 113,
+            "P0_P1": 14,
+            "P1_P0": 270,
+            "P1_P1": 77
+          },
+          "arm_a_hit_arm_b_miss": {
+            "P_a": 1,
+            "P_b": 0,
+            "arm_a_em": {
+              "denominator": 270,
+              "numerator": 222,
+              "rate": 0.8222222222222222
+            },
+            "arm_b_em": {
+              "denominator": 270,
+              "numerator": 159,
+              "rate": 0.5888888888888889
+            },
+            "arm_b_minus_arm_a_percentage_points": -23.333333333333332,
+            "paired_outcomes": {
+              "both_exact": 151,
+              "discordant_pairs": 79,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 79,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 9.691123017072029e-14,
+                "p_value_fraction": "29289622091/302231454903657293676544",
+                "smaller_discordant_cell": 8
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 71,
+              "neither_exact": 40,
+              "paired_records": 270,
+              "second_name": "arm_b",
+              "second_only_exact": 8
+            },
+            "records": 270
+          },
+          "arm_a_miss_arm_b_hit": {
+            "P_a": 0,
+            "P_b": 1,
+            "arm_a_em": {
+              "denominator": 14,
+              "numerator": 7,
+              "rate": 0.5
+            },
+            "arm_b_em": {
+              "denominator": 14,
+              "numerator": 11,
+              "rate": 0.7857142857142857
+            },
+            "arm_b_minus_arm_a_percentage_points": 28.571428571428573,
+            "paired_outcomes": {
+              "both_exact": 7,
+              "discordant_pairs": 4,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 4,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.125,
+                "p_value_fraction": "1/8",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 0,
+              "neither_exact": 3,
+              "paired_records": 14,
+              "second_name": "arm_b",
+              "second_only_exact": 4
+            },
+            "records": 14
+          },
+          "delivery_aligned": {
+            "hit_context_em": {
+              "denominator": 284,
+              "numerator": 233,
+              "rate": 0.8204225352112676
+            },
+            "hit_minus_miss_percentage_points": 23.591549295774648,
+            "miss_context_em": {
+              "denominator": 284,
+              "numerator": 166,
+              "rate": 0.5845070422535211
+            },
+            "paired_item_resampling": {
+              "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                18.0,
+                29.2
+              ],
+              "percentile_95_interval_percentage_points": [
+                17.95774647887324,
+                29.225352112676056
+              ],
+              "point_estimate_percentage_points": 23.591549295774648,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__question:gemini:delivery_aligned) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 158,
+              "discordant_pairs": 83,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 83,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 9.099722954884666e-15,
+                "p_value_fraction": "22001780063/2417851639229258349412352",
+                "smaller_discordant_cell": 8
+              },
+              "first_name": "hit_context",
+              "first_only_exact": 75,
+              "neither_exact": 43,
+              "paired_records": 284,
+              "second_name": "miss_context",
+              "second_only_exact": 8
+            },
+            "records": 284,
+            "top5_set_overlap_distribution": {
+              "0": 263,
+              "1": 18,
+              "2": 2,
+              "3": 1
+            }
+          },
+          "display_name": "Gemini",
+          "strict_matched_five_records": 474
+        },
+        "openai": {
+          "P_transitions": {
+            "P0_P0": 114,
+            "P0_P1": 14,
+            "P1_P0": 275,
+            "P1_P1": 79
+          },
+          "arm_a_hit_arm_b_miss": {
+            "P_a": 1,
+            "P_b": 0,
+            "arm_a_em": {
+              "denominator": 275,
+              "numerator": 211,
+              "rate": 0.7672727272727272
+            },
+            "arm_b_em": {
+              "denominator": 275,
+              "numerator": 154,
+              "rate": 0.56
+            },
+            "arm_b_minus_arm_a_percentage_points": -20.727272727272727,
+            "paired_outcomes": {
+              "both_exact": 148,
+              "discordant_pairs": 69,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 69,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 4.4735298364989573e-13,
+                "p_value_fraction": "4126103/9223372036854775808",
+                "smaller_discordant_cell": 6
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 63,
+              "neither_exact": 58,
+              "paired_records": 275,
+              "second_name": "arm_b",
+              "second_only_exact": 6
+            },
+            "records": 275
+          },
+          "arm_a_miss_arm_b_hit": {
+            "P_a": 0,
+            "P_b": 1,
+            "arm_a_em": {
+              "denominator": 14,
+              "numerator": 3,
+              "rate": 0.21428571428571427
+            },
+            "arm_b_em": {
+              "denominator": 14,
+              "numerator": 8,
+              "rate": 0.5714285714285714
+            },
+            "arm_b_minus_arm_a_percentage_points": 35.714285714285715,
+            "paired_outcomes": {
+              "both_exact": 3,
+              "discordant_pairs": 5,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 5,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.0625,
+                "p_value_fraction": "1/16",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 0,
+              "neither_exact": 6,
+              "paired_records": 14,
+              "second_name": "arm_b",
+              "second_only_exact": 5
+            },
+            "records": 14
+          },
+          "delivery_aligned": {
+            "hit_context_em": {
+              "denominator": 289,
+              "numerator": 219,
+              "rate": 0.7577854671280276
+            },
+            "hit_minus_miss_percentage_points": 21.453287197231834,
+            "miss_context_em": {
+              "denominator": 289,
+              "numerator": 157,
+              "rate": 0.5432525951557093
+            },
+            "paired_item_resampling": {
+              "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                16.3,
+                26.6
+              ],
+              "percentile_95_interval_percentage_points": [
+                16.262975778546714,
+                26.643598615916954
+              ],
+              "point_estimate_percentage_points": 21.453287197231834,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__question:openai:delivery_aligned) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 151,
+              "discordant_pairs": 74,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 74,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 2.1448756331687684e-14,
+                "p_value_fraction": "12661111/590295810358705651712",
+                "smaller_discordant_cell": 6
+              },
+              "first_name": "hit_context",
+              "first_only_exact": 68,
+              "neither_exact": 64,
+              "paired_records": 289,
+              "second_name": "miss_context",
+              "second_only_exact": 6
+            },
+            "records": 289,
+            "top5_set_overlap_distribution": {
+              "0": 267,
+              "1": 19,
+              "2": 2,
+              "3": 1
+            }
+          },
+          "display_name": "GPT",
+          "strict_matched_five_records": 482
+        }
+      },
+      "pooled_P_transitions": {
+        "P0_P0": 333,
+        "P0_P1": 42,
+        "P1_P0": 790,
+        "P1_P1": 226
+      },
+      "pooled_arm_a_hit_arm_b_miss": {
+        "P_a": 1,
+        "P_b": 0,
+        "arm_a_em": {
+          "denominator": 790,
+          "numerator": 630,
+          "rate": 0.7974683544303798
+        },
+        "arm_b_em": {
+          "denominator": 790,
+          "numerator": 404,
+          "rate": 0.5113924050632911
+        },
+        "arm_b_minus_arm_a_percentage_points": -28.60759493670886,
+        "paired_outcomes": {
+          "both_exact": 387,
+          "discordant_pairs": 260,
+          "exact_two_sided_sign_test": {
+            "discordant_n": 260,
+            "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+            "p_value": 2.166651998562819e-52,
+            "p_value_fraction": "3136014519547442739781541/14474011154664524427946373126085988481658748083205070504932198000989141204992",
+            "smaller_discordant_cell": 17
+          },
+          "first_name": "arm_a",
+          "first_only_exact": 243,
+          "neither_exact": 143,
+          "paired_records": 790,
+          "second_name": "arm_b",
+          "second_only_exact": 17
+        },
+        "records": 790
+      },
+      "pooled_arm_a_miss_arm_b_hit": {
+        "P_a": 0,
+        "P_b": 1,
+        "arm_a_em": {
+          "denominator": 42,
+          "numerator": 17,
+          "rate": 0.40476190476190477
+        },
+        "arm_b_em": {
+          "denominator": 42,
+          "numerator": 29,
+          "rate": 0.6904761904761905
+        },
+        "arm_b_minus_arm_a_percentage_points": 28.571428571428573,
+        "paired_outcomes": {
+          "both_exact": 17,
+          "discordant_pairs": 12,
+          "exact_two_sided_sign_test": {
+            "discordant_n": 12,
+            "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+            "p_value": 0.00048828125,
+            "p_value_fraction": "1/2048",
+            "smaller_discordant_cell": 0
+          },
+          "first_name": "arm_a",
+          "first_only_exact": 0,
+          "neither_exact": 13,
+          "paired_records": 42,
+          "second_name": "arm_b",
+          "second_only_exact": 12
+        },
+        "records": 42
+      },
+      "pooled_delivery_aligned": {
+        "hit_context_em": {
+          "denominator": 832,
+          "numerator": 659,
+          "rate": 0.7920673076923077
+        },
+        "hit_minus_miss_percentage_points": 28.60576923076923,
+        "miss_context_em": {
+          "denominator": 832,
+          "numerator": 421,
+          "rate": 0.5060096153846154
+        },
+        "paired_outcomes": {
+          "both_exact": 404,
+          "discordant_pairs": 272,
+          "exact_two_sided_sign_test": {
+            "discordant_n": 272,
+            "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+            "p_value": 1.1627972301493049e-55,
+            "p_value_fraction": "27574829186734574841405745/237142198758023568227473377297792835283496928595231875152809132048206089502588928",
+            "smaller_discordant_cell": 17
+          },
+          "first_name": "hit_context",
+          "first_only_exact": 255,
+          "neither_exact": 156,
+          "paired_records": 832,
+          "second_name": "miss_context",
+          "second_only_exact": 17
+        },
+        "question_cluster_resampling": {
+          "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+          "method": "question-cluster bootstrap conditional on the fixed audit subset; resample its unique question IDs and carry all hosted-model rows for a sampled question together",
+          "model_macro_average": {
+            "model_point_estimates_percentage_points": {
+              "claude": 42.084942084942085,
+              "gemini": 23.591549295774648,
+              "openai": 21.453287197231834
+            },
+            "paper_rounded_one_decimal": [
+              24.9,
+              33.2
+            ],
+            "percentile_95_interval_percentage_points": [
+              24.93644242857001,
+              33.224716570236666
+            ],
+            "point_estimate_percentage_points": 29.043259525982858
+          },
+          "pooled_record_weighted": {
+            "paper_rounded_one_decimal": [
+              24.5,
+              32.8
+            ],
+            "percentile_95_interval_percentage_points": [
+              24.49217321337137,
+              32.808764169322124
+            ],
+            "point_estimate_percentage_points": 28.60576923076923
+          },
+          "rejected_draws_missing_a_model": 0,
+          "samples": 10000,
+          "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__question:question_cluster:delivery_aligned) first 64 bits",
+          "unique_question_clusters": 298
+        },
+        "records": 832,
+        "top5_set_overlap_distribution": {
+          "0": 770,
+          "1": 53,
+          "2": 6,
+          "3": 3
+        }
+      },
+      "pooled_descriptive_records": 1391,
+      "strict_eligibility": "C=1, both calls succeeded, and both evidence lists contain exactly five passages"
+    },
+    "decoded_id_bm25__vs__rewrite": {
+      "arm_a": "decoded_id_bm25",
+      "arm_b": "rewrite",
+      "condition_a": "predicted_fact",
+      "condition_b": "query_rewrite",
+      "eligible_projection_sha256": "46b12d7c9125f759bfd57fa177a33393d51f8d2e822bc9efccf7634ca3517e70",
+      "models": {
+        "claude": {
+          "P_transitions": {
+            "P0_P0": 64,
+            "P0_P1": 56,
+            "P1_P0": 22,
+            "P1_P1": 293
+          },
+          "arm_a_hit_arm_b_miss": {
+            "P_a": 1,
+            "P_b": 0,
+            "arm_a_em": {
+              "denominator": 22,
+              "numerator": 15,
+              "rate": 0.6818181818181818
+            },
+            "arm_b_em": {
+              "denominator": 22,
+              "numerator": 7,
+              "rate": 0.3181818181818182
+            },
+            "arm_b_minus_arm_a_percentage_points": -36.36363636363637,
+            "paired_item_resampling": {
+              "estimand": "arm B exact match minus arm A exact match, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                -54.5,
+                -18.2
+              ],
+              "percentile_95_interval_percentage_points": [
+                -54.54545454545455,
+                -18.181818181818183
+              ],
+              "point_estimate_percentage_points": -36.36363636363637,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:claude:arm_a_hit_arm_b_miss) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 7,
+              "discordant_pairs": 8,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 8,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.0078125,
+                "p_value_fraction": "1/128",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 8,
+              "neither_exact": 7,
+              "paired_records": 22,
+              "second_name": "arm_b",
+              "second_only_exact": 0
+            },
+            "records": 22
+          },
+          "arm_a_miss_arm_b_hit": {
+            "P_a": 0,
+            "P_b": 1,
+            "arm_a_em": {
+              "denominator": 56,
+              "numerator": 24,
+              "rate": 0.42857142857142855
+            },
+            "arm_b_em": {
+              "denominator": 56,
+              "numerator": 44,
+              "rate": 0.7857142857142857
+            },
+            "arm_b_minus_arm_a_percentage_points": 35.714285714285715,
+            "paired_item_resampling": {
+              "estimand": "arm B exact match minus arm A exact match, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                23.2,
+                48.2
+              ],
+              "percentile_95_interval_percentage_points": [
+                23.214285714285715,
+                48.214285714285715
+              ],
+              "point_estimate_percentage_points": 35.714285714285715,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:claude:arm_a_miss_arm_b_hit) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 24,
+              "discordant_pairs": 20,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 20,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 1.9073486328125e-06,
+                "p_value_fraction": "1/524288",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 0,
+              "neither_exact": 12,
+              "paired_records": 56,
+              "second_name": "arm_b",
+              "second_only_exact": 20
+            },
+            "records": 56
+          },
+          "delivery_aligned": {
+            "hit_context_em": {
+              "denominator": 78,
+              "numerator": 59,
+              "rate": 0.7564102564102564
+            },
+            "hit_minus_miss_percentage_points": 35.8974358974359,
+            "miss_context_em": {
+              "denominator": 78,
+              "numerator": 31,
+              "rate": 0.3974358974358974
+            },
+            "paired_item_resampling": {
+              "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                25.6,
+                46.2
+              ],
+              "percentile_95_interval_percentage_points": [
+                25.641025641025642,
+                46.15384615384615
+              ],
+              "point_estimate_percentage_points": 35.8974358974359,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:claude:delivery_aligned) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 31,
+              "discordant_pairs": 28,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 28,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 7.450580596923828e-09,
+                "p_value_fraction": "1/134217728",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "hit_context",
+              "first_only_exact": 28,
+              "neither_exact": 19,
+              "paired_records": 78,
+              "second_name": "miss_context",
+              "second_only_exact": 0
+            },
+            "records": 78,
+            "top5_set_overlap_distribution": {
+              "0": 42,
+              "1": 18,
+              "2": 10,
+              "3": 7,
+              "4": 1
+            }
+          },
+          "display_name": "Claude",
+          "strict_matched_five_records": 435
+        },
+        "gemini": {
+          "P_transitions": {
+            "P0_P0": 106,
+            "P0_P1": 21,
+            "P1_P0": 20,
+            "P1_P1": 327
+          },
+          "arm_a_hit_arm_b_miss": {
+            "P_a": 1,
+            "P_b": 0,
+            "arm_a_em": {
+              "denominator": 20,
+              "numerator": 15,
+              "rate": 0.75
+            },
+            "arm_b_em": {
+              "denominator": 20,
+              "numerator": 7,
+              "rate": 0.35
+            },
+            "arm_b_minus_arm_a_percentage_points": -40.0,
+            "paired_item_resampling": {
+              "estimand": "arm B exact match minus arm A exact match, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                -60.0,
+                -20.0
+              ],
+              "percentile_95_interval_percentage_points": [
+                -60.0,
+                -20.0
+              ],
+              "point_estimate_percentage_points": -40.0,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:gemini:arm_a_hit_arm_b_miss) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 7,
+              "discordant_pairs": 8,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 8,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.0078125,
+                "p_value_fraction": "1/128",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 8,
+              "neither_exact": 5,
+              "paired_records": 20,
+              "second_name": "arm_b",
+              "second_only_exact": 0
+            },
+            "records": 20
+          },
+          "arm_a_miss_arm_b_hit": {
+            "P_a": 0,
+            "P_b": 1,
+            "arm_a_em": {
+              "denominator": 21,
+              "numerator": 9,
+              "rate": 0.42857142857142855
+            },
+            "arm_b_em": {
+              "denominator": 21,
+              "numerator": 20,
+              "rate": 0.9523809523809523
+            },
+            "arm_b_minus_arm_a_percentage_points": 52.38095238095238,
+            "paired_item_resampling": {
+              "estimand": "arm B exact match minus arm A exact match, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                33.3,
+                71.4
+              ],
+              "percentile_95_interval_percentage_points": [
+                33.333333333333336,
+                71.42857142857143
+              ],
+              "point_estimate_percentage_points": 52.38095238095238,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:gemini:arm_a_miss_arm_b_hit) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 9,
+              "discordant_pairs": 11,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 11,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.0009765625,
+                "p_value_fraction": "1/1024",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 0,
+              "neither_exact": 1,
+              "paired_records": 21,
+              "second_name": "arm_b",
+              "second_only_exact": 11
+            },
+            "records": 21
+          },
+          "delivery_aligned": {
+            "hit_context_em": {
+              "denominator": 41,
+              "numerator": 35,
+              "rate": 0.8536585365853658
+            },
+            "hit_minus_miss_percentage_points": 46.34146341463415,
+            "miss_context_em": {
+              "denominator": 41,
+              "numerator": 16,
+              "rate": 0.3902439024390244
+            },
+            "paired_item_resampling": {
+              "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                31.7,
+                61.0
+              ],
+              "percentile_95_interval_percentage_points": [
+                31.70731707317073,
+                60.97560975609756
+              ],
+              "point_estimate_percentage_points": 46.34146341463415,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:gemini:delivery_aligned) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 16,
+              "discordant_pairs": 19,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 19,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 3.814697265625e-06,
+                "p_value_fraction": "1/262144",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "hit_context",
+              "first_only_exact": 19,
+              "neither_exact": 6,
+              "paired_records": 41,
+              "second_name": "miss_context",
+              "second_only_exact": 0
+            },
+            "records": 41,
+            "top5_set_overlap_distribution": {
+              "0": 23,
+              "1": 6,
+              "2": 8,
+              "3": 2,
+              "4": 2
+            }
+          },
+          "display_name": "Gemini",
+          "strict_matched_five_records": 474
+        },
+        "openai": {
+          "P_transitions": {
+            "P0_P0": 68,
+            "P0_P1": 60,
+            "P1_P0": 21,
+            "P1_P1": 333
+          },
+          "arm_a_hit_arm_b_miss": {
+            "P_a": 1,
+            "P_b": 0,
+            "arm_a_em": {
+              "denominator": 21,
+              "numerator": 13,
+              "rate": 0.6190476190476191
+            },
+            "arm_b_em": {
+              "denominator": 21,
+              "numerator": 11,
+              "rate": 0.5238095238095238
+            },
+            "arm_b_minus_arm_a_percentage_points": -9.523809523809524,
+            "paired_item_resampling": {
+              "estimand": "arm B exact match minus arm A exact match, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                -28.6,
+                9.5
+              ],
+              "percentile_95_interval_percentage_points": [
+                -28.571428571428573,
+                9.523809523809524
+              ],
+              "point_estimate_percentage_points": -9.523809523809524,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:openai:arm_a_hit_arm_b_miss) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 10,
+              "discordant_pairs": 4,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 4,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.625,
+                "p_value_fraction": "5/8",
+                "smaller_discordant_cell": 1
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 3,
+              "neither_exact": 7,
+              "paired_records": 21,
+              "second_name": "arm_b",
+              "second_only_exact": 1
+            },
+            "records": 21
+          },
+          "arm_a_miss_arm_b_hit": {
+            "P_a": 0,
+            "P_b": 1,
+            "arm_a_em": {
+              "denominator": 60,
+              "numerator": 32,
+              "rate": 0.5333333333333333
+            },
+            "arm_b_em": {
+              "denominator": 60,
+              "numerator": 45,
+              "rate": 0.75
+            },
+            "arm_b_minus_arm_a_percentage_points": 21.666666666666668,
+            "paired_item_resampling": {
+              "estimand": "arm B exact match minus arm A exact match, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                11.7,
+                31.7
+              ],
+              "percentile_95_interval_percentage_points": [
+                11.666666666666666,
+                31.708333333332728
+              ],
+              "point_estimate_percentage_points": 21.666666666666668,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:openai:arm_a_miss_arm_b_hit) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 32,
+              "discordant_pairs": 13,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 13,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.000244140625,
+                "p_value_fraction": "1/4096",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 0,
+              "neither_exact": 15,
+              "paired_records": 60,
+              "second_name": "arm_b",
+              "second_only_exact": 13
+            },
+            "records": 60
+          },
+          "delivery_aligned": {
+            "hit_context_em": {
+              "denominator": 81,
+              "numerator": 58,
+              "rate": 0.7160493827160493
+            },
+            "hit_minus_miss_percentage_points": 18.51851851851852,
+            "miss_context_em": {
+              "denominator": 81,
+              "numerator": 43,
+              "rate": 0.5308641975308642
+            },
+            "paired_item_resampling": {
+              "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                9.9,
+                28.4
+              ],
+              "percentile_95_interval_percentage_points": [
+                9.876543209876543,
+                28.395061728395063
+              ],
+              "point_estimate_percentage_points": 18.51851851851852,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:openai:delivery_aligned) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 42,
+              "discordant_pairs": 17,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 17,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.000274658203125,
+                "p_value_fraction": "9/32768",
+                "smaller_discordant_cell": 1
+              },
+              "first_name": "hit_context",
+              "first_only_exact": 16,
+              "neither_exact": 22,
+              "paired_records": 81,
+              "second_name": "miss_context",
+              "second_only_exact": 1
+            },
+            "records": 81,
+            "top5_set_overlap_distribution": {
+              "0": 41,
+              "1": 17,
+              "2": 13,
+              "3": 9,
+              "4": 1
+            }
+          },
+          "display_name": "GPT",
+          "strict_matched_five_records": 482
+        }
+      },
+      "pooled_P_transitions": {
+        "P0_P0": 238,
+        "P0_P1": 137,
+        "P1_P0": 63,
+        "P1_P1": 953
+      },
+      "pooled_arm_a_hit_arm_b_miss": {
+        "P_a": 1,
+        "P_b": 0,
+        "arm_a_em": {
+          "denominator": 63,
+          "numerator": 43,
+          "rate": 0.6825396825396826
+        },
+        "arm_b_em": {
+          "denominator": 63,
+          "numerator": 25,
+          "rate": 0.3968253968253968
+        },
+        "arm_b_minus_arm_a_percentage_points": -28.571428571428573,
+        "paired_outcomes": {
+          "both_exact": 24,
+          "discordant_pairs": 20,
+          "exact_two_sided_sign_test": {
+            "discordant_n": 20,
+            "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+            "p_value": 4.00543212890625e-05,
+            "p_value_fraction": "21/524288",
+            "smaller_discordant_cell": 1
+          },
+          "first_name": "arm_a",
+          "first_only_exact": 19,
+          "neither_exact": 19,
+          "paired_records": 63,
+          "second_name": "arm_b",
+          "second_only_exact": 1
+        },
+        "question_cluster_resampling": {
+          "estimand": "arm B exact match minus arm A exact match, percentage points",
+          "method": "question-cluster bootstrap conditional on the fixed audit subset; resample its unique question IDs and carry all hosted-model rows for a sampled question together",
+          "model_macro_average": {
+            "model_point_estimates_percentage_points": {
+              "claude": -36.36363636363637,
+              "gemini": -40.0,
+              "openai": -9.523809523809524
+            },
+            "paper_rounded_one_decimal": [
+              -41.9,
+              -16.0
+            ],
+            "percentile_95_interval_percentage_points": [
+              -41.853699813258636,
+              -16.008713662174763
+            ],
+            "point_estimate_percentage_points": -28.62914862914863
+          },
+          "pooled_record_weighted": {
+            "paper_rounded_one_decimal": [
+              -41.9,
+              -15.7
+            ],
+            "percentile_95_interval_percentage_points": [
+              -41.935483870967744,
+              -15.714285714285714
+            ],
+            "point_estimate_percentage_points": -28.571428571428573
+          },
+          "rejected_draws_missing_a_model": 0,
+          "samples": 10000,
+          "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:question_cluster:arm_a_hit_arm_b_miss) first 64 bits",
+          "unique_question_clusters": 46
+        },
+        "records": 63
+      },
+      "pooled_arm_a_miss_arm_b_hit": {
+        "P_a": 0,
+        "P_b": 1,
+        "arm_a_em": {
+          "denominator": 137,
+          "numerator": 65,
+          "rate": 0.4744525547445255
+        },
+        "arm_b_em": {
+          "denominator": 137,
+          "numerator": 109,
+          "rate": 0.7956204379562044
+        },
+        "arm_b_minus_arm_a_percentage_points": 32.11678832116788,
+        "paired_outcomes": {
+          "both_exact": 65,
+          "discordant_pairs": 44,
+          "exact_two_sided_sign_test": {
+            "discordant_n": 44,
+            "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+            "p_value": 1.1368683772161603e-13,
+            "p_value_fraction": "1/8796093022208",
+            "smaller_discordant_cell": 0
+          },
+          "first_name": "arm_a",
+          "first_only_exact": 0,
+          "neither_exact": 28,
+          "paired_records": 137,
+          "second_name": "arm_b",
+          "second_only_exact": 44
+        },
+        "question_cluster_resampling": {
+          "estimand": "arm B exact match minus arm A exact match, percentage points",
+          "method": "question-cluster bootstrap conditional on the fixed audit subset; resample its unique question IDs and carry all hosted-model rows for a sampled question together",
+          "model_macro_average": {
+            "model_point_estimates_percentage_points": {
+              "claude": 35.714285714285715,
+              "gemini": 52.38095238095238,
+              "openai": 21.666666666666668
+            },
+            "paper_rounded_one_decimal": [
+              25.8,
+              47.5
+            ],
+            "percentile_95_interval_percentage_points": [
+              25.78373589423631,
+              47.48586799508931
+            ],
+            "point_estimate_percentage_points": 36.58730158730159
+          },
+          "pooled_record_weighted": {
+            "paper_rounded_one_decimal": [
+              22.9,
+              41.7
+            ],
+            "percentile_95_interval_percentage_points": [
+              22.857142857142858,
+              41.726618705035975
+            ],
+            "point_estimate_percentage_points": 32.11678832116788
+          },
+          "rejected_draws_missing_a_model": 0,
+          "samples": 10000,
+          "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:question_cluster:arm_a_miss_arm_b_hit) first 64 bits",
+          "unique_question_clusters": 80
+        },
+        "records": 137
+      },
+      "pooled_delivery_aligned": {
+        "hit_context_em": {
+          "denominator": 200,
+          "numerator": 152,
+          "rate": 0.76
+        },
+        "hit_minus_miss_percentage_points": 31.0,
+        "miss_context_em": {
+          "denominator": 200,
+          "numerator": 90,
+          "rate": 0.45
+        },
+        "paired_outcomes": {
+          "both_exact": 89,
+          "discordant_pairs": 64,
+          "exact_two_sided_sign_test": {
+            "discordant_n": 64,
+            "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+            "p_value": 7.047314121155779e-18,
+            "p_value_fraction": "65/9223372036854775808",
+            "smaller_discordant_cell": 1
+          },
+          "first_name": "hit_context",
+          "first_only_exact": 63,
+          "neither_exact": 47,
+          "paired_records": 200,
+          "second_name": "miss_context",
+          "second_only_exact": 1
+        },
+        "question_cluster_resampling": {
+          "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+          "method": "question-cluster bootstrap conditional on the fixed audit subset; resample its unique question IDs and carry all hosted-model rows for a sampled question together",
+          "model_macro_average": {
+            "model_point_estimates_percentage_points": {
+              "claude": 35.8974358974359,
+              "gemini": 46.34146341463415,
+              "openai": 18.51851851851852
+            },
+            "paper_rounded_one_decimal": [
+              25.7,
+              41.8
+            ],
+            "percentile_95_interval_percentage_points": [
+              25.727427180582556,
+              41.776381004743214
+            ],
+            "point_estimate_percentage_points": 33.58580594352952
+          },
+          "pooled_record_weighted": {
+            "paper_rounded_one_decimal": [
+              23.5,
+              38.9
+            ],
+            "percentile_95_interval_percentage_points": [
+              23.529411764705884,
+              38.863217482885716
+            ],
+            "point_estimate_percentage_points": 31.0
+          },
+          "rejected_draws_missing_a_model": 0,
+          "samples": 10000,
+          "seed_derivation": "SHA-256(20260716:decoded_id_bm25__vs__rewrite:question_cluster:delivery_aligned) first 64 bits",
+          "unique_question_clusters": 126
+        },
+        "records": 200,
+        "top5_set_overlap_distribution": {
+          "0": 106,
+          "1": 41,
+          "2": 31,
+          "3": 18,
+          "4": 4
+        }
+      },
+      "pooled_descriptive_records": 1391,
+      "strict_eligibility": "C=1, both calls succeeded, and both evidence lists contain exactly five passages"
+    },
+    "rewrite__vs__question": {
+      "arm_a": "rewrite",
+      "arm_b": "question",
+      "condition_a": "query_rewrite",
+      "condition_b": "question_only",
+      "eligible_projection_sha256": "02033f7ea58f7b5af2c0a9d2742331fbc5b4596c390dd6cfc87371b79cafef0a",
+      "models": {
+        "claude": {
+          "P_transitions": {
+            "P0_P0": 85,
+            "P0_P1": 6,
+            "P1_P0": 283,
+            "P1_P1": 82
+          },
+          "arm_a_hit_arm_b_miss": {
+            "P_a": 1,
+            "P_b": 0,
+            "arm_a_em": {
+              "denominator": 283,
+              "numerator": 228,
+              "rate": 0.8056537102473498
+            },
+            "arm_b_em": {
+              "denominator": 283,
+              "numerator": 108,
+              "rate": 0.38162544169611307
+            },
+            "arm_b_minus_arm_a_percentage_points": -42.40282685512368,
+            "paired_outcomes": {
+              "both_exact": 106,
+              "discordant_pairs": 124,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 124,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 7.28900537057884e-34,
+                "p_value_fraction": "7751/10633823966279326983230456482242756608",
+                "smaller_discordant_cell": 2
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 122,
+              "neither_exact": 53,
+              "paired_records": 283,
+              "second_name": "arm_b",
+              "second_only_exact": 2
+            },
+            "records": 283
+          },
+          "arm_a_miss_arm_b_hit": {
+            "P_a": 0,
+            "P_b": 1,
+            "arm_a_em": {
+              "denominator": 6,
+              "numerator": 5,
+              "rate": 0.8333333333333334
+            },
+            "arm_b_em": {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0
+            },
+            "arm_b_minus_arm_a_percentage_points": 16.666666666666668,
+            "paired_outcomes": {
+              "both_exact": 5,
+              "discordant_pairs": 1,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 1,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 1.0,
+                "p_value_fraction": "1/1",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 0,
+              "neither_exact": 0,
+              "paired_records": 6,
+              "second_name": "arm_b",
+              "second_only_exact": 1
+            },
+            "records": 6
+          },
+          "delivery_aligned": {
+            "hit_context_em": {
+              "denominator": 289,
+              "numerator": 234,
+              "rate": 0.8096885813148789
+            },
+            "hit_minus_miss_percentage_points": 41.86851211072664,
+            "miss_context_em": {
+              "denominator": 289,
+              "numerator": 113,
+              "rate": 0.39100346020761245
+            },
+            "paired_item_resampling": {
+              "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                36.0,
+                47.8
+              ],
+              "percentile_95_interval_percentage_points": [
+                35.98615916955017,
+                47.75086505190311
+              ],
+              "point_estimate_percentage_points": 41.86851211072664,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:rewrite__vs__question:claude:delivery_aligned) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 111,
+              "discordant_pairs": 125,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 125,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 3.7032774028305346e-34,
+                "p_value_fraction": "1969/5316911983139663491615228241121378304",
+                "smaller_discordant_cell": 2
+              },
+              "first_name": "hit_context",
+              "first_only_exact": 123,
+              "neither_exact": 53,
+              "paired_records": 289,
+              "second_name": "miss_context",
+              "second_only_exact": 2
+            },
+            "records": 289,
+            "top5_set_overlap_distribution": {
+              "0": 255,
+              "1": 31,
+              "2": 1,
+              "3": 2
+            }
+          },
+          "display_name": "Claude",
+          "strict_matched_five_records": 456
+        },
+        "gemini": {
+          "P_transitions": {
+            "P0_P0": 115,
+            "P0_P1": 14,
+            "P1_P0": 272,
+            "P1_P1": 80
+          },
+          "arm_a_hit_arm_b_miss": {
+            "P_a": 1,
+            "P_b": 0,
+            "arm_a_em": {
+              "denominator": 272,
+              "numerator": 234,
+              "rate": 0.8602941176470589
+            },
+            "arm_b_em": {
+              "denominator": 272,
+              "numerator": 164,
+              "rate": 0.6029411764705882
+            },
+            "arm_b_minus_arm_a_percentage_points": -25.735294117647058,
+            "paired_outcomes": {
+              "both_exact": 158,
+              "discordant_pairs": 82,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 82,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 1.5686991122453906e-16,
+                "p_value_fraction": "94822043/604462909807314587353088",
+                "smaller_discordant_cell": 6
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 76,
+              "neither_exact": 32,
+              "paired_records": 272,
+              "second_name": "arm_b",
+              "second_only_exact": 6
+            },
+            "records": 272
+          },
+          "arm_a_miss_arm_b_hit": {
+            "P_a": 0,
+            "P_b": 1,
+            "arm_a_em": {
+              "denominator": 14,
+              "numerator": 8,
+              "rate": 0.5714285714285714
+            },
+            "arm_b_em": {
+              "denominator": 14,
+              "numerator": 11,
+              "rate": 0.7857142857142857
+            },
+            "arm_b_minus_arm_a_percentage_points": 21.428571428571427,
+            "paired_outcomes": {
+              "both_exact": 8,
+              "discordant_pairs": 3,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 3,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 0.25,
+                "p_value_fraction": "1/4",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 0,
+              "neither_exact": 3,
+              "paired_records": 14,
+              "second_name": "arm_b",
+              "second_only_exact": 3
+            },
+            "records": 14
+          },
+          "delivery_aligned": {
+            "hit_context_em": {
+              "denominator": 286,
+              "numerator": 245,
+              "rate": 0.8566433566433567
+            },
+            "hit_minus_miss_percentage_points": 25.524475524475523,
+            "miss_context_em": {
+              "denominator": 286,
+              "numerator": 172,
+              "rate": 0.6013986013986014
+            },
+            "paired_item_resampling": {
+              "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                19.9,
+                31.1
+              ],
+              "percentile_95_interval_percentage_points": [
+                19.93006993006993,
+                31.11888111888112
+              ],
+              "point_estimate_percentage_points": 25.524475524475523,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:rewrite__vs__question:gemini:delivery_aligned) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 166,
+              "discordant_pairs": 85,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 85,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 2.441642201786159e-17,
+                "p_value_fraction": "29517643/1208925819614629174706176",
+                "smaller_discordant_cell": 6
+              },
+              "first_name": "hit_context",
+              "first_only_exact": 79,
+              "neither_exact": 35,
+              "paired_records": 286,
+              "second_name": "miss_context",
+              "second_only_exact": 6
+            },
+            "records": 286,
+            "top5_set_overlap_distribution": {
+              "0": 258,
+              "1": 23,
+              "2": 3,
+              "3": 2
+            }
+          },
+          "display_name": "Gemini",
+          "strict_matched_five_records": 481
+        },
+        "openai": {
+          "P_transitions": {
+            "P0_P0": 88,
+            "P0_P1": 6,
+            "P1_P0": 322,
+            "P1_P1": 93
+          },
+          "arm_a_hit_arm_b_miss": {
+            "P_a": 1,
+            "P_b": 0,
+            "arm_a_em": {
+              "denominator": 322,
+              "numerator": 255,
+              "rate": 0.7919254658385093
+            },
+            "arm_b_em": {
+              "denominator": 322,
+              "numerator": 185,
+              "rate": 0.5745341614906833
+            },
+            "arm_b_minus_arm_a_percentage_points": -21.73913043478261,
+            "paired_outcomes": {
+              "both_exact": 177,
+              "discordant_pairs": 86,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 86,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 1.5235832099273424e-15,
+                "p_value_fraction": "29470385293/19342813113834066795298816",
+                "smaller_discordant_cell": 8
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 78,
+              "neither_exact": 59,
+              "paired_records": 322,
+              "second_name": "arm_b",
+              "second_only_exact": 8
+            },
+            "records": 322
+          },
+          "arm_a_miss_arm_b_hit": {
+            "P_a": 0,
+            "P_b": 1,
+            "arm_a_em": {
+              "denominator": 6,
+              "numerator": 5,
+              "rate": 0.8333333333333334
+            },
+            "arm_b_em": {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0
+            },
+            "arm_b_minus_arm_a_percentage_points": 16.666666666666668,
+            "paired_outcomes": {
+              "both_exact": 5,
+              "discordant_pairs": 1,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 1,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 1.0,
+                "p_value_fraction": "1/1",
+                "smaller_discordant_cell": 0
+              },
+              "first_name": "arm_a",
+              "first_only_exact": 0,
+              "neither_exact": 0,
+              "paired_records": 6,
+              "second_name": "arm_b",
+              "second_only_exact": 1
+            },
+            "records": 6
+          },
+          "delivery_aligned": {
+            "hit_context_em": {
+              "denominator": 328,
+              "numerator": 261,
+              "rate": 0.7957317073170732
+            },
+            "hit_minus_miss_percentage_points": 21.646341463414632,
+            "miss_context_em": {
+              "denominator": 328,
+              "numerator": 190,
+              "rate": 0.5792682926829268
+            },
+            "paired_item_resampling": {
+              "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+              "method": "paired item bootstrap with replacement within the fixed audit subset; linear percentile interval",
+              "paper_rounded_one_decimal": [
+                16.8,
+                26.8
+              ],
+              "percentile_95_interval_percentage_points": [
+                16.76829268292683,
+                26.829268292682926
+              ],
+              "point_estimate_percentage_points": 21.646341463414632,
+              "samples": 10000,
+              "seed_derivation": "SHA-256(20260716:rewrite__vs__question:openai:delivery_aligned) first 64 bits",
+              "sorted_record_order": true
+            },
+            "paired_outcomes": {
+              "both_exact": 182,
+              "discordant_pairs": 87,
+              "exact_two_sided_sign_test": {
+                "discordant_n": 87,
+                "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+                "p_value": 8.377941473730054e-16,
+                "p_value_fraction": "32410591241/38685626227668133590597632",
+                "smaller_discordant_cell": 8
+              },
+              "first_name": "hit_context",
+              "first_only_exact": 79,
+              "neither_exact": 59,
+              "paired_records": 328,
+              "second_name": "miss_context",
+              "second_only_exact": 8
+            },
+            "records": 328,
+            "top5_set_overlap_distribution": {
+              "0": 280,
+              "1": 36,
+              "2": 7,
+              "3": 5
+            }
+          },
+          "display_name": "GPT",
+          "strict_matched_five_records": 509
+        }
+      },
+      "pooled_P_transitions": {
+        "P0_P0": 288,
+        "P0_P1": 26,
+        "P1_P0": 877,
+        "P1_P1": 255
+      },
+      "pooled_arm_a_hit_arm_b_miss": {
+        "P_a": 1,
+        "P_b": 0,
+        "arm_a_em": {
+          "denominator": 877,
+          "numerator": 717,
+          "rate": 0.8175598631698974
+        },
+        "arm_b_em": {
+          "denominator": 877,
+          "numerator": 457,
+          "rate": 0.5210946408209807
+        },
+        "arm_b_minus_arm_a_percentage_points": -29.646522234891677,
+        "paired_outcomes": {
+          "both_exact": 441,
+          "discordant_pairs": 292,
+          "exact_two_sided_sign_test": {
+            "discordant_n": 292,
+            "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+            "p_value": 2.3430866386605254e-62,
+            "p_value_fraction": "46610857213087228193967003/1989292945639146568621528992587283360401824603189390869761855907572637988050133502132224",
+            "smaller_discordant_cell": 16
+          },
+          "first_name": "arm_a",
+          "first_only_exact": 276,
+          "neither_exact": 144,
+          "paired_records": 877,
+          "second_name": "arm_b",
+          "second_only_exact": 16
+        },
+        "records": 877
+      },
+      "pooled_arm_a_miss_arm_b_hit": {
+        "P_a": 0,
+        "P_b": 1,
+        "arm_a_em": {
+          "denominator": 26,
+          "numerator": 18,
+          "rate": 0.6923076923076923
+        },
+        "arm_b_em": {
+          "denominator": 26,
+          "numerator": 23,
+          "rate": 0.8846153846153846
+        },
+        "arm_b_minus_arm_a_percentage_points": 19.23076923076923,
+        "paired_outcomes": {
+          "both_exact": 18,
+          "discordant_pairs": 5,
+          "exact_two_sided_sign_test": {
+            "discordant_n": 5,
+            "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+            "p_value": 0.0625,
+            "p_value_fraction": "1/16",
+            "smaller_discordant_cell": 0
+          },
+          "first_name": "arm_a",
+          "first_only_exact": 0,
+          "neither_exact": 3,
+          "paired_records": 26,
+          "second_name": "arm_b",
+          "second_only_exact": 5
+        },
+        "records": 26
+      },
+      "pooled_delivery_aligned": {
+        "hit_context_em": {
+          "denominator": 903,
+          "numerator": 740,
+          "rate": 0.8194905869324474
+        },
+        "hit_minus_miss_percentage_points": 29.346622369878183,
+        "miss_context_em": {
+          "denominator": 903,
+          "numerator": 475,
+          "rate": 0.5260243632336655
+        },
+        "paired_outcomes": {
+          "both_exact": 459,
+          "discordant_pairs": 297,
+          "exact_two_sided_sign_test": {
+            "discordant_n": 297,
+            "method": "two-sided exact binomial sign test with p=0.5; ties omitted",
+            "p_value": 9.666352480195942e-64,
+            "p_value_fraction": "61533461756528817380587133/63657374260452690195888927762793067532858387302060507832379389042324415617604272068231168",
+            "smaller_discordant_cell": 16
+          },
+          "first_name": "hit_context",
+          "first_only_exact": 281,
+          "neither_exact": 147,
+          "paired_records": 903,
+          "second_name": "miss_context",
+          "second_only_exact": 16
+        },
+        "question_cluster_resampling": {
+          "estimand": "exact match in the arm that delivers the selected/traced passage minus exact match in the arm that omits it, percentage points",
+          "method": "question-cluster bootstrap conditional on the fixed audit subset; resample its unique question IDs and carry all hosted-model rows for a sampled question together",
+          "model_macro_average": {
+            "model_point_estimates_percentage_points": {
+              "claude": 41.86851211072664,
+              "gemini": 25.524475524475523,
+              "openai": 21.646341463414632
+            },
+            "paper_rounded_one_decimal": [
+              25.8,
+              33.7
+            ],
+            "percentile_95_interval_percentage_points": [
+              25.77707547869731,
+              33.74410736372401
+            ],
+            "point_estimate_percentage_points": 29.6797763662056
+          },
+          "pooled_record_weighted": {
+            "paper_rounded_one_decimal": [
+              25.4,
+              33.4
+            ],
+            "percentile_95_interval_percentage_points": [
+              25.442380841484244,
+              33.37091958891646
+            ],
+            "point_estimate_percentage_points": 29.346622369878183
+          },
+          "rejected_draws_missing_a_model": 0,
+          "samples": 10000,
+          "seed_derivation": "SHA-256(20260716:rewrite__vs__question:question_cluster:delivery_aligned) first 64 bits",
+          "unique_question_clusters": 373
+        },
+        "records": 903,
+        "top5_set_overlap_distribution": {
+          "0": 793,
+          "1": 90,
+          "2": 11,
+          "3": 9
+        }
+      },
+      "pooled_descriptive_records": 1446,
+      "strict_eligibility": "C=1, both calls succeeded, and both evidence lists contain exactly five passages"
+    }
+  },
+  "prompt_and_budget_contract": {
+    "decoded_id_bm25_reader_visible_hint": false,
+    "evidence_order": "ascending retrieval rank",
+    "evidence_passages_per_strict_arm": 5,
+    "passage_character_limit": null,
+    "question_reader_visible_hint": false,
+    "reader_output_max_tokens": 4096,
+    "reason_total_input_tokens_not_matched": "full passage texts have different lengths even when passage count is five",
+    "rewrite_reader_visible_hint": false,
+    "total_input_tokens_matched": false
+  },
+  "schema_version": 1,
+  "status": "verified_no_call_answer_associations"
+}

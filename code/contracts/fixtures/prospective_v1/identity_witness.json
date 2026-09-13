@@ -1,0 +1,11 @@
+{
+  "witness_version": "rop-identity-witness/v1",
+  "namespace": "fixture.documents",
+  "selection_type": "corpus_key",
+  "encoding": "exact_inverse_map",
+  "witness_to_selected": {
+    "title:Alpha": "doc:alpha",
+    "title:Beta": "doc:beta",
+    "title:Gamma": "doc:gamma"
+  }
+}

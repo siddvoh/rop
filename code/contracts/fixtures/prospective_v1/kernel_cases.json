@@ -1,0 +1,75 @@
+{
+  "bundle_version": "rop-kernel-fixture/v1",
+  "resolver_locator": "resolver.json",
+  "resolver_version": "fixture-resolver-v1",
+  "namespace": "fixture.documents",
+  "cases": [
+    {
+      "case_id": "kernel_any_alias_pass",
+      "selection_type": "corpus_key",
+      "selected": "doc:alpha",
+      "returned_ids": [
+        "alpha-alias"
+      ],
+      "cutoff": 1,
+      "quantifier": "any",
+      "expected_verdict": "PASS"
+    },
+    {
+      "case_id": "kernel_any_other_object_fail",
+      "selection_type": "corpus_key",
+      "selected": "doc:alpha",
+      "returned_ids": [
+        "doc:beta"
+      ],
+      "cutoff": 1,
+      "quantifier": "any",
+      "expected_verdict": "FAIL"
+    },
+    {
+      "case_id": "kernel_all_singleton_pass",
+      "selection_type": "corpus_key_set",
+      "selected": [
+        "doc:beta",
+        "doc:gamma"
+      ],
+      "returned_ids": [
+        "chunk:beta:0"
+      ],
+      "cutoff": 1,
+      "quantifier": "all",
+      "expected_verdict": "PASS"
+    },
+    {
+      "case_id": "kernel_selector_error",
+      "selection_type": "corpus_key",
+      "selected": 17,
+      "returned_ids": [
+        "doc:alpha"
+      ],
+      "cutoff": 1,
+      "quantifier": "any",
+      "expected_verdict": "SELECTOR_ERROR"
+    },
+    {
+      "case_id": "kernel_resolution_error",
+      "selection_type": "corpus_key",
+      "selected": "doc:unknown",
+      "returned_ids": [
+        "doc:alpha"
+      ],
+      "cutoff": 1,
+      "quantifier": "any",
+      "expected_verdict": "RESOLUTION_ERROR"
+    },
+    {
+      "case_id": "kernel_unverifiable_returned_ids",
+      "selection_type": "corpus_key",
+      "selected": "doc:alpha",
+      "returned_ids": null,
+      "cutoff": 1,
+      "quantifier": "any",
+      "expected_verdict": "UNVERIFIABLE"
+    }
+  ]
+}

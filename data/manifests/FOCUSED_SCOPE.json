@@ -1,0 +1,51 @@
+{
+  "evidence_collection_used_model_or_api_calls": true,
+  "paper_binding": "PAPER_BINDING.json",
+  "paper_included": false,
+  "paper_title": "Does the Selected Object Reach the Reader? Auditing Identity Handoffs in Grounded Language-Model Pipelines",
+  "release_evidence": {
+    "gemini_passage_deletion": {
+      "main_logical_tasks": 561,
+      "main_wire_attempts": 570,
+      "preflight_calls_excluded_from_analysis": 3,
+      "release_manifest_sha256": "0032ef8eb4fe0cc114a8fdc07522f7e25a86c86f18cf3284ebb061620566aae5",
+      "route": "OpenRouter BYOK to Google AI Studio with fallback disabled",
+      "terminal_failures": 24,
+      "valid_successes": 537
+    },
+    "primary_hybridqa": {
+      "cohort_questions": 600,
+      "issued_hosted_calls": 10192,
+      "planned_answer_cells": 6600,
+      "retriever_records": 9600,
+      "transport_attempts": 10194,
+      "unissued_answer_cells": 8
+    },
+    "qwen_scope_check": {
+      "broad_development_items": 1397,
+      "ranking_cells": 13970,
+      "selector_rows": 335
+    },
+    "returned_object_profile": {
+      "record_fixtures": 15,
+      "run_fixtures": 12
+    }
+  },
+  "retained_claim_families": [
+    "prospective Returned-Object Profile schema, evaluator, fixtures, and tests",
+    "selected-object and dataset-trace endpoint membership",
+    "retriever, cutoff, executor, and omission analyses",
+    "hint-free answer associations",
+    "Qwen decoded-ID replication and development retrieval audit",
+    "OpenRouter BYOK Gemini passage-deletion intervention"
+  ],
+  "schema_version": 2,
+  "status": "rop_paper_scoped",
+  "verification": {
+    "credentials_required": false,
+    "entrypoint": "verify.py",
+    "network_required": false,
+    "offline_replay": true,
+    "verification_uses_model_or_api_calls": false
+  }
+}

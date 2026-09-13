@@ -1,0 +1,30 @@
+{
+  "analysis_sha256": "2a4959f0101e998663beb3eebb581b3b5ce2b191c3d4dfa2838ac4c680ccf045",
+  "answer_implementation": {
+    "executed_sha256": "a3bc57578fd5beee30778abd5024165a686f45c835b31ec4fba2010f4cb20e9a",
+    "public_projection_sha256": "ca16bb6b73d5d96d15f5ca2da6839f4e8ce647c0a6b8fbfd3ee854fbc36679c6"
+  },
+  "bridge_details_sha256": "abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5",
+  "cohort_sha256": "dfc6fe5183ccdbea9c2c8278e02000e063a86de8aa9825e33d008903ff230f5f",
+  "config": {
+    "executed_sha256": "a0ec556959f830e5e789c1b03204609f15889614881f7ef60ad24bcd10beb9b1",
+    "public_projection_sha256": "42ea9f7975a9c34e43630b12255aec50bae5e13cbfab3499b6bfd0ece987bbd4"
+  },
+  "details": {
+    "bytes": 11600206,
+    "records": 6600,
+    "sha256": "0e4877be9bb7983f407c632d0c8bc28cf73b4787f53cc330945db2b9d0cc4a72"
+  },
+  "experiment_id": "hybridqa_natural_v3",
+  "association_rows": {
+    "bytes": 202618,
+    "records": 1800,
+    "sha256": "8432fafd71f2ac35d034f5858029fdc15969748e7cca4d355be4b6c837c6f8a1"
+  },
+  "query_rewrite_details_sha256": "ec1810ea0fb10373547d5e52dcc75a325be5810b951edbad672fc492e54c42bc",
+  "result_set_sha256": "fb8823a6af13e7b6d3cd4e08b28dec35e5c4e7842ea991c9557b1026da14a4d0",
+  "schema_version": "rop-answer-run-manifest-v1",
+  "source_details_sha256": "f919338178752d3bb4a5893e993159ecc84b3ae95070c31eb142c4eaf3883689",
+  "status": "paper_scoped_projection",
+  "summary_sha256": "3281541ee1971ebff9ab2a99a6ab494222d1f6d789f9b6b417a462f5f03a7204"
+}

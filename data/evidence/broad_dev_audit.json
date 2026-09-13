@@ -1,0 +1,134 @@
+{
+  "definitions": {
+    "decoded_trace_id": "percent-decoded dataset-traced Wikipedia ID",
+    "population": "unique-hidden development items outside the 335-item strict scope, including 1,182 no-selection rows and 215 answer-in-table rows",
+    "recall_at_5": "trace ID occurs among the first five returned IDs"
+  },
+  "provenance": {
+    "archive": {
+      "bytes": 3909370,
+      "member_count": 5,
+      "sha256": "470dae7dea93cb59bb5badf1568264db6493b3c2780a1d544aebddd7ff99984d"
+    },
+    "executed_retrieval": {
+      "cutoff": 5,
+      "executed_config_sha256": "5673d2cca5fef9a9d49515ff40175c8b7464b93ab948d5b346afc2a106574cb7",
+      "item_count": 1397,
+      "query_forms": [
+        "question",
+        "decoded_trace_id"
+      ],
+      "retrieval_models": {
+        "bge_m3": {
+          "model": "BAAI/bge-m3",
+          "revision": "5617a9f61b028005a4858fdac845db406aefb181"
+        },
+        "colbert_v2": {
+          "model": "colbert-ir/colbertv2.0",
+          "revision": "c1e84128e85ef755c096a95bdb06b47793b13acf"
+        },
+        "reranker": {
+          "model": "BAAI/bge-reranker-v2-m3",
+          "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+        }
+      },
+      "retrievers": [
+        "bm25",
+        "bge_m3",
+        "colbert_v2",
+        "hybrid_rrf",
+        "hybrid_rrf_bge_reranker_v2_m3"
+      ]
+    },
+    "records_member": {
+      "bytes": 14145214,
+      "path": "broad_development/records.jsonl",
+      "sha256": "20949580a84edd4db55770ae3522d36b611415ad0c1707777bb00280cba3977c"
+    },
+    "retrieval_identity": {
+      "bm25_code_sha256": "55dcd1da941803e6ef3a2e48e191913de44ad971814d01d8d54b98b84bf074d3",
+      "bm25_database_sha256": "08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a",
+      "bm25_index_manifest_sha256": "86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283",
+      "dev_rankings_sha256": "ce3c8759a649200bfa0ed84829222c1d35dd1daabf475d0fa828aa9041e14a03",
+      "dev_tasks_sha256": "1f398f6a48b4193581fd57f7728b4f71b56ae51ff614140848069c635985208e",
+      "qwen_generation_rows_sha256": "c56ae414b60a3101fc995263edc28e8c429b4a9d4e09e4f88aae6006932ae0f1",
+      "qwen_ranking_rows_sha256": "2d6338738bdb307cb532edbc3f40959e1d674bfa87920db7773c2b872b28441e",
+      "qwen_task_rows_sha256": "3e5e86120e6ba16b0704fc7468756786d807e525d63843c8fb2e2640443d7f17",
+      "resolver_inventory_sha256": "6e9488f4a09fbd5be96ffff23f4e956195e0c231932137ba6894bfcdfe2fb303"
+    }
+  },
+  "schema_version": 2,
+  "status": "verified",
+  "table_18": {
+    "bucket_counts": {
+      "unique_hidden_answer_in_table": 215,
+      "unique_hidden_no_selection": 1182
+    },
+    "item_count": 1397,
+    "retrievers": {
+      "bge_m3": {
+        "decoded_trace_id": {
+          "hits_at_5": 1337,
+          "recall_at_5": 0.9570508231925555
+        },
+        "difference": 0.76521116678597,
+        "question": {
+          "hits_at_5": 268,
+          "recall_at_5": 0.19183965640658554
+        }
+      },
+      "bm25": {
+        "decoded_trace_id": {
+          "hits_at_5": 1068,
+          "recall_at_5": 0.7644953471725126
+        },
+        "difference": 0.5518969219756622,
+        "question": {
+          "hits_at_5": 297,
+          "recall_at_5": 0.2125984251968504
+        }
+      },
+      "colbert_v2": {
+        "decoded_trace_id": {
+          "hits_at_5": 1386,
+          "recall_at_5": 0.9921259842519685
+        },
+        "difference": 0.7559055118110236,
+        "question": {
+          "hits_at_5": 330,
+          "recall_at_5": 0.23622047244094488
+        }
+      },
+      "hybrid_rrf": {
+        "decoded_trace_id": {
+          "hits_at_5": 1246,
+          "recall_at_5": 0.8919112383679313
+        },
+        "difference": 0.6492483894058697,
+        "question": {
+          "hits_at_5": 339,
+          "recall_at_5": 0.24266284896206156
+        }
+      },
+      "hybrid_rrf_bge_reranker_v2_m3": {
+        "decoded_trace_id": {
+          "hits_at_5": 1387,
+          "recall_at_5": 0.9928418038654259
+        },
+        "difference": 0.6335003579098066,
+        "question": {
+          "hits_at_5": 502,
+          "recall_at_5": 0.3593414459556192
+        }
+      }
+    }
+  },
+  "validation": {
+    "complete_query_grid": true,
+    "network_used": false,
+    "ranking_cells": 13970,
+    "status_counts": {
+      "succeeded": 13970
+    }
+  }
+}

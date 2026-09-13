@@ -1,0 +1,21 @@
+{
+  "accounting": {
+    "economic_cost_usd": 0.024284,
+    "input_tokens": 5752,
+    "logical_calls": 3,
+    "openrouter_cost_usd": 0.0,
+    "output_tokens": 1065,
+    "wire_attempts": 3
+  },
+  "excluded_from_analysis": true,
+  "is_byok": true,
+  "model": "google/gemini-3.1-pro-preview",
+  "routed_provider": "Google AI Studio",
+  "schema_version": 1,
+  "status": "passed",
+  "task_ids": [
+    "8032bcea03d462a947e628ee9af68c16b92a8f6b2bf7891082b70c6b6d11e64d",
+    "24c3e7d7526d74a1e522bb9b483b2bd423a6b5ddd104cf77a436e6b29b827d18",
+    "976b57e020b22982a4fd2a4ab4d689dc11949c217da244da83c2299ff09737b5"
+  ]
+}

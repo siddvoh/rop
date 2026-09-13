@@ -1,0 +1,88 @@
+{
+  "status": "independently_verified",
+  "primary_comparison": "predicted_fact_minus_question_only_recall_at_5",
+  "item_count_per_model": 600,
+  "bootstrap_samples": 10000,
+  "bootstrap_base_seed": 20260711,
+  "models": {
+    "claude": {
+      "question_recall_at_5": 0.18333333333333332,
+      "predicted_fact_recall_at_5": 0.58,
+      "absolute_difference": 0.39666666666666667,
+      "paired_bootstrap_95_percentile_interval": [
+        0.34833333333333333,
+        0.44333333333333336
+      ],
+      "question_miss_predicted_hit": 273,
+      "question_hit_predicted_miss": 35,
+      "exact_mcnemar_two_sided_p": 7.173086066495547e-47,
+      "valid_json": 600,
+      "invalid_counted_as_miss": 0,
+      "selection_accuracy": 0.76,
+      "holm_adjusted_p_across_three_models": 7.173086066495547e-47
+    },
+    "openai": {
+      "question_recall_at_5": 0.18333333333333332,
+      "predicted_fact_recall_at_5": 0.6483333333333333,
+      "absolute_difference": 0.465,
+      "paired_bootstrap_95_percentile_interval": [
+        0.41833333333333333,
+        0.51
+      ],
+      "question_miss_predicted_hit": 304,
+      "question_hit_predicted_miss": 25,
+      "exact_mcnemar_two_sided_p": 4.287267845510468e-62,
+      "valid_json": 594,
+      "invalid_counted_as_miss": 6,
+      "selection_accuracy": 0.8483333333333334,
+      "holm_adjusted_p_across_three_models": 1.2861803536531406e-61
+    },
+    "gemini": {
+      "question_recall_at_5": 0.18333333333333332,
+      "predicted_fact_recall_at_5": 0.6366666666666667,
+      "absolute_difference": 0.4533333333333333,
+      "paired_bootstrap_95_percentile_interval": [
+        0.4066666666666667,
+        0.5
+      ],
+      "question_miss_predicted_hit": 300,
+      "question_hit_predicted_miss": 28,
+      "exact_mcnemar_two_sided_p": 1.1236814448848963e-58,
+      "valid_json": 600,
+      "invalid_counted_as_miss": 0,
+      "selection_accuracy": 0.83,
+      "holm_adjusted_p_across_three_models": 2.2473628897697925e-58
+    }
+  },
+  "directionally_positive_in_all_three_models": true,
+  "all_three_holm_adjusted_p_below_0_05": true,
+  "routing": {
+    "claude": {
+      "records": 600,
+      "served_provider": "Anthropic",
+      "is_byok": true
+    },
+    "gemini": {
+      "records": 600,
+      "served_provider": "google-vertex",
+      "is_byok": null
+    },
+    "openai": {
+      "records": 600,
+      "served_provider": "OpenAI",
+      "is_byok": false
+    }
+  },
+  "audit_event_counts": {
+    "failed_attempt": 1,
+    "failed_policy": 1,
+    "planned": 1802,
+    "started": 1802,
+    "succeeded": 1800
+  },
+  "excluded_non_byok_cost_usd": 0.014425,
+  "valid_final_call_cost_usd": 22.273511,
+  "result_set_sha256": "4230d5a1249bcf4810404f936186a582ced3ad16ebce78352df83c26d76b8709",
+  "invalid_response_policy": "count as miss; no selective retry",
+  "openai_invalid_reason": "six responses exhausted 4096 reasoning tokens and emitted no JSON"
+}

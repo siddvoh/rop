@@ -1,0 +1,68 @@
+{
+  "artifact_type": "returned_object_profile_artifact_v1",
+  "collection": {
+    "gemini_passage_deletion": {
+      "main": {
+        "failed_terminal": 24,
+        "logical_tasks": 561,
+        "openrouter_cost_usd": 0.0,
+        "succeeded_valid": 537,
+        "upstream_cost_usd": 4.3857,
+        "wire_attempts": 570
+      },
+      "model": "google/gemini-3.1-pro-preview",
+      "preflight": {
+        "excluded_from_analysis": true,
+        "logical_calls": 3,
+        "upstream_cost_usd": 0.024284
+      },
+      "route": "OpenRouter BYOK to Google AI Studio with fallback disabled"
+    },
+    "primary_hosted_records": {
+      "issued_logical_calls": 10192,
+      "planned_answer_cells": 6600,
+      "transport_attempts": 10194,
+      "unissued_answer_cells": 8
+    },
+    "qwen_scope_check": {
+      "broad_development_items": 1397,
+      "ranking_cells": 13970,
+      "selector_rows": 335
+    },
+    "retriever_sweep_records": 9600
+  },
+  "paper_binding": {
+    "paper_pdf": {
+      "bytes": 318397,
+      "filename": "main.pdf",
+      "sha256": "aadfe7f14018e29c59668d514006a188587912e0cf37b4fd2b101e444892f632"
+    },
+    "paper_source": {
+      "bytes": 65983,
+      "filename": "main.tex",
+      "sha256": "6c8439a0b51e806e774c6ac9b4dcf9e98def7aa0d4c7f72b92a952a5ca361e05"
+    },
+    "schema_version": 1,
+    "status": "bound"
+  },
+  "paper_title": "Does the Selected Object Reach the Reader? Auditing Identity Handoffs in Grounded Language-Model Pipelines",
+  "release_archives": {
+    "primary_hosted_calls": {
+      "bytes": 23477757,
+      "path": "data/generated/ccr_primary_hosted_call_archive.zip",
+      "sha256": "f787a437efd7c61852f35c7fc89f79e4f31fb17c96fd56fd962ae162156a797d"
+    },
+    "qwen_authority": {
+      "bytes": 3909370,
+      "path": "data/generated/ccr_reviewer_authority.zip",
+      "sha256": "470dae7dea93cb59bb5badf1568264db6493b3c2780a1d544aebddd7ff99984d"
+    }
+  },
+  "schema_version": 2,
+  "status": "complete",
+  "verification": {
+    "credentials_required": false,
+    "network_required": false,
+    "verification_uses_model_or_api_calls": false
+  }
+}

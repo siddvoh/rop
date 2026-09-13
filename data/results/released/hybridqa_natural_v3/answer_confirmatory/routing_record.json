@@ -1,0 +1,27 @@
+{
+  "generation_controls": {
+    "max_output_tokens": 4096,
+    "reasoning_effort": "medium",
+    "strict_json": true,
+    "temperature": null
+  },
+  "models": {
+    "claude": {
+      "model_id": "anthropic/claude-opus-4.7",
+      "provider": "Anthropic",
+      "transport": "openrouter"
+    },
+    "gemini": {
+      "model_id": "gemini-3.1-pro-preview",
+      "provider": "Google Vertex AI",
+      "transport": "vertex"
+    },
+    "openai": {
+      "model_id": "openai/gpt-5.5",
+      "provider": "OpenAI",
+      "transport": "openrouter"
+    }
+  },
+  "run_id": "hybridqa_natural_v3_answer_confirmatory",
+  "schema_version": "rop-hosted-route-v1"
+}

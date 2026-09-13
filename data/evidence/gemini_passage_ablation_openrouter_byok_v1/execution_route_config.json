@@ -1,0 +1,26 @@
+{
+  "execution": {
+    "all_logical_calls_released_by_one_barrier": true,
+    "concurrency": 561,
+    "logical_task_count": 561,
+    "max_wire_attempts_per_logical_call": 2
+  },
+  "model": {
+    "allow_fallbacks": false,
+    "direct_google_api_usage": false,
+    "is_byok_required": true,
+    "maximum_output_tokens": 4096,
+    "name": "google/gemini-3.1-pro-preview",
+    "openrouter_cost_required_usd": 0.0,
+    "provider_pin": [
+      "google-ai-studio"
+    ],
+    "reasoning_effort": "medium",
+    "routed_provider": "Google AI Studio",
+    "seed": null,
+    "strict_one_field_json": true,
+    "temperature": 1.0,
+    "transport": "OpenRouter"
+  },
+  "schema_version": 1
+}

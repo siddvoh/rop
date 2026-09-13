@@ -1,0 +1,43 @@
+{
+  "experiment_id": "hybridqa_natural_v2",
+  "cohort_sha256": "dfc6fe5183ccdbea9c2c8278e02000e063a86de8aa9825e33d008903ff230f5f",
+  "config_sha256": "ddea892f58918eb33601c014a379980ab0a75f997dc04afd424ec8776643cae6",
+  "run_id": "hybridqa_natural_v2_bridge_confirmatory",
+  "status": "complete",
+  "item_count": 600,
+  "models": {
+    "claude": {
+      "records": 600,
+      "succeeded": 600,
+      "valid_json": 600,
+      "selection_accuracy": 0.76,
+      "question_recall_at_5": 0.18333333333333332,
+      "predicted_fact_recall_at_5": 0.58,
+      "gold_fact_recall_at_5": 0.7216666666666667,
+      "diagnostic_model_fact_recall_at_5": 0.59,
+      "cost_usd": 9.39819
+    },
+    "openai": {
+      "records": 600,
+      "succeeded": 600,
+      "valid_json": 594,
+      "selection_accuracy": 0.8483333333333334,
+      "question_recall_at_5": 0.18333333333333332,
+      "predicted_fact_recall_at_5": 0.6483333333333333,
+      "gold_fact_recall_at_5": 0.7216666666666667,
+      "diagnostic_model_fact_recall_at_5": 0.6466666666666666,
+      "cost_usd": 12.875321
+    },
+    "gemini": {
+      "records": 600,
+      "succeeded": 600,
+      "valid_json": 600,
+      "selection_accuracy": 0.83,
+      "question_recall_at_5": 0.18333333333333332,
+      "predicted_fact_recall_at_5": 0.6366666666666667,
+      "gold_fact_recall_at_5": 0.7216666666666667,
+      "diagnostic_model_fact_recall_at_5": 0.6366666666666667,
+      "cost_usd": 0.0
+    }
+  }
+}

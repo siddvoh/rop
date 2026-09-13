@@ -1,0 +1,30 @@
+{
+  "run_version": "rop-run/v1",
+  "run_id": "standalone_strict_run_pass",
+  "manifest_locator": "hard_manifest.json",
+  "envelope_locator": "hard_run_envelope.json",
+  "records": [
+    {
+      "record_id": "run_alpha",
+      "selector": {
+        "selected_key": "doc:alpha"
+      },
+      "returned": {
+        "object_id": [
+          "alpha-alias"
+        ]
+      }
+    },
+    {
+      "record_id": "run_beta",
+      "selector": {
+        "selected_key": "doc:beta"
+      },
+      "returned": {
+        "object_id": [
+          "doc:beta"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "contract_version": "rop/v1",
+  "binding": {
+    "declaration_id": "prospective-fixture-dotted-id-hard-v1",
+    "declared_phase": "pre_outcome",
+    "config_locator": "config.json",
+    "config_sha256": "b7d7176b0ddb329e96d8f9dc1b129ea5e8d489cf916b71916feca12a50264d1a"
+  },
+  "authority": {
+    "normative_source": "run_bound_manifest",
+    "manifest_authority": {
+      "authority_id": "prospective-fixture-authority-v1",
+      "policy_authority_id": "prospective-fixture-policy-authority-v1",
+      "producer_id": "prospective-fixture-producer-v1",
+      "policy_basis": {
+        "locator": "policy_hard.json",
+        "sha256": "4d90150aba96827a9bf6c6b7d92038ede9efcbd154b5f778f65ca6af3a4421c3"
+      },
+      "target_interface_id": "fixture-ranker",
+      "interface_version": "fixture-ranker-api/v1",
+      "policy_revision": "hard/fixture-r1",
+      "chronology_basis": "trusted_manifest_authority",
+      "log_provenance_basis": "trusted_producer",
+      "hash_scope": "byte_binding_and_replay_only",
+      "adversarial_producer_resistance": false
+    },
+    "natural_language_prompt": {
+      "role": "provenance_only",
+      "locator": "prompt.txt",
+      "sha256": "9e8c1dd34586ac0993ecf7ff19453bace2caa7e6c20a0b93814ca11246c1656a",
+      "can_activate": false,
+      "can_override_manifest": false
+    }
+  },
+  "selection": {
+    "mode": "hard",
+    "source_field": "selector.selected_key",
+    "type": "corpus_key",
+    "namespace": "fixture.documents"
+  },
+  "population": {
+    "population_version": "rop-population/v1",
+    "declared_phase": "pre_outcome",
+    "sealed_before": "returned_ids",
+    "artifact_locator": "population_dotted.json",
+    "artifact_sha256": "431e011628a19422dcd5bce73e1dfe7538e8ee727d11775d2223fa019155f08e",
+    "record_id_field": "identity.record_key",
+    "expected_count": 2
+  },
+  "resolver": {
+    "name": "fixture-resolver",
+    "version": "fixture-resolver-v1",
+    "artifact_locator": "resolver.json",
+    "artifact_sha256": "5f180480fece5544cbdde5cd22161163c0ed6675eaaa523eb034a9624074178a",
+    "returns": "alias_or_chunk_set"
+  },
+  "returned_set": {
+    "component": "fixture-ranker",
+    "revision": "fixture-ranker-v1",
+    "implementation_locator": "returned_component.py",
+    "implementation_sha256": "e418e2ebf77a1458c0a78b2cd5e982855a5ca7f179e3ce0b96946e243c092db3",
+    "id_field": "object_id",
+    "cutoff": 3
+  },
+  "retention": {
+    "quantifier": "any",
+    "over": "resolver_returned_ids"
+  },
+  "verdict_policy": {
+    "total_verdicts": true,
+    "declaration_invalid": "DECLARATION_INVALID",
+    "soft_or_open": "NOT_APPLICABLE",
+    "selected_key_invalid": "SELECTOR_ERROR",
+    "selected_key_unresolvable": "RESOLUTION_ERROR",
+    "returned_id_log_missing_or_malformed": "UNVERIFIABLE",
+    "retention_satisfied": "PASS",
+    "retention_violated": "FAIL",
+    "ledger_policy": "retain_every_record",
+    "metric_denominator": "hard_resolvable_verifiable_only"
+  },
+  "run_policy": {
+    "profile_version": "rop-run-profile/v1",
+    "invalid_declaration_or_population": "RUN_INVALID",
+    "expected_hard_record_failed": "RUN_FAIL",
+    "expected_hard_record_missing_or_unverifiable": "RUN_UNVERIFIABLE",
+    "all_expected_hard_records_passed": "RUN_PASS",
+    "soft_or_open": "NOT_APPLICABLE",
+    "status_histogram": "always",
+    "eligible_expected_coverage": "eligible_over_expected",
+    "diagnostic_pass_fraction": "PASS/(PASS+FAIL)",
+    "diagnostic_is_conformance_verdict": false
+  }
+}

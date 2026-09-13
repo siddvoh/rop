@@ -1,0 +1,102 @@
+{
+  "answer_export": {
+    "bytes": 11600206,
+    "row_count": 6600,
+    "sha256": "0e4877be9bb7983f407c632d0c8bc28cf73b4787f53cc330945db2b9d0cc4a72"
+  },
+  "answer_export_status": {
+    "succeeded": 6592,
+    "upstream_invalid": 8
+  },
+  "answer_export_valid_json": {
+    "false": 28,
+    "true": 6572
+  },
+  "answer_rows_by_model_and_condition": {
+    "claude/predicted_fact": 600,
+    "claude/query_rewrite": 600,
+    "claude/question_only": 600,
+    "gemini/no_kb": 600,
+    "gemini/oracle_passage": 600,
+    "gemini/predicted_fact": 600,
+    "gemini/query_rewrite": 600,
+    "gemini/question_only": 600,
+    "openai/predicted_fact": 600,
+    "openai/query_rewrite": 600,
+    "openai/question_only": 600
+  },
+  "every_planned_answer_cell_accounted_for": true,
+  "hosted_archive": {
+    "bytes": 23477757,
+    "sha256": "f787a437efd7c61852f35c7fc89f79e4f31fb17c96fd56fd962ae162156a797d"
+  },
+  "issued_answer_logical_tasks": 6592,
+  "issued_by_experiment": {
+    "answer": 6592,
+    "bridge": 1800,
+    "rewrite": 1800
+  },
+  "issued_logical_tasks": 10192,
+  "no_missing_terminal_records_for_issued_logical_tasks": true,
+  "planned_answer_cells": 6600,
+  "response_bearing_terminal_rows": 10192,
+  "retried_logical_tasks": 2,
+  "retryable_failed_attempts": 2,
+  "schema_version": 1,
+  "scope": "primary_hosted_call_public_projection",
+  "status": "verified",
+  "terminal_attempt_distribution": {
+    "1": 10190,
+    "2": 2
+  },
+  "transport_attempts_started": 10194,
+  "upstream_invalid_cells": {
+    "by_condition": {
+      "predicted_fact": 6,
+      "query_rewrite": 2
+    },
+    "count": 8,
+    "keys": [
+      {
+        "condition": "predicted_fact",
+        "item_id": "04e4109f5638170d",
+        "model": "openai"
+      },
+      {
+        "condition": "predicted_fact",
+        "item_id": "357b3023e286014d",
+        "model": "openai"
+      },
+      {
+        "condition": "query_rewrite",
+        "item_id": "59962e0f456c0452",
+        "model": "openai"
+      },
+      {
+        "condition": "predicted_fact",
+        "item_id": "755989612463d5e0",
+        "model": "openai"
+      },
+      {
+        "condition": "predicted_fact",
+        "item_id": "8e3ac9d1b1ef7f16",
+        "model": "openai"
+      },
+      {
+        "condition": "predicted_fact",
+        "item_id": "97a08915f5fcb3be",
+        "model": "openai"
+      },
+      {
+        "condition": "query_rewrite",
+        "item_id": "97a08915f5fcb3be",
+        "model": "openai"
+      },
+      {
+        "condition": "predicted_fact",
+        "item_id": "a07d0a502cc28093",
+        "model": "openai"
+      }
+    ]
+  }
+}

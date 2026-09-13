@@ -1,0 +1,76 @@
+version: 1
+experiment_id: hybridqa_natural_v3_retriever_sensitivity_v1
+status: frozen_before_neural_retriever_execution
+runtime:
+  random_seed: 12345
+  colbert_ai_version: 0.2.22
+  colbert_resume_api: Indexer.index(overwrite='resume')
+inputs:
+  cohort: data/released/hybridqa_natural_v3/confirmatory_cohort.json
+  bridge_details: data/results/released/hybridqa_natural_v2/bridge_confirmatory/details.jsonl
+  bm25_db: external_inputs/hybridqa_bm25.sqlite
+  bm25_manifest: external_inputs/hybridqa_bm25.manifest.json
+expected_input_sha256:
+  cohort: b54ee430f0f9b28e813b254e712edac734173bc215d239ac110bbdb941b0c7b6
+  bridge_details: abf0027a3f61aa338eae4a259b8751f7adecc5ea7f79a08f25ad11b179a79fc5
+  bm25_db: 08a787a3d9cf4db4d44ff2fd22f2ef05d8e017bf9b6ed6214927f132ff4e4e4a
+  bm25_manifest: 86a8f7032988d3c7a0b7776db249b17f51dd8bedd717e76e8325e339c4277283
+models:
+  bge_m3:
+    name: BAAI/bge-m3
+    revision: null
+    query_max_length: 512
+    document_max_length: 512
+  colbert_v2:
+    name: colbert-ir/colbertv2.0
+    revision: null
+    query_max_length: 64
+    document_max_length: 300
+    nbits: 2
+    kmeans_iterations: 4
+  bge_reranker_v2_m3:
+    name: BAAI/bge-reranker-v2-m3
+    revision: null
+    max_length: 512
+retrieval:
+  candidate_k: 100
+  output_k: 20
+  report_k:
+  - 1
+  - 5
+  - 20
+  rrf_k: 60
+  bge_m3: exact_flat_inner_product_of_l2_normalized_dense_vectors
+  colbert_v2: native_plaid_late_interaction
+  hybrid_rrf: reciprocal_rank_fusion_of_bm25_and_bge_m3
+  hybrid_rrf_bge_reranker_v2_m3: bge_v2_m3_rerank_of_top_100_hybrid_rrf_candidates
+execution:
+  embedding_shard_size: 2048
+  checkpoint_unit: one_completed_query_transaction
+  index_checkpointing: bge_embedding_shards_and_native_colbert_chunks
+  target_hardware: A100_80GB
+  h100_note: requires_a_separately_audited_compute_capability_9_faiss_build
+  target_wall_clock_hours: 3_to_4
+  api_calls: none
+reporting:
+  conditions:
+  - question_only
+  - predicted_fact
+  models:
+  - claude
+  - openai
+  - gemini
+  metrics:
+  - gold_passage_recall_at_1
+  - gold_passage_recall_at_5
+  - gold_passage_recall_at_20
+  invalid_predicted_bridge_policy: count_as_retrieval_miss
+  paired_bootstrap_samples: 10000
+  paired_bootstrap_confidence_level: 0.95
+  paired_bootstrap_rng: numpy.PCG64
+  paired_bootstrap_seed_salt: ccr-hybridqa-retriever-sensitivity-v1
+  paired_test: two_sided_exact_mcnemar
+  multiplicity_method: holm_step_down
+  multiplicity_family: all_4_retrievers_x_3_models_x_3_recall_cutoffs
+  multiplicity_family_size: 36
+  selective_omission_forbidden: true

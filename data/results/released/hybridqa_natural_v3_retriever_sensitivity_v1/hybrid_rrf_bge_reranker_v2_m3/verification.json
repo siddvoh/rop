@@ -1,0 +1,18 @@
+{
+  "status": "independently_verified",
+  "retriever": "hybrid_rrf_bge_reranker_v2_m3",
+  "record_count": 2400,
+  "upstream_invalid_count": 6,
+  "details_sha256": "0550dc6690e3e44191474ae489905565b0081e887fd5836ea76d01edd9969a81",
+  "summary_sha256": "feb7b8b0572af713b51bc3de6650a54875377a4651963272e6ffa5ff27e0d059",
+  "result_set_sha256": "883a1b21e4e0b306dd3db5128fbfb5cb8c5a5916b7bcb20d8c04f8cd8f692ce6",
+  "checks": [
+    "source_archive_checksum",
+    "source_crc",
+    "frozen_query_identity",
+    "passage_pid_link_binding",
+    "ranking_shape_and_order",
+    "paired_metric_recomputation",
+    "holm_family_recomputation"
+  ]
+}

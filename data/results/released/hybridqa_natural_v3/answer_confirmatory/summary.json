@@ -1,0 +1,203 @@
+{
+  "answer_prompt_version": "hybridqa-answer-v1",
+  "conditions_by_model": {
+    "claude": [
+      "question_only",
+      "predicted_fact",
+      "query_rewrite"
+    ],
+    "gemini": [
+      "question_only",
+      "predicted_fact",
+      "query_rewrite",
+      "no_kb",
+      "oracle_passage"
+    ],
+    "openai": [
+      "question_only",
+      "predicted_fact",
+      "query_rewrite"
+    ]
+  },
+  "experiment_id": "hybridqa_natural_v3",
+  "issued_records": 6592,
+  "item_count": 600,
+  "models": {
+    "claude": {
+      "conditions": {
+        "predicted_fact": {
+          "attempts": {
+            "1": 600
+          },
+          "exact_match": 59.166666666666664,
+          "f1": 67.75058727105942,
+          "invalid_or_unissued": 0,
+          "records": 600,
+          "statuses": {
+            "succeeded": 600
+          },
+          "valid_json": 600
+        },
+        "query_rewrite": {
+          "attempts": {
+            "1": 598,
+            "2": 2
+          },
+          "exact_match": 63.5,
+          "f1": 72.38149704326175,
+          "invalid_or_unissued": 0,
+          "records": 600,
+          "statuses": {
+            "succeeded": 600
+          },
+          "valid_json": 600
+        },
+        "question_only": {
+          "attempts": {
+            "1": 600
+          },
+          "exact_match": 42.5,
+          "f1": 53.44293839545387,
+          "invalid_or_unissued": 0,
+          "records": 600,
+          "statuses": {
+            "succeeded": 600
+          },
+          "valid_json": 600
+        }
+      },
+      "issued_records": 1800,
+      "planned_records": 1800,
+      "unissued_records": 0
+    },
+    "gemini": {
+      "conditions": {
+        "no_kb": {
+          "attempts": {
+            "1": 600
+          },
+          "exact_match": 51.0,
+          "f1": 62.72089446501211,
+          "invalid_or_unissued": 0,
+          "records": 600,
+          "statuses": {
+            "succeeded": 600
+          },
+          "valid_json": 600
+        },
+        "oracle_passage": {
+          "attempts": {
+            "1": 600
+          },
+          "exact_match": 80.66666666666667,
+          "f1": 89.0800444925445,
+          "invalid_or_unissued": 0,
+          "records": 600,
+          "statuses": {
+            "succeeded": 600
+          },
+          "valid_json": 600
+        },
+        "predicted_fact": {
+          "attempts": {
+            "1": 600
+          },
+          "exact_match": 67.83333333333333,
+          "f1": 76.96311327561328,
+          "invalid_or_unissued": 0,
+          "records": 600,
+          "statuses": {
+            "succeeded": 600
+          },
+          "valid_json": 600
+        },
+        "query_rewrite": {
+          "attempts": {
+            "1": 600
+          },
+          "exact_match": 70.83333333333333,
+          "f1": 78.78364155337839,
+          "invalid_or_unissued": 0,
+          "records": 600,
+          "statuses": {
+            "succeeded": 600
+          },
+          "valid_json": 600
+        },
+        "question_only": {
+          "attempts": {
+            "1": 600
+          },
+          "exact_match": 58.666666666666664,
+          "f1": 68.11609706083391,
+          "invalid_or_unissued": 0,
+          "records": 600,
+          "statuses": {
+            "succeeded": 600
+          },
+          "valid_json": 600
+        }
+      },
+      "issued_records": 3000,
+      "planned_records": 3000,
+      "unissued_records": 0
+    },
+    "openai": {
+      "conditions": {
+        "predicted_fact": {
+          "attempts": {
+            "0": 6,
+            "1": 594
+          },
+          "exact_match": 62.5,
+          "f1": 75.89058192123208,
+          "invalid_or_unissued": 10,
+          "records": 600,
+          "statuses": {
+            "succeeded": 594,
+            "upstream_invalid": 6
+          },
+          "valid_json": 590
+        },
+        "query_rewrite": {
+          "attempts": {
+            "0": 2,
+            "1": 598
+          },
+          "exact_match": 66.33333333333333,
+          "f1": 79.1521637719006,
+          "invalid_or_unissued": 5,
+          "records": 600,
+          "statuses": {
+            "succeeded": 598,
+            "upstream_invalid": 2
+          },
+          "valid_json": 595
+        },
+        "question_only": {
+          "attempts": {
+            "1": 600
+          },
+          "exact_match": 54.0,
+          "f1": 69.37679839653524,
+          "invalid_or_unissued": 13,
+          "records": 600,
+          "statuses": {
+            "succeeded": 600
+          },
+          "valid_json": 587
+        }
+      },
+      "issued_records": 1792,
+      "planned_records": 1800,
+      "unissued_records": 8
+    }
+  },
+  "planned_records": 6600,
+  "record_count": 6600,
+  "result_set_sha256": "fb8823a6af13e7b6d3cd4e08b28dec35e5c4e7842ea991c9557b1026da14a4d0",
+  "run_id": "hybridqa_natural_v3_answer_confirmatory",
+  "schema_version": "rop-answer-summary-v1",
+  "status": "complete",
+  "unissued_records": 8
+}

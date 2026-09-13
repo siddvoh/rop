@@ -1,0 +1,20 @@
+{
+  "index_version": "hybridqa-sqlite-fts5-v1",
+  "status": "complete",
+  "source_file_count": 15314,
+  "document_count": 286270,
+  "duplicate_link_count": 226400,
+  "source_inventory_sha256": "f29607c884b1a4b85325b0cac4995f3dc8116f1ab7744f17db18fb0215c354dd",
+  "query": {
+    "token_pattern": "[a-z0-9]+",
+    "minimum_token_length": 2,
+    "deduplicate_tokens": true,
+    "operator": "OR"
+  },
+  "ranking": {
+    "implementation": "SQLite FTS5 bm25",
+    "document_tokenizer": "unicode61",
+    "tie_break": "ascending FTS rowid"
+  },
+  "deduplication": "first link in sorted source-file order"
+}

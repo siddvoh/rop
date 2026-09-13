@@ -1,0 +1,279 @@
+{
+  "accounting": {
+    "economic_cost_usd": 4.3857,
+    "input_tokens": 1287900,
+    "logical_task_count": 561,
+    "openrouter_cost_usd": 0.0,
+    "output_tokens": 150825,
+    "route_gate_counts": {
+      "billing_valid:False": 24,
+      "billing_valid:True": 537,
+      "byok_valid:False": 24,
+      "byok_valid:True": 537,
+      "complete:False": 24,
+      "complete:True": 537,
+      "http_success:True": 561,
+      "response_identity_valid:False": 24,
+      "response_identity_valid:True": 537,
+      "response_model_valid:False": 24,
+      "response_model_valid:True": 537,
+      "route_valid:False": 24,
+      "route_valid:True": 537,
+      "usage_valid:False": 24,
+      "usage_valid:True": 537
+    },
+    "source_tasks_sha256": "a6d0296731e9257b182161b26a965978f3b54c0bb493b1066e585c582710d5dd",
+    "successful_route_contract": {
+      "is_byok": true,
+      "model": "google/gemini-3.1-pro-preview",
+      "openrouter_cost_must_equal_zero": true,
+      "routed_provider": "Google AI Studio"
+    },
+    "task_status_counts": {
+      "failed_terminal": 24,
+      "succeeded_valid": 537
+    },
+    "wire_attempt_count": 570
+  },
+  "execution_id": "gemini_passage_ablation_openrouter_byok_v1",
+  "invalid_or_failed_count": 24,
+  "preflight_excluded_from_analysis": true,
+  "primary": {
+    "bootstrap": {
+      "confidence_level": 0.95,
+      "em_difference_95": [
+        0.6875,
+        0.8541666666666666
+      ],
+      "f1_difference_95": [
+        0.3955931712962963,
+        0.5741825810185185
+      ],
+      "method": "paired item bootstrap with replacement; percentile interval",
+      "samples": 10000,
+      "seed": 20260714
+    },
+    "direction": "intact minus trace_drop",
+    "em_item_mean_difference": 0.7760416666666666,
+    "f1_item_mean_difference": 0.48542493386243385,
+    "first_arm": "intact",
+    "first_em_item_mean": 0.9270833333333334,
+    "first_f1_item_mean": 0.9309895833333334,
+    "item_count": 64,
+    "majority_of_three_mcnemar": {
+      "discordant": 54,
+      "first_only": 54,
+      "p_value_two_sided_exact": 1.1102230246251565e-16,
+      "second_only": 0
+    },
+    "name": "primary_intact_minus_trace_drop",
+    "second_arm": "trace_drop",
+    "second_em_item_mean": 0.15104166666666666,
+    "second_f1_item_mean": 0.44556464947089947
+  },
+  "schema_version": 1,
+  "scoring": {
+    "fresh_outputs_only": true,
+    "invalid_or_failed": "retained and scored zero EM and zero F1",
+    "normalization": "HybridQA official-compatible lowercase/punctuation/article/whitespace normalization"
+  },
+  "secondary": {
+    "intact_minus_sham": {
+      "bootstrap": {
+        "confidence_level": 0.95,
+        "em_difference_95": [
+          -0.09039548022598871,
+          0.01129943502824859
+        ],
+        "f1_difference_95": [
+          -0.09887005649717515,
+          -0.007521186440678134
+        ],
+        "method": "paired item bootstrap with replacement; percentile interval",
+        "samples": 10000,
+        "seed": 20260714
+      },
+      "direction": "intact minus sham_drop",
+      "em_item_mean_difference": -0.03954802259887006,
+      "f1_item_mean_difference": -0.05131826741996234,
+      "first_arm": "intact",
+      "first_em_item_mean": 0.92090395480226,
+      "first_f1_item_mean": 0.9251412429378532,
+      "item_count": 59,
+      "majority_of_three_mcnemar": {
+        "discordant": 3,
+        "first_only": 2,
+        "p_value_holm_secondary_family": 1.0,
+        "p_value_two_sided_exact": 1.0,
+        "second_only": 1
+      },
+      "name": "secondary_intact_minus_sham_drop",
+      "second_arm": "sham_drop",
+      "second_em_item_mean": 0.9604519774011299,
+      "second_f1_item_mean": 0.9764595103578155
+    },
+    "sham_minus_trace": {
+      "bootstrap": {
+        "confidence_level": 0.95,
+        "em_difference_95": [
+          0.7175141242937854,
+          0.8983050847457628
+        ],
+        "f1_difference_95": [
+          0.42394090216124114,
+          0.6180793202403372
+        ],
+        "method": "paired item bootstrap with replacement; percentile interval",
+        "samples": 10000,
+        "seed": 20260714
+      },
+      "direction": "sham_drop minus trace_drop",
+      "em_item_mean_difference": 0.8135593220338984,
+      "f1_item_mean_difference": 0.5213837324006816,
+      "first_arm": "sham_drop",
+      "first_em_item_mean": 0.9604519774011299,
+      "first_f1_item_mean": 0.9764595103578155,
+      "item_count": 59,
+      "majority_of_three_mcnemar": {
+        "discordant": 49,
+        "first_only": 49,
+        "p_value_holm_secondary_family": 7.105427357601002e-15,
+        "p_value_two_sided_exact": 3.552713678800501e-15,
+        "second_only": 0
+      },
+      "name": "secondary_sham_drop_minus_trace_drop",
+      "second_arm": "trace_drop",
+      "second_em_item_mean": 0.14689265536723162,
+      "second_f1_item_mean": 0.45507577795713394
+    }
+  },
+  "sensitivity": {
+    "adversarial_failure_score_em_gap_lower_bounds": {
+      "definition": "minimum first-arm minus second-arm EM when each invalid or failed repeat is independently assigned any score in [0,1]; succeeded-repeat EM remains fixed",
+      "intact_minus_trace": {
+        "attaining_failure_score_assignment": {
+          "first_arm": 0.0,
+          "second_arm": 1.0
+        },
+        "direction": "intact minus trace_drop",
+        "em_difference_lower_bound": 0.734375,
+        "first_arm": "intact",
+        "first_arm_fixed_exact_repeat_count": 178,
+        "first_arm_invalid_or_failed_repeat_count": 13,
+        "item_count": 64,
+        "repeat_count_per_arm": 192,
+        "second_arm": "trace_drop",
+        "second_arm_fixed_exact_repeat_count": 29,
+        "second_arm_invalid_or_failed_repeat_count": 8
+      },
+      "score_interval": [
+        0.0,
+        1.0
+      ],
+      "sham_minus_trace": {
+        "attaining_failure_score_assignment": {
+          "first_arm": 0.0,
+          "second_arm": 1.0
+        },
+        "direction": "sham_drop minus trace_drop",
+        "em_difference_lower_bound": 0.768361581920904,
+        "first_arm": "sham_drop",
+        "first_arm_fixed_exact_repeat_count": 170,
+        "first_arm_invalid_or_failed_repeat_count": 3,
+        "item_count": 59,
+        "repeat_count_per_arm": 177,
+        "second_arm": "trace_drop",
+        "second_arm_fixed_exact_repeat_count": 26,
+        "second_arm_invalid_or_failed_repeat_count": 8
+      }
+    },
+    "intact_minus_sham_f1": {
+      "complete_case": {
+        "definition": "sham-eligible items with all three intact and all three sham_drop repeats succeeded_valid; paired item-arm F1 means",
+        "f1_item_mean_difference": 0.006944444444444445,
+        "first_arm": "intact",
+        "first_f1_item_mean": 0.9981060606060606,
+        "item_count": 44,
+        "second_arm": "sham_drop",
+        "second_f1_item_mean": 0.9911616161616162
+      },
+      "direction": "intact minus sham_drop",
+      "valid_repeat": {
+        "definition": "for every sham-eligible item and arm, average F1 over only succeeded_valid repeats; then average paired item differences",
+        "f1_item_mean_difference": 0.005178907721280603,
+        "first_arm": "intact",
+        "first_f1_item_mean": 0.9985875706214689,
+        "first_valid_repeat_count": 164,
+        "item_count": 59,
+        "second_arm": "sham_drop",
+        "second_f1_item_mean": 0.9934086629001884,
+        "second_valid_repeat_count": 174
+      }
+    }
+  },
+  "stability": {
+    "intact": {
+      "all_three_exact": 51,
+      "all_three_same_valid_normalized_prediction": 51,
+      "all_three_valid": 52,
+      "exact_count_distribution": {
+        "0": 0,
+        "1": 1,
+        "2": 12,
+        "3": 51
+      },
+      "item_count": 64,
+      "items_with_any_invalid_or_failed_repeat": 12,
+      "majority_exact": 63,
+      "mixed_exact": 13,
+      "none_exact": 0,
+      "unique_valid_normalized_prediction_count_distribution": {
+        "1": 63,
+        "2": 1
+      }
+    },
+    "sham_drop": {
+      "all_three_exact": 54,
+      "all_three_same_valid_normalized_prediction": 54,
+      "all_three_valid": 56,
+      "exact_count_distribution": {
+        "0": 0,
+        "1": 2,
+        "2": 3,
+        "3": 54
+      },
+      "item_count": 59,
+      "items_with_any_invalid_or_failed_repeat": 3,
+      "majority_exact": 57,
+      "mixed_exact": 5,
+      "none_exact": 0,
+      "unique_valid_normalized_prediction_count_distribution": {
+        "1": 57,
+        "2": 1,
+        "3": 1
+      }
+    },
+    "trace_drop": {
+      "all_three_exact": 8,
+      "all_three_same_valid_normalized_prediction": 43,
+      "all_three_valid": 56,
+      "exact_count_distribution": {
+        "0": 52,
+        "1": 3,
+        "2": 1,
+        "3": 8
+      },
+      "item_count": 64,
+      "items_with_any_invalid_or_failed_repeat": 8,
+      "majority_exact": 9,
+      "mixed_exact": 4,
+      "none_exact": 52,
+      "unique_valid_normalized_prediction_count_distribution": {
+        "1": 48,
+        "2": 12,
+        "3": 4
+      }
+    }
+  },
+  "status": "complete"
+}

@@ -1,0 +1,25 @@
+{
+  "run_version": "hybridqa-bm25-baseline-v1",
+  "status": "complete",
+  "item_count": 600,
+  "gold_links_missing_from_corpus": 0,
+  "recall": {
+    "question_only": {
+      "@1": 0.08666666666666667,
+      "@5": 0.18333333333333332,
+      "@20": 0.2783333333333333
+    },
+    "gold_fact": {
+      "@1": 0.4816666666666667,
+      "@5": 0.7216666666666667,
+      "@20": 0.8433333333333334
+    }
+  },
+  "paired_counts": {
+    "question_miss_gold_fact_hit_at_5": 343,
+    "question_hit_gold_fact_miss_at_5": 20,
+    "both_hit_at_5": 90,
+    "both_miss_at_5": 147
+  },
+  "result_set_sha256": "f12726fbdebc8707b23eb23786ce8d96640f29aea97e11dedf29d928cfc9f6bb"
+}

@@ -1,0 +1,8 @@
+{
+  "population_version": "rop-population/v1",
+  "record_id_field": "identity.record_key",
+  "record_ids": [
+    "run_alpha",
+    "run_beta"
+  ]
+}

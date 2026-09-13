@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "returned-object-profile"
+version = "1.0.0"
+description = "Reference evaluator and offline evidence replay for the Returned-Object Profile"
+readme = {text = "Returned-Object Profile reference code.", content-type = "text/plain"}
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+  "pyyaml>=6.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["code"]
+include = ["ccr*"]
+exclude = ["tests*"]

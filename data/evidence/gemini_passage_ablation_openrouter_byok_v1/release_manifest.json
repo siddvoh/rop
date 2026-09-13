@@ -1,0 +1,96 @@
+{
+  "accounting": {
+    "main": {
+      "failed_terminal": 24,
+      "logical_calls": 561,
+      "openrouter_cost_usd": 0.0,
+      "succeeded_valid": 537,
+      "upstream_economic_cost_usd": 4.3857,
+      "wire_attempts": 570
+    },
+    "preflight": {
+      "excluded_from_analysis": true,
+      "logical_calls": 3,
+      "openrouter_cost_usd": 0.0,
+      "succeeded_valid": 3,
+      "upstream_economic_cost_usd": 0.024284,
+      "wire_attempts": 3
+    },
+    "total_upstream_economic_cost_usd": 4.409984
+  },
+  "evidence_class": "fresh prompt intervention on a retrospectively selected HybridQA cohort",
+  "files": {
+    "analysis_summary.json": {
+      "bytes": 8980,
+      "sha256": "6190faf205633d966a61840ffdb26b99f5ac2af8e976cc0cd49b233ae65ce97e"
+    },
+    "batch_claims.json": {
+      "bytes": 645,
+      "sha256": "f67ac6068a6c4652bc8996681876a8324fba28dd9391f81a2c06df597c04b602"
+    },
+    "cohort.json": {
+      "bytes": 1218,
+      "sha256": "1934d249fd1834a77b22872b3348437b30416fda55ac371c75489248d9f4b117"
+    },
+    "executed_protocol.json": {
+      "bytes": 2403,
+      "sha256": "4a1b0278fd001e3dfa6fe53d7fbb7530c7efd5ef0a22648d8ec8e953b230c22f"
+    },
+    "execution_route_config.json": {
+      "bytes": 677,
+      "sha256": "d4384daa96da1625a468a3cd62c626dc9eb588b5908b88dcbe4bb6ff15fb96ae"
+    },
+    "main_results.jsonl": {
+      "bytes": 5921050,
+      "records": 561,
+      "sha256": "a9db86613cc3cb49b87af4ac78a868261f8824978d5bb14d191b555156f4f6d8"
+    },
+    "preflight_marker.json": {
+      "bytes": 612,
+      "sha256": "7deabb1671bb6028cf63f9fad0e4b0c2ed9959b42c825d5663104fcd7e876daf"
+    },
+    "preflight_results.jsonl": {
+      "bytes": 24489,
+      "records": 3,
+      "sha256": "91e01000abc884c63c66f2b4785a6c5f86b872527909f961000347f652ce76c5"
+    },
+    "source_items.jsonl": {
+      "bytes": 1701369,
+      "records": 64,
+      "sha256": "5e54ef3085e5de859164c080fadc7f8a92d2b24afaf55d74b4fbd8c9a1e8b71b"
+    },
+    "tasks.jsonl": {
+      "bytes": 5328660,
+      "records": 561,
+      "sha256": "a6d0296731e9257b182161b26a965978f3b54c0bb493b1066e585c582710d5dd"
+    }
+  },
+  "projection": {
+    "included": [
+      "canonical task and request hashes",
+      "visible request content",
+      "parser-visible model outputs and provider error envelopes",
+      "all terminal statuses and wire-attempt counts",
+      "model route, BYOK, token, and cost fields",
+      "SHA-256 bindings to source result records and request and response bodies"
+    ],
+    "omitted": [
+      "response and request identifiers",
+      "timestamps and latency measurements",
+      "HTTP headers and encoded wire bodies",
+      "machine, SDK, network, and account metadata",
+      "hidden reasoning payloads"
+    ],
+    "record_schema": "gemini_passage_ablation_public_result_v2"
+  },
+  "release_id": "gemini_passage_ablation_openrouter_byok_v1",
+  "replay": {
+    "credentials_required": false,
+    "network_required": false,
+    "path": "scripts/recompute_gemini_passage_ablation.py",
+    "sha256": "8f4d8779fc5b8c0d6ba5b4eaf4ad2c962966fc5aa378f13371692b2111d449dc",
+    "third_party_packages_required": false
+  },
+  "schema_version": 2,
+  "status": "complete"
+}
