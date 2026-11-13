@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper."
+title: "Returned-Object Profile (ROP): code and data for Does the Selected Object Reach the Reader?"
+authors:
+  - family-names: Vohra
+    given-names: Siddharth
+    affiliation: Carnegie Mellon University
+  - family-names: Jiang
+    given-names: Runmin
+    affiliation: Carnegie Mellon University
+  - family-names: Li
+    given-names: Xiaomo
+    affiliation: Carnegie Mellon University
+  - family-names: Xu
+    given-names: Min
+    affiliation: Carnegie Mellon University
+license: MIT
+url: "https://siddvoh.com/identity-handoffs/"
+repository-code: "https://github.com/siddvoh/rop"
+preferred-citation:
+  type: conference-paper
+  title: "Does the Selected Object Reach the Reader? Auditing Identity Handoffs in Grounded Language-Model Pipelines"
+  authors:
+    - family-names: Vohra
+      given-names: Siddharth
+    - family-names: Jiang
+      given-names: Runmin
+    - family-names: Li
+      given-names: Xiaomo
+    - family-names: Xu
+      given-names: Min
+  collection-title: "Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently (GroundLM 2026)"
+  conference:
+    name: "1st Workshop on Grounding Language Models (GroundLM 2026), at EMNLP 2026"
+    city: Budapest
+    country: HU
+  publisher:
+    name: "Association for Computational Linguistics"
+  start: 966
+  end: 980
+  month: 10
+  year: 2026
+  doi: "10.18653/2026.groundlm-1.70"
+  url: "https://aclanthology.org/2026.groundlm-1.70/"

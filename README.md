@@ -4,7 +4,12 @@ Code, data, and an offline replay for the paper *Does the Selected Object Reach 
 Auditing Identity Handoffs in Grounded Language-Model Pipelines*.
 
 Siddharth Vohra, Runmin Jiang, Xiaomo Li, and Min Xu (Carnegie Mellon University).
-GroundLM workshop at EMNLP 2026. arXiv: https://arxiv.org/abs/2609.04579
+Published in the Proceedings of the 1st Workshop on Grounding Language Models (GroundLM 2026)
+at EMNLP 2026.
+
+- Paper: https://aclanthology.org/2026.groundlm-1.70/
+- Project page: https://siddvoh.com/identity-handoffs/
+- arXiv preprint: https://arxiv.org/abs/2609.04579
 
 ## What the work is
 
@@ -122,7 +127,9 @@ denominators rather than being dropped.
 ## Paper and archives
 
 The paper source and compiled PDF are distributed separately and bound to this package by SHA-256
-in `data/manifests/PAPER_BINDING.json`, so a copy obtained elsewhere can be checked against it.
+in `data/manifests/PAPER_BINDING.json`. The binding is to the authors' own build. The copy in the
+ACL Anthology carries the proceedings page numbers and footer, so its hash differs; it is the
+version to cite.
 
 `code/analysis/reconstruct_hybridqa_bm25.py --download` rebuilds the keyword index from the pinned
 WikiTables-WithLinks commit. It is the only command here that reaches the network, and the
@@ -140,14 +147,17 @@ keep their own terms.
 ## Citation
 
 ```bibtex
-@inproceedings{vohra2026rop,
-  title     = {Does the Selected Object Reach the Reader? Auditing Identity
-               Handoffs in Grounded Language-Model Pipelines},
+@inproceedings{vohra-etal-2026-selected,
+  title     = {Does the Selected Object Reach the Reader? Auditing Identity Handoffs in Grounded Language-Model Pipelines},
   author    = {Vohra, Siddharth and Jiang, Runmin and Li, Xiaomo and Xu, Min},
-  booktitle = {Proceedings of the GroundLM Workshop at EMNLP},
+  booktitle = {Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently ({G}round{LM} 2026)},
+  month     = oct,
   year      = {2026},
-  eprint    = {2609.04579},
-  archivePrefix = {arXiv}
+  address   = {Budapest, Hungary},
+  publisher = {Association for Computational Linguistics},
+  pages     = {966--980},
+  doi       = {10.18653/2026.groundlm-1.70},
+  url       = {https://aclanthology.org/2026.groundlm-1.70/}
 }
 ```
 
